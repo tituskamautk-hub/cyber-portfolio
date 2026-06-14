@@ -13,7 +13,7 @@ title: "About Me"
 | Area | Progress |
 |------|----------|
 | **Certifications** | ISC2 CC (✅), TryHackMe Pre-Security (✅), Jr Penetration Tester (✅), Security+ (🔄) |
-| **Hands-On Labs** | 20+ TryHackMe rooms completed |
+| **Hands-On Labs** | 12 TryHackMe rooms completed \| 6 badges earned \| Top 25% Global Rank |
 | **Penetration Tests** | Conducted assessments on OWASP Juice Shop, Metasploitable 3, and custom web apps |
 | **Incident Response** | Investigated simulated breaches including phishing campaigns and lateral movement attacks |
 | **Security Reports** | Authored professional pentest reports, IR documentation, and SOC analysis |
@@ -42,4 +42,6 @@ title: "About Me"
 
 ---
 
-ISC2 Certified in Cybersecurity (CC) | TryHackMe Pre-Security | Jr Penetration Tester | Security+ (In Progress)
+ISC2 Certified in Cybersecurity (CC) | TryHackMe Pre-Security | Jr Penetration Tester | Top 25% Global Rank | Security+ (In Progress)
+
+*"The quieter you become, the more you are able to hear"*
