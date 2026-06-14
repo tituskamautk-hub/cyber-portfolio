@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>TryHackMe on My Cybersecurity Portfolio</title>
+    <link>http://localhost:50209/tags/tryhackme/</link>
+    <description>Recent content in TryHackMe on My Cybersecurity Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:50209/tags/tryhackme/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First CTF: TryHackMe Pre-Security</title>
+      <link>http://localhost:50209/posts/my-first-ctf/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:50209/posts/my-first-ctf/</guid>
+      <description>&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;I recently completed TryHackMe&amp;rsquo;s &lt;strong&gt;Pre-Security&lt;/strong&gt; learning path. This was my first real step into cybersecurity!&lt;/p&gt;
+&lt;h2 id=&#34;what-i-learned&#34;&gt;What I Learned&lt;/h2&gt;
+&lt;h3 id=&#34;-network-fundamentals&#34;&gt;🌐 Network Fundamentals&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The OSI model (7 layers of networking)&lt;/li&gt;
+&lt;li&gt;How TCP/IP works&lt;/li&gt;
+&lt;li&gt;Common ports and their services:
+&lt;ul&gt;
+&lt;li&gt;Port 22: SSH&lt;/li&gt;
+&lt;li&gt;Port 80: HTTP&lt;/li&gt;
+&lt;li&gt;Port 443: HTTPS&lt;/li&gt;
+&lt;li&gt;Port 53: DNS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-how-the-web-works&#34;&gt;🖥️ How the Web Works&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP requests and responses&lt;/li&gt;
+&lt;li&gt;Status codes (200, 301, 404, 500)&lt;/li&gt;
+&lt;li&gt;Cookies and sessions&lt;/li&gt;
+&lt;li&gt;DNS resolution process&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-linux-basics&#34;&gt;🐧 Linux Basics&lt;/h3&gt;
+&lt;p&gt;Essential commands I mastered:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TryHackMe Write-ups Collection</title>
+      <link>http://localhost:50209/projects/tryhackme-writeups/</link>
+      <pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:50209/projects/tryhackme-writeups/</guid>
+      <description>&lt;h2 id=&#34;-tryhackme-write-ups-collection&#34;&gt;🎯 TryHackMe Write-ups Collection&lt;/h2&gt;
+&lt;p&gt;Complete walkthroughs of TryHackMe rooms I&amp;rsquo;ve solved.&lt;/p&gt;
+&lt;h2 id=&#34;completed-rooms&#34;&gt;Completed Rooms&lt;/h2&gt;
+&lt;h3 id=&#34;1-pre-security-&#34;&gt;1. Pre-Security ✅&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Learning Path&lt;/strong&gt; - Beginner&lt;/p&gt;
+&lt;p&gt;Key topics covered:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Network fundamentals (OSI model, TCP/IP)&lt;/li&gt;
+&lt;li&gt;How the web works (HTTP, DNS, cookies)&lt;/li&gt;
+&lt;li&gt;Linux basics (file system, commands, permissions)&lt;/li&gt;
+&lt;li&gt;Windows security basics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:50209/posts/my-first-ctf/&#34;&gt;Read full write-up&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-vulnversity-&#34;&gt;2. Vulnversity 🔄&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;: Easy | &lt;strong&gt;Category&lt;/strong&gt;: Web Exploitation&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Skills learned&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Directory enumeration with Gobuster&lt;/li&gt;
+&lt;li&gt;File upload vulnerability identification&lt;/li&gt;
+&lt;li&gt;Extension bypass techniques (.php5, .phtml)&lt;/li&gt;
+&lt;li&gt;Reverse shell establishment&lt;/li&gt;
+&lt;li&gt;Privilege escalation via SUID binaries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Key commands&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

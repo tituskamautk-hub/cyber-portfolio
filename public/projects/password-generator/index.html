@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=50209&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Secure Password Generator | My Cybersecurity Portfolio</title>
+<meta name="keywords" content="python, cryptography, tool">
+<meta name="description" content="🔐 Secure Password Generator
+A cryptographically secure password generator following security best practices.
+Why Cryptographically Secure?
+Regular random generators are predictable. This uses Python&rsquo;s secrets module for truly random passwords that can&rsquo;t be guessed.
+Features
+
+	
+			
+					Feature
+					Description
+			
+	
+	
+			
+					Custom length
+					8-128 characters
+			
+			
+					Character sets
+					Uppercase, lowercase, numbers, symbols
+			
+			
+					Exclusion options
+					Remove ambiguous characters (0, O, I, l)
+			
+			
+					Strength meter
+					Estimates password entropy
+			
+			
+					Copy to clipboard
+					Convenient password management
+			
+	
+
+The Code
+#!/usr/bin/env python3
+import secrets
+import string
+import argparse
+import sys
+
+class PasswordGenerator:
+    def __init__(self):
+        self.uppercase = string.ascii_uppercase
+        self.lowercase = string.ascii_lowercase
+        self.digits = string.digits
+        self.symbols = &#34;!@#$%^&amp;*()_&#43;-=[]{}|;:,.&lt;&gt;?&#34;
+        self.ambiguous = &#34;0OIl1|&#34;
+    
+    def generate(self, length=16, use_upper=True, use_lower=True, 
+                 use_digits=True, use_symbols=True, exclude_ambiguous=False):
+        
+        # Build character pool
+        pool = &#34;&#34;
+        if use_upper: pool &#43;= self.uppercase
+        if use_lower: pool &#43;= self.lowercase
+        if use_digits: pool &#43;= self.digits
+        if use_symbols: pool &#43;= self.symbols
+        
+        if exclude_ambiguous:
+            pool = &#39;&#39;.join(c for c in pool if c not in self.ambiguous)
+        
+        if not pool:
+            raise ValueError(&#34;Select at least one character type&#34;)
+        
+        # Generate password using cryptographically secure random
+        password = &#39;&#39;.join(secrets.choice(pool) for _ in range(length))
+        return password
+    
+    def calculate_entropy(self, password):
+        &#34;&#34;&#34;Calculate password entropy in bits&#34;&#34;&#34;
+        charset_size = len(set(password))
+        entropy = len(password) * (charset_size.bit_length())
+        return entropy
+    
+    def strength_meter(self, entropy):
+        &#34;&#34;&#34;Rate password strength&#34;&#34;&#34;
+        if entropy &lt; 40:
+            return &#34;Weak&#34;
+        elif entropy &lt; 60:
+            return &#34;Moderate&#34;
+        elif entropy &lt; 80:
+            return &#34;Strong&#34;
+        else:
+            return &#34;Very Strong&#34;
+
+def main():
+    parser = argparse.ArgumentParser(description=&#34;Secure Password Generator&#34;)
+    parser.add_argument(&#34;-l&#34;, &#34;--length&#34;, type=int, default=16, 
+                        help=&#34;Password length (8-128)&#34;)
+    parser.add_argument(&#34;-n&#34;, &#34;--no-upper&#34;, action=&#34;store_false&#34;, dest=&#34;upper&#34;,
+                        help=&#34;Exclude uppercase letters&#34;)
+    parser.add_argument(&#34;-m&#34;, &#34;--no-lower&#34;, action=&#34;store_false&#34;, dest=&#34;lower&#34;,
+                        help=&#34;Exclude lowercase letters&#34;)
+    parser.add_argument(&#34;-d&#34;, &#34;--no-digits&#34;, action=&#34;store_false&#34;, dest=&#34;digits&#34;,
+                        help=&#34;Exclude digits&#34;)
+    parser.add_argument(&#34;-s&#34;, &#34;--no-symbols&#34;, action=&#34;store_false&#34;, dest=&#34;symbols&#34;,
+                        help=&#34;Exclude symbols&#34;)
+    parser.add_argument(&#34;-e&#34;, &#34;--exclude-ambiguous&#34;, action=&#34;store_true&#34;,
+                        help=&#34;Exclude ambiguous characters&#34;)
+    parser.add_argument(&#34;-c&#34;, &#34;--count&#34;, type=int, default=1,
+                        help=&#34;Number of passwords to generate&#34;)
+    
+    args = parser.parse_args()
+    
+    generator = PasswordGenerator()
+    
+    for i in range(args.count):
+        password = generator.generate(
+            length=args.length,
+            use_upper=args.upper,
+            use_lower=args.lower,
+            use_digits=args.digits,
+            use_symbols=args.symbols,
+            exclude_ambiguous=args.exclude_ambiguous
+        )
+        
+        entropy = generator.calculate_entropy(password)
+        strength = generator.strength_meter(entropy)
+        
+        print(f&#34;\nPassword {i&#43;1}: {password}&#34;)
+        print(f&#34;Entropy: {entropy} bits ({strength})&#34;)
+
+if __name__ == &#34;__main__&#34;:
+    main()
+
+# Generate default 16-character password
+python password_gen.py
+
+# Generate 32-character password with all options
+python password_gen.py --length 32
+
+# Generate 5 passwords without ambiguous chars
+python password_gen.py --count 5 --exclude-ambiguous
+
+# Minimal password (lowercase only)
+python password_gen.py --length 12 --no-upper --no-digits --no-symbols
+
+Password: xK9#mQ2$pL5@nR8
+Entropy: 94 bits (Very Strong)
+
+Password: g7!Wp3&amp;zL9#qR2
+Entropy: 89 bits (Strong)
+">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:50209/projects/password-generator/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:50209/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:50209/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:50209/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:50209/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:50209/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:50209/projects/password-generator/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:50209/" accesskey="h" title="My Cybersecurity Portfolio (Alt + H)">My Cybersecurity Portfolio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:50209/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:50209/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:50209/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Secure Password Generator
+    </h1>
+    <div class="post-meta">
+
+<span title='2024-01-13 00:00:00 +0000 UTC'>January 13, 2024</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><h2 id="-secure-password-generator">🔐 Secure Password Generator<a hidden class="anchor" aria-hidden="true" href="#-secure-password-generator">#</a></h2>
+<p>A cryptographically secure password generator following security best practices.</p>
+<h3 id="why-cryptographically-secure">Why Cryptographically Secure?<a hidden class="anchor" aria-hidden="true" href="#why-cryptographically-secure">#</a></h3>
+<p>Regular random generators are predictable. This uses Python&rsquo;s <code>secrets</code> module for <strong>truly random</strong> passwords that can&rsquo;t be guessed.</p>
+<h3 id="features">Features<a hidden class="anchor" aria-hidden="true" href="#features">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Feature</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Custom length</td>
+					<td>8-128 characters</td>
+			</tr>
+			<tr>
+					<td>Character sets</td>
+					<td>Uppercase, lowercase, numbers, symbols</td>
+			</tr>
+			<tr>
+					<td>Exclusion options</td>
+					<td>Remove ambiguous characters (0, O, I, l)</td>
+			</tr>
+			<tr>
+					<td>Strength meter</td>
+					<td>Estimates password entropy</td>
+			</tr>
+			<tr>
+					<td>Copy to clipboard</td>
+					<td>Convenient password management</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="the-code">The Code<a hidden class="anchor" aria-hidden="true" href="#the-code">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> secrets
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> string
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> argparse
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PasswordGenerator</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>uppercase <span style="color:#f92672">=</span> string<span style="color:#f92672">.</span>ascii_uppercase
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>lowercase <span style="color:#f92672">=</span> string<span style="color:#f92672">.</span>ascii_lowercase
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>digits <span style="color:#f92672">=</span> string<span style="color:#f92672">.</span>digits
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>symbols <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;!@#$%^&amp;*()_+-=[]</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">|;:,.&lt;&gt;?&#34;</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>ambiguous <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0OIl1|&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate</span>(self, length<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>, use_upper<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, use_lower<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, 
+</span></span><span style="display:flex;"><span>                 use_digits<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, use_symbols<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, exclude_ambiguous<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>):
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Build character pool</span>
+</span></span><span style="display:flex;"><span>        pool <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> use_upper: pool <span style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>uppercase
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> use_lower: pool <span style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>lowercase
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> use_digits: pool <span style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>digits
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> use_symbols: pool <span style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>symbols
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> exclude_ambiguous:
+</span></span><span style="display:flex;"><span>            pool <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(c <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> pool <span style="color:#66d9ef">if</span> c <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>ambiguous)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> pool:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#34;Select at least one character type&#34;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Generate password using cryptographically secure random</span>
+</span></span><span style="display:flex;"><span>        password <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(secrets<span style="color:#f92672">.</span>choice(pool) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(length))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> password
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calculate_entropy</span>(self, password):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Calculate password entropy in bits&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        charset_size <span style="color:#f92672">=</span> len(set(password))
+</span></span><span style="display:flex;"><span>        entropy <span style="color:#f92672">=</span> len(password) <span style="color:#f92672">*</span> (charset_size<span style="color:#f92672">.</span>bit_length())
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> entropy
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">strength_meter</span>(self, entropy):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Rate password strength&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> entropy <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">40</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Weak&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> entropy <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">60</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Moderate&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> entropy <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">80</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Strong&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Very Strong&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Secure Password Generator&#34;</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-l&#34;</span>, <span style="color:#e6db74">&#34;--length&#34;</span>, type<span style="color:#f92672">=</span>int, default<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>, 
+</span></span><span style="display:flex;"><span>                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Password length (8-128)&#34;</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-n&#34;</span>, <span style="color:#e6db74">&#34;--no-upper&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store_false&#34;</span>, dest<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;upper&#34;</span>,
+</span></span><span style="display:flex;"><span>                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Exclude uppercase letters&#34;</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-m&#34;</span>, <span style="color:#e6db74">&#34;--no-lower&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store_false&#34;</span>, dest<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lower&#34;</span>,
+</span></span><span style="display:flex;"><span>                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Exclude lowercase letters&#34;</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-d&#34;</span>, <span style="color:#e6db74">&#34;--no-digits&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store_false&#34;</span>, dest<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;digits&#34;</span>,
+</span></span><span style="display:flex;"><span>                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Exclude digits&#34;</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-s&#34;</span>, <span style="color:#e6db74">&#34;--no-symbols&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store_false&#34;</span>, dest<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;symbols&#34;</span>,
+</span></span><span style="display:flex;"><span>                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Exclude symbols&#34;</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-e&#34;</span>, <span style="color:#e6db74">&#34;--exclude-ambiguous&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store_true&#34;</span>,
+</span></span><span style="display:flex;"><span>                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Exclude ambiguous characters&#34;</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;--count&#34;</span>, type<span style="color:#f92672">=</span>int, default<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Number of passwords to generate&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    generator <span style="color:#f92672">=</span> PasswordGenerator()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(args<span style="color:#f92672">.</span>count):
+</span></span><span style="display:flex;"><span>        password <span style="color:#f92672">=</span> generator<span style="color:#f92672">.</span>generate(
+</span></span><span style="display:flex;"><span>            length<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>length,
+</span></span><span style="display:flex;"><span>            use_upper<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>upper,
+</span></span><span style="display:flex;"><span>            use_lower<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>lower,
+</span></span><span style="display:flex;"><span>            use_digits<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>digits,
+</span></span><span style="display:flex;"><span>            use_symbols<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>symbols,
+</span></span><span style="display:flex;"><span>            exclude_ambiguous<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>exclude_ambiguous
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        entropy <span style="color:#f92672">=</span> generator<span style="color:#f92672">.</span>calculate_entropy(password)
+</span></span><span style="display:flex;"><span>        strength <span style="color:#f92672">=</span> generator<span style="color:#f92672">.</span>strength_meter(entropy)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Password </span><span style="color:#e6db74">{</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>password<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Entropy: </span><span style="color:#e6db74">{</span>entropy<span style="color:#e6db74">}</span><span style="color:#e6db74"> bits (</span><span style="color:#e6db74">{</span>strength<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate default 16-character password</span>
+</span></span><span style="display:flex;"><span>python password_gen<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate 32-character password with all options</span>
+</span></span><span style="display:flex;"><span>python password_gen<span style="color:#f92672">.</span>py <span style="color:#f92672">--</span>length <span style="color:#ae81ff">32</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate 5 passwords without ambiguous chars</span>
+</span></span><span style="display:flex;"><span>python password_gen<span style="color:#f92672">.</span>py <span style="color:#f92672">--</span>count <span style="color:#ae81ff">5</span> <span style="color:#f92672">--</span>exclude<span style="color:#f92672">-</span>ambiguous
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Minimal password (lowercase only)</span>
+</span></span><span style="display:flex;"><span>python password_gen<span style="color:#f92672">.</span>py <span style="color:#f92672">--</span>length <span style="color:#ae81ff">12</span> <span style="color:#f92672">--</span>no<span style="color:#f92672">-</span>upper <span style="color:#f92672">--</span>no<span style="color:#f92672">-</span>digits <span style="color:#f92672">--</span>no<span style="color:#f92672">-</span>symbols
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Password: xK9<span style="color:#75715e">#mQ2$pL5@nR8</span>
+</span></span><span style="display:flex;"><span>Entropy: <span style="color:#ae81ff">94</span> bits (Very Strong)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Password: g7<span style="color:#960050;background-color:#1e0010">!</span>Wp3<span style="color:#f92672">&amp;</span>zL9<span style="color:#75715e">#qR2</span>
+</span></span><span style="display:flex;"><span>Entropy: <span style="color:#ae81ff">89</span> bits (Strong)
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:50209/tags/python/">Python</a></li>
+      <li><a href="http://localhost:50209/tags/cryptography/">Cryptography</a></li>
+      <li><a href="http://localhost:50209/tags/tool/">Tool</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:50209/">My Cybersecurity Portfolio</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

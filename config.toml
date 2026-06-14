@@ -1,0 +1,21 @@
+baseURL = "http://localhost:1313/"
+title = "My Cybersecurity Portfolio"
+theme = "hugo-profile"
+
+[params]
+  name = "Cybersecurity Student"
+  role = "Security Enthusiast"
+  bio = "Documenting my journey into cybersecurity, one CTF at a time"
+  showBio = true
+  showSocialLinks = true
+
+[params.social]
+  github = "https://github.com/yourusername"
+  linkedin = "https://linkedin.com/in/yourusername"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+ignoreLogs = ["warning-goldmark-raw-html"]

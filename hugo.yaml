@@ -1,0 +1,27 @@
+baseURL: "http://localhost:1313/"
+title: "My Cybersecurity Portfolio"
+theme: "PaperMod"
+
+params:
+  homeInfoParams:
+    title: "Welcome to My Cybersecurity Portfolio"
+    content: "I'm a beginner cybersecurity student documenting my journey"
+
+menu:
+  main:
+    - identifier: "posts"
+      name: "CTF Write-ups"
+      url: "/posts/"
+      weight: 10
+    - identifier: "about"
+      name: "About"
+      url: "/about/"
+      weight: 20
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+ignoreLogs:
+  - "warning-goldmark-raw-html"

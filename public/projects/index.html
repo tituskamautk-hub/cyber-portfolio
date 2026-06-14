@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=50209&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Cybersecurity Projects | My Cybersecurity Portfolio</title>
+<meta name="keywords" content="">
+<meta name="description" content="My Security Project Portfolio
+Here are the cybersecurity projects I&rsquo;ve built to learn and practice security concepts.
+
+🔍 Python Port Scanner
+Network Security | Python
+A multi-threaded port scanner for network reconnaissance and service discovery.
+Skills: Python, Networking, Socket Programming, Multi-threading
+
+📊 Log Monitoring Script
+Security Monitoring | Bash
+Real-time system log monitor that detects brute force attempts and suspicious activity.
+Skills: Bash, Linux Security, Log Analysis, Automation
+
+🔐 Secure Password Generator
+Cryptography | Python">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:50209/projects/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:50209/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:50209/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:50209/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:50209/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:50209/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:50209/projects/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:50209/projects/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:50209/" accesskey="h" title="My Cybersecurity Portfolio (Alt + H)">My Cybersecurity Portfolio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:50209/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:50209/projects/" title="Projects">
+                    <span class="active">Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:50209/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Cybersecurity Projects
+  </h1>
+</header>
+<div class="post-content md-content"><h2 id="my-security-project-portfolio">My Security Project Portfolio<a hidden class="anchor" aria-hidden="true" href="#my-security-project-portfolio">#</a></h2>
+<p>Here are the cybersecurity projects I&rsquo;ve built to learn and practice security concepts.</p>
+<hr>
+<h3 id="-python-port-scanner">🔍 <a href="/projects/port-scanner/">Python Port Scanner</a><a hidden class="anchor" aria-hidden="true" href="#-python-port-scanner">#</a></h3>
+<p><strong>Network Security | Python</strong></p>
+<p>A multi-threaded port scanner for network reconnaissance and service discovery.</p>
+<p><em>Skills: Python, Networking, Socket Programming, Multi-threading</em></p>
+<hr>
+<h3 id="-log-monitoring-script">📊 <a href="/projects/log-monitor/">Log Monitoring Script</a><a hidden class="anchor" aria-hidden="true" href="#-log-monitoring-script">#</a></h3>
+<p><strong>Security Monitoring | Bash</strong></p>
+<p>Real-time system log monitor that detects brute force attempts and suspicious activity.</p>
+<p><em>Skills: Bash, Linux Security, Log Analysis, Automation</em></p>
+<hr>
+<h3 id="-secure-password-generator">🔐 <a href="/projects/password-generator/">Secure Password Generator</a><a hidden class="anchor" aria-hidden="true" href="#-secure-password-generator">#</a></h3>
+<p><strong>Cryptography | Python</strong></p>
+<p>Cryptographically secure password generator with entropy calculation and strength meter.</p>
+<p><em>Skills: Python, Cryptography, Security Best Practices, CLI Tools</em></p>
+<hr>
+<h3 id="-tryhackme-write-ups">🎯 <a href="/projects/tryhackme-writeups/">TryHackMe Write-ups</a><a hidden class="anchor" aria-hidden="true" href="#-tryhackme-write-ups">#</a></h3>
+<p><strong>CTF Walkthroughs | Documentation</strong></p>
+<p>Collection of detailed write-ups from TryHackMe rooms I&rsquo;ve completed.</p>
+<p><em>Skills: CTF Methodology, Enumeration, Exploitation, Documentation</em></p>
+<hr>
+<h2 id="skills-demonstrated">Skills Demonstrated<a hidden class="anchor" aria-hidden="true" href="#skills-demonstrated">#</a></h2>
+<table>
+	<thead>
+			<tr>
+					<th>Category</th>
+					<th>Technologies</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Programming</td>
+					<td>Python, Bash</td>
+			</tr>
+			<tr>
+					<td>Networking</td>
+					<td>TCP/IP, Sockets, Nmap</td>
+			</tr>
+			<tr>
+					<td>Security Tools</td>
+					<td>Metasploit, Burp Suite, Wireshark</td>
+			</tr>
+			<tr>
+					<td>Operating Systems</td>
+					<td>Linux (Kali, Ubuntu), Windows</td>
+			</tr>
+			<tr>
+					<td>CTF Skills</td>
+					<td>Enumeration, Privilege Escalation</td>
+			</tr>
+	</tbody>
+</table>
+<hr>
+<h2 id="what-im-building-next">What I&rsquo;m Building Next<a hidden class="anchor" aria-hidden="true" href="#what-im-building-next">#</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> Web vulnerability scanner</li>
+<li><input disabled="" type="checkbox"> Network traffic analyzer</li>
+<li><input disabled="" type="checkbox"> Hash cracker (dictionary + brute force)</li>
+<li><input disabled="" type="checkbox"> Home lab documentation</li>
+</ul>
+<p><em>Check back regularly for new projects!</em></p>
+
+
+</div>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Log Monitoring Script
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>📊 Log Monitoring Script A bash script that continuously monitors system logs for security events.
+Purpose Detect suspicious activity in real-time:
+Failed login attempts (brute force) Unauthorized sudo access Suspicious process execution Features Real-time monitoring of auth.log Alert thresholds configurable IP tracking for repeat offenders Daily summary reports The Script #!/bin/bash # Configuration LOG_FILE=&#34;/var/log/auth.log&#34; ALERT_THRESHOLD=5 ALERT_EMAIL=&#34;admin@example.com&#34; SUSPICIOUS_IPS=&#34;/tmp/suspicious_ips.txt&#34; # Colors for output RED=&#39;\033[0;31m&#39; YELLOW=&#39;\033[1;33m&#39; NC=&#39;\033[0m&#39; # No Color echo -e &#34;${YELLOW}[&#43;] Starting Security Log Monitor${NC}&#34; # Monitor failed SSH attempts tail -n0 -f &#34;$LOG_FILE&#34; | while read line; do if echo &#34;$line&#34; | grep -q &#34;Failed password&#34;; then IP=$(echo &#34;$line&#34; | awk &#39;{print $11}&#39;) echo &#34;$IP&#34; &gt;&gt; &#34;$SUSPICIOUS_IPS&#34; COUNT=$(grep -c &#34;$IP&#34; &#34;$SUSPICIOUS_IPS&#34;) if [ &#34;$COUNT&#34; -ge &#34;$ALERT_THRESHOLD&#34; ]; then echo -e &#34;${RED}[ALERT] $COUNT failed attempts from $IP${NC}&#34; # Send alert (optional) # echo &#34;Alert: $COUNT failed SSH attempts from $IP&#34; | mail -s &#34;Security Alert&#34; $ALERT_EMAIL fi fi # Monitor sudo failures if echo &#34;$line&#34; | grep -q &#34;sudo.*COMMAND.*FAILED&#34;; then USER=$(echo &#34;$line&#34; | awk &#39;{print $9}&#39;) COMMAND=$(echo &#34;$line&#34; | grep -o &#34;COMMAND=.*&#34; | cut -d&#39;=&#39; -f2) echo -e &#34;${RED}[ALERT] Sudo failure by $USER attempting: $COMMAND${NC}&#34; fi done # Save the script sudo nano /usr/local/bin/security-monitor.sh # Make executable sudo chmod &#43;x /usr/local/bin/security-monitor.sh # Run as service sudo ./security-monitor.sh # /etc/systemd/system/security-monitor.service [Unit] Description=Security Log Monitor After=network.target [Service] Type=simple ExecStart=/usr/local/bin/security-monitor.sh Restart=always User=root [Install] WantedBy=multi-user.target sudo systemctl enable security-monitor sudo systemctl start security-monitor [ALERT] 7 failed attempts from 192.168.1.100 [ALERT] Sudo failure by john attempting: /bin/su - [ALERT] 12 failed attempts from 10.0.0.50 </p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2024-01-14 00:00:00 +0000 UTC'>January 14, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Log Monitoring Script" href="http://localhost:50209/projects/log-monitor/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Secure Password Generator
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>🔐 Secure Password Generator A cryptographically secure password generator following security best practices.
+Why Cryptographically Secure? Regular random generators are predictable. This uses Python’s secrets module for truly random passwords that can’t be guessed.
+Features Feature Description Custom length 8-128 characters Character sets Uppercase, lowercase, numbers, symbols Exclusion options Remove ambiguous characters (0, O, I, l) Strength meter Estimates password entropy Copy to clipboard Convenient password management The Code #!/usr/bin/env python3 import secrets import string import argparse import sys class PasswordGenerator: def __init__(self): self.uppercase = string.ascii_uppercase self.lowercase = string.ascii_lowercase self.digits = string.digits self.symbols = &#34;!@#$%^&amp;*()_&#43;-=[]{}|;:,.&lt;&gt;?&#34; self.ambiguous = &#34;0OIl1|&#34; def generate(self, length=16, use_upper=True, use_lower=True, use_digits=True, use_symbols=True, exclude_ambiguous=False): # Build character pool pool = &#34;&#34; if use_upper: pool &#43;= self.uppercase if use_lower: pool &#43;= self.lowercase if use_digits: pool &#43;= self.digits if use_symbols: pool &#43;= self.symbols if exclude_ambiguous: pool = &#39;&#39;.join(c for c in pool if c not in self.ambiguous) if not pool: raise ValueError(&#34;Select at least one character type&#34;) # Generate password using cryptographically secure random password = &#39;&#39;.join(secrets.choice(pool) for _ in range(length)) return password def calculate_entropy(self, password): &#34;&#34;&#34;Calculate password entropy in bits&#34;&#34;&#34; charset_size = len(set(password)) entropy = len(password) * (charset_size.bit_length()) return entropy def strength_meter(self, entropy): &#34;&#34;&#34;Rate password strength&#34;&#34;&#34; if entropy &lt; 40: return &#34;Weak&#34; elif entropy &lt; 60: return &#34;Moderate&#34; elif entropy &lt; 80: return &#34;Strong&#34; else: return &#34;Very Strong&#34; def main(): parser = argparse.ArgumentParser(description=&#34;Secure Password Generator&#34;) parser.add_argument(&#34;-l&#34;, &#34;--length&#34;, type=int, default=16, help=&#34;Password length (8-128)&#34;) parser.add_argument(&#34;-n&#34;, &#34;--no-upper&#34;, action=&#34;store_false&#34;, dest=&#34;upper&#34;, help=&#34;Exclude uppercase letters&#34;) parser.add_argument(&#34;-m&#34;, &#34;--no-lower&#34;, action=&#34;store_false&#34;, dest=&#34;lower&#34;, help=&#34;Exclude lowercase letters&#34;) parser.add_argument(&#34;-d&#34;, &#34;--no-digits&#34;, action=&#34;store_false&#34;, dest=&#34;digits&#34;, help=&#34;Exclude digits&#34;) parser.add_argument(&#34;-s&#34;, &#34;--no-symbols&#34;, action=&#34;store_false&#34;, dest=&#34;symbols&#34;, help=&#34;Exclude symbols&#34;) parser.add_argument(&#34;-e&#34;, &#34;--exclude-ambiguous&#34;, action=&#34;store_true&#34;, help=&#34;Exclude ambiguous characters&#34;) parser.add_argument(&#34;-c&#34;, &#34;--count&#34;, type=int, default=1, help=&#34;Number of passwords to generate&#34;) args = parser.parse_args() generator = PasswordGenerator() for i in range(args.count): password = generator.generate( length=args.length, use_upper=args.upper, use_lower=args.lower, use_digits=args.digits, use_symbols=args.symbols, exclude_ambiguous=args.exclude_ambiguous ) entropy = generator.calculate_entropy(password) strength = generator.strength_meter(entropy) print(f&#34;\nPassword {i&#43;1}: {password}&#34;) print(f&#34;Entropy: {entropy} bits ({strength})&#34;) if __name__ == &#34;__main__&#34;: main() # Generate default 16-character password python password_gen.py # Generate 32-character password with all options python password_gen.py --length 32 # Generate 5 passwords without ambiguous chars python password_gen.py --count 5 --exclude-ambiguous # Minimal password (lowercase only) python password_gen.py --length 12 --no-upper --no-digits --no-symbols Password: xK9#mQ2$pL5@nR8 Entropy: 94 bits (Very Strong) Password: g7!Wp3&amp;zL9#qR2 Entropy: 89 bits (Strong) </p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2024-01-13 00:00:00 +0000 UTC'>January 13, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Secure Password Generator" href="http://localhost:50209/projects/password-generator/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">TryHackMe Write-ups Collection
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>🎯 TryHackMe Write-ups Collection Complete walkthroughs of TryHackMe rooms I’ve solved.
+Completed Rooms 1. Pre-Security ✅ Learning Path - Beginner
+Key topics covered:
+Network fundamentals (OSI model, TCP/IP) How the web works (HTTP, DNS, cookies) Linux basics (file system, commands, permissions) Windows security basics Read full write-up
+2. Vulnversity 🔄 Difficulty: Easy | Category: Web Exploitation
+Skills learned:
+Directory enumeration with Gobuster File upload vulnerability identification Extension bypass techniques (.php5, .phtml) Reverse shell establishment Privilege escalation via SUID binaries Key commands:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2024-01-12 00:00:00 +0000 UTC'>January 12, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to TryHackMe Write-ups Collection" href="http://localhost:50209/projects/tryhackme-writeups/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:50209/">My Cybersecurity Portfolio</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+﻿---
+title: "Python Port Scanner"
+date: 2024-01-15
+tags: ["python", "networking", "tool"]
+---
+
+## 🔍 Python Port Scanner
+
+A multi-threaded port scanner built to understand network reconnaissance techniques.
+
+### Why I Built This
+
+To learn:
+- TCP/IP protocol mechanics
+- Socket programming in Python
+- Multi-threading for performance
+- How attackers discover services
+
+### Features
+
+| Feature | Description |
+|---------|-------------|
+| Multi-threaded | Fast scanning with concurrent connections |
+| Service detection | Identifies common services on open ports |
+| Banner grabbing | Retrieves service banners for fingerprinting |
+| JSON export | Results saved for further analysis |
+
+### Code Example
+
+```python
+import socket
+import threading
+from datetime import datetime
+
+def scan_port(target, port):
+    """Scan a single port on target host"""
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(1)
+    result = sock.connect_ex((target, port))
+    
+    if result == 0:
+        service = get_service_name(port)
+        print(f"[+] Port {port}: Open ({service})")
+        
+        # Banner grab
+        try:
+            sock.send(b"HEAD / HTTP/1.1\r\n\r\n")
+            banner = sock.recv(1024)
+            print(f"    Banner: {banner[:50]}")
+        except:
+            pass
+    
+    sock.close()
+
+def get_service_name(port):
+    """Map common ports to services"""
+    services = {
+        21: "FTP", 22: "SSH", 23: "Telnet",
+        25: "SMTP", 80: "HTTP", 443: "HTTPS",
+        3306: "MySQL", 3389: "RDP", 8080: "HTTP-Alt"
+    }
+    return services.get(port, "Unknown")
+
+# Usage
+target = "scanme.nmap.org"
+print(f"Scanning {target} started at {datetime.now()}")
+
+for port in range(1, 1001):
+    thread = threading.Thread(target=scan_port, args=(target, port))
+    thread.start()

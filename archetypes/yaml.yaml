@@ -1,0 +1,19 @@
+baseURL: "http://localhost:1313/"
+title: "My Cybersecurity Portfolio"
+theme: "PaperMod"
+
+params:
+  homeInfoParams:
+    Title: "Hi there 👋"
+    Content: "Welcome to my cybersecurity portfolio. I'm documenting my journey into security, CTFs, and ethical hacking."
+
+menu:
+  main:
+    - identifier: "ctf"
+      name: "CTF Write-ups"
+      url: "/ctf/"
+      weight: 10
+    - identifier: "about"
+      name: "About"
+      url: "/about/"
+      weight: 20
