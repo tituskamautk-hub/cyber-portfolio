@@ -1,388 +1,487 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Home on My Cybersecurity Portfolio</title><link>http://localhost:1313/</link><description>Recent content in Home on My Cybersecurity Portfolio</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 05 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml"/><item><title>SOC Incident Report - Phishing Unfolding</title><link>http://localhost:1313/reports/soc-incident-report/</link><pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/soc-incident-report/</guid><description>&lt;h2 id="soc-incident-report---tryhackme-soc-simulator"&gt;SOC Incident Report - TryHackMe SOC Simulator&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Home on My Cybersecurity Portfolio</title>
+    <link>http://localhost:55623/</link>
+    <description>Recent content in Home on My Cybersecurity Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55623/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SOC Incident Report - Phishing Unfolding</title>
+      <link>http://localhost:55623/reports/soc-incident-report/</link>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/reports/soc-incident-report/</guid>
+      <description>&lt;h2 id=&#34;soc-incident-report---tryhackme-soc-simulator&#34;&gt;SOC Incident Report - TryHackMe SOC Simulator&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Incident Reference:&lt;/strong&gt; INC-2026-060401
 &lt;strong&gt;Classification:&lt;/strong&gt; CONFIDENTIAL — INTERNAL USE ONLY
 &lt;strong&gt;Severity:&lt;/strong&gt; HIGH
 &lt;strong&gt;Analyst:&lt;/strong&gt; Tier 2 SOC Analyst — Titus Kamau&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id="executive-summary"&gt;Executive Summary&lt;/h3&gt;
+&lt;h3 id=&#34;executive-summary&#34;&gt;Executive Summary&lt;/h3&gt;
 &lt;p&gt;On June 4th, 2026, a high-severity endpoint compromise was identified. An unauthorized threat actor gained an interactive foothold, deploying PowerView.ps1 for reconnaissance and using Robocopy to harvest data from network shares.&lt;/p&gt;
-&lt;h3 id="key-metrics"&gt;Key Metrics&lt;/h3&gt;
+&lt;h3 id=&#34;key-metrics&#34;&gt;Key Metrics&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Metric&lt;/th&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Mean Time to Detect (MTTD)&lt;/td&gt;
-&lt;td&gt;38 minutes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Mean Time to Respond (MTTR)&lt;/td&gt;
-&lt;td&gt;2 minutes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;True Positive Rate&lt;/td&gt;
-&lt;td&gt;80%&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Total Alerts Closed&lt;/td&gt;
-&lt;td&gt;35&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Metric&lt;/th&gt;
+					&lt;th&gt;Value&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Mean Time to Detect (MTTD)&lt;/td&gt;
+					&lt;td&gt;38 minutes&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Mean Time to Respond (MTTR)&lt;/td&gt;
+					&lt;td&gt;2 minutes&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;True Positive Rate&lt;/td&gt;
+					&lt;td&gt;80%&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Total Alerts Closed&lt;/td&gt;
+					&lt;td&gt;35&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="incident-timeline"&gt;Incident Timeline&lt;/h3&gt;
+&lt;h3 id=&#34;incident-timeline&#34;&gt;Incident Timeline&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Time&lt;/th&gt;
-&lt;th&gt;Event&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;20:49:24&lt;/td&gt;
-&lt;td&gt;PowerView.ps1 dropped on win-3450 via PowerShell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;20:52:06&lt;/td&gt;
-&lt;td&gt;Robocopy.exe launched to harvest files from Z:\ drive&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;21:xx&lt;/td&gt;
-&lt;td&gt;Containment initiated - host isolated&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Time&lt;/th&gt;
+					&lt;th&gt;Event&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;20:49:24&lt;/td&gt;
+					&lt;td&gt;PowerView.ps1 dropped on win-3450 via PowerShell&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;20:52:06&lt;/td&gt;
+					&lt;td&gt;Robocopy.exe launched to harvest files from Z:\ drive&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;21:xx&lt;/td&gt;
+					&lt;td&gt;Containment initiated - host isolated&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="indicators-of-compromise-iocs"&gt;Indicators of Compromise (IOCs)&lt;/h3&gt;
+&lt;h3 id=&#34;indicators-of-compromise-iocs&#34;&gt;Indicators of Compromise (IOCs)&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Indicator&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Host&lt;/td&gt;
-&lt;td&gt;win-3450&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Compromised Account&lt;/td&gt;
-&lt;td&gt;michael.ascot&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Malicious File&lt;/td&gt;
-&lt;td&gt;PowerView.ps1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Abused Utility&lt;/td&gt;
-&lt;td&gt;Robocopy.exe&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Malicious Domain&lt;/td&gt;
-&lt;td&gt;hatventuresworldwide.online&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Type&lt;/th&gt;
+					&lt;th&gt;Indicator&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Host&lt;/td&gt;
+					&lt;td&gt;win-3450&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Compromised Account&lt;/td&gt;
+					&lt;td&gt;michael.ascot&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Malicious File&lt;/td&gt;
+					&lt;td&gt;PowerView.ps1&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Abused Utility&lt;/td&gt;
+					&lt;td&gt;Robocopy.exe&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Malicious Domain&lt;/td&gt;
+					&lt;td&gt;hatventuresworldwide.online&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="mitre-attck-mapping"&gt;MITRE ATT&amp;amp;CK Mapping&lt;/h3&gt;
+&lt;h3 id=&#34;mitre-attck-mapping&#34;&gt;MITRE ATT&amp;amp;CK Mapping&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Technique&lt;/th&gt;
-&lt;th&gt;ID&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Phishing&lt;/td&gt;
-&lt;td&gt;T1566&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PowerShell&lt;/td&gt;
-&lt;td&gt;T1059.001&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Valid Accounts&lt;/td&gt;
-&lt;td&gt;T1078&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Lateral Movement&lt;/td&gt;
-&lt;td&gt;T1021&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Technique&lt;/th&gt;
+					&lt;th&gt;ID&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Phishing&lt;/td&gt;
+					&lt;td&gt;T1566&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;PowerShell&lt;/td&gt;
+					&lt;td&gt;T1059.001&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Valid Accounts&lt;/td&gt;
+					&lt;td&gt;T1078&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Lateral Movement&lt;/td&gt;
+					&lt;td&gt;T1021&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="recommendations"&gt;Recommendations&lt;/h3&gt;
+&lt;h3 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Application Control:&lt;/strong&gt; Prevent script execution from user-writable directories&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;EDR Throttling:&lt;/strong&gt; Auto-quarantine mass file-copy behaviors&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Least Privilege Audit:&lt;/strong&gt; Restrict broad access to network shares&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;a href="http://localhost:1313/reports/SOC-Incident-Report.pdf"&gt;View Full Report&lt;/a&gt;&lt;/p&gt;</description></item><item><title>SECUREOPS Penetration Test Report</title><link>http://localhost:1313/reports/secureops-pentest/</link><pubDate>Sun, 31 May 2026 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/secureops-pentest/</guid><description>&lt;h2 id="executive-summary"&gt;Executive Summary&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:55623/reports/SOC-Incident-Report.pdf&#34;&gt;View Full Report&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SECUREOPS Penetration Test Report</title>
+      <link>http://localhost:55623/reports/secureops-pentest/</link>
+      <pubDate>Sun, 31 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/reports/secureops-pentest/</guid>
+      <description>&lt;h2 id=&#34;executive-summary&#34;&gt;Executive Summary&lt;/h2&gt;
 &lt;p&gt;A penetration test was conducted against the legacy development environment (Metasploitable 3).&lt;/p&gt;
-&lt;h2 id="key-findings"&gt;Key Findings&lt;/h2&gt;
+&lt;h2 id=&#34;key-findings&#34;&gt;Key Findings&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Vulnerability&lt;/th&gt;
-&lt;th&gt;Severity&lt;/th&gt;
-&lt;th&gt;CVSS&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Drupalgeddon&lt;/td&gt;
-&lt;td&gt;Critical&lt;/td&gt;
-&lt;td&gt;9.8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UnrealIRCd Backdoor&lt;/td&gt;
-&lt;td&gt;Critical&lt;/td&gt;
-&lt;td&gt;9.8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PwnKit&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;7.8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Vulnerability&lt;/th&gt;
+					&lt;th&gt;Severity&lt;/th&gt;
+					&lt;th&gt;CVSS&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Drupalgeddon&lt;/td&gt;
+					&lt;td&gt;Critical&lt;/td&gt;
+					&lt;td&gt;9.8&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;UnrealIRCd Backdoor&lt;/td&gt;
+					&lt;td&gt;Critical&lt;/td&gt;
+					&lt;td&gt;9.8&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;PwnKit&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;7.8&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id="recommendations"&gt;Recommendations&lt;/h2&gt;
+&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Patch Drupal immediately&lt;/li&gt;
 &lt;li&gt;Remove UnrealIRCd service&lt;/li&gt;
 &lt;li&gt;Update polkit package&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Acme AeroTech Security Assessment</title><link>http://localhost:1313/reports/acme-aerotech-assessment/</link><pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/acme-aerotech-assessment/</guid><description>&lt;h2 id="acme-aerotech---security--resilience-assessment"&gt;Acme AeroTech - Security &amp;amp; Resilience Assessment&lt;/h2&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Acme AeroTech Security Assessment</title>
+      <link>http://localhost:55623/reports/acme-aerotech-assessment/</link>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/reports/acme-aerotech-assessment/</guid>
+      <description>&lt;h2 id=&#34;acme-aerotech---security--resilience-assessment&#34;&gt;Acme AeroTech - Security &amp;amp; Resilience Assessment&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Prepared For:&lt;/strong&gt; Acme AeroTech
 &lt;strong&gt;Prepared By:&lt;/strong&gt; Titus Kamau
 &lt;strong&gt;Assessment Type:&lt;/strong&gt; Cybersecurity Review
 &lt;strong&gt;Date:&lt;/strong&gt; May 18, 2026&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id="organization-profile"&gt;Organization Profile&lt;/h3&gt;
+&lt;h3 id=&#34;organization-profile&#34;&gt;Organization Profile&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Metric&lt;/th&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Industry&lt;/td&gt;
-&lt;td&gt;Aerospace parts manufacturing&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Employees&lt;/td&gt;
-&lt;td&gt;75&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;IT Team Size&lt;/td&gt;
-&lt;td&gt;2 persons&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Network Age&lt;/td&gt;
-&lt;td&gt;5 years&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Redundancy&lt;/td&gt;
-&lt;td&gt;None&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Metric&lt;/th&gt;
+					&lt;th&gt;Value&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Industry&lt;/td&gt;
+					&lt;td&gt;Aerospace parts manufacturing&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Employees&lt;/td&gt;
+					&lt;td&gt;75&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;IT Team Size&lt;/td&gt;
+					&lt;td&gt;2 persons&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Network Age&lt;/td&gt;
+					&lt;td&gt;5 years&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Redundancy&lt;/td&gt;
+					&lt;td&gt;None&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h3 id="key-challenges-identified"&gt;Key Challenges Identified&lt;/h3&gt;
+&lt;h3 id=&#34;key-challenges-identified&#34;&gt;Key Challenges Identified&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Issue&lt;/th&gt;
-&lt;th&gt;Risk&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Flat, unsegmented network&lt;/td&gt;
-&lt;td&gt;Lateral movement after any compromise&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Default credentials on router, web, FTP, database&lt;/td&gt;
-&lt;td&gt;Easy unauthorized access&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;No patch management program&lt;/td&gt;
-&lt;td&gt;Known unpatched CVEs exploitable&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;No redundancy&lt;/td&gt;
-&lt;td&gt;Full outages during maintenance&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Issue&lt;/th&gt;
+					&lt;th&gt;Risk&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Flat, unsegmented network&lt;/td&gt;
+					&lt;td&gt;Lateral movement after any compromise&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Default credentials on router, web, FTP, database&lt;/td&gt;
+					&lt;td&gt;Easy unauthorized access&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;No patch management program&lt;/td&gt;
+					&lt;td&gt;Known unpatched CVEs exploitable&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;No redundancy&lt;/td&gt;
+					&lt;td&gt;Full outages during maintenance&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h3 id="vulnerability-analysis"&gt;Vulnerability Analysis&lt;/h3&gt;
+&lt;h3 id=&#34;vulnerability-analysis&#34;&gt;Vulnerability Analysis&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Vulnerability&lt;/th&gt;
-&lt;th&gt;Likelihood&lt;/th&gt;
-&lt;th&gt;Impact&lt;/th&gt;
-&lt;th&gt;Priority&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Default credentials&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;HIGH&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Flat network / no segmentation&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;HIGH&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;No patch management&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;Medium&lt;/td&gt;
-&lt;td&gt;HIGH&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Single firewall / switch&lt;/td&gt;
-&lt;td&gt;Medium&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;MEDIUM&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;FTP plaintext&lt;/td&gt;
-&lt;td&gt;Medium&lt;/td&gt;
-&lt;td&gt;Medium&lt;/td&gt;
-&lt;td&gt;MEDIUM&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Vulnerability&lt;/th&gt;
+					&lt;th&gt;Likelihood&lt;/th&gt;
+					&lt;th&gt;Impact&lt;/th&gt;
+					&lt;th&gt;Priority&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Default credentials&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;HIGH&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Flat network / no segmentation&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;HIGH&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;No patch management&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;Medium&lt;/td&gt;
+					&lt;td&gt;HIGH&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Single firewall / switch&lt;/td&gt;
+					&lt;td&gt;Medium&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;MEDIUM&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;FTP plaintext&lt;/td&gt;
+					&lt;td&gt;Medium&lt;/td&gt;
+					&lt;td&gt;Medium&lt;/td&gt;
+					&lt;td&gt;MEDIUM&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h3 id="recommended-network-redesign"&gt;Recommended Network Redesign&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;6 VLANs:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Digital Forensics File Carving Report</title><link>http://localhost:1313/reports/forensics-carving-report/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/forensics-carving-report/</guid><description>&lt;h2 id="digital-forensics-file-carving-report"&gt;Digital Forensics File Carving Report&lt;/h2&gt;
+&lt;h3 id=&#34;recommended-network-redesign&#34;&gt;Recommended Network Redesign&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;6 VLANs:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Digital Forensics File Carving Report</title>
+      <link>http://localhost:55623/reports/forensics-carving-report/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/reports/forensics-carving-report/</guid>
+      <description>&lt;h2 id=&#34;digital-forensics-file-carving-report&#34;&gt;Digital Forensics File Carving Report&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Candidate:&lt;/strong&gt; Titus Kamau
 &lt;strong&gt;Case Role:&lt;/strong&gt; Junior Digital Forensics Analyst
 &lt;strong&gt;Source Image:&lt;/strong&gt; 84cc34c1-ef90-4b58-ac73-cd4d8a71967d
 &lt;strong&gt;Recovered Valid Files:&lt;/strong&gt; 17 fully recovered files&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id="executive-summary"&gt;Executive Summary&lt;/h3&gt;
+&lt;h3 id=&#34;executive-summary&#34;&gt;Executive Summary&lt;/h3&gt;
 &lt;p&gt;The binary image was examined for known file signatures and carved using a repeatable Python workflow. The examination produced &lt;strong&gt;17 complete and readable files&lt;/strong&gt;:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Count&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;JPEG Images&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PNG Images&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PDF Document&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OOXML Word Document&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Type&lt;/th&gt;
+					&lt;th&gt;Count&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;JPEG Images&lt;/td&gt;
+					&lt;td&gt;12&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;PNG Images&lt;/td&gt;
+					&lt;td&gt;3&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;PDF Document&lt;/td&gt;
+					&lt;td&gt;1&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;OOXML Word Document&lt;/td&gt;
+					&lt;td&gt;1&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Each recovered file was validated for readability and hashed with MD5 to preserve integrity evidence.&lt;/p&gt;</description></item><item><title>HealthSecure Systems Incident Response Report</title><link>http://localhost:1313/reports/healthsecure-ir-report/</link><pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/healthsecure-ir-report/</guid><description>&lt;h2 id="healthsecure-systems-incident-response-report"&gt;HealthSecure Systems Incident Response Report&lt;/h2&gt;
+&lt;p&gt;Each recovered file was validated for readability and hashed with MD5 to preserve integrity evidence.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HealthSecure Systems Incident Response Report</title>
+      <link>http://localhost:55623/reports/healthsecure-ir-report/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/reports/healthsecure-ir-report/</guid>
+      <description>&lt;h2 id=&#34;healthsecure-systems-incident-response-report&#34;&gt;HealthSecure Systems Incident Response Report&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Reference:&lt;/strong&gt; 2025-HSS-IR-002
 &lt;strong&gt;Severity:&lt;/strong&gt; SEV P1 - CRITICAL
 &lt;strong&gt;Classification:&lt;/strong&gt; CONFIDENTIAL - Internal Use Only
 &lt;strong&gt;Prepared By:&lt;/strong&gt; Titus Kamau - Cybersecurity Incident Response Lead&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id="executive-summary"&gt;Executive Summary&lt;/h3&gt;
-&lt;p&gt;On April 12, 2025, HealthSecure Systems suffered a confirmed security breach initiated by a phishing email. The attacker gained access to a Finance workstation, executed PowerShell to download malware, and moved laterally toward the HR SQL server containing payroll and PII.&lt;/p&gt;</description></item><item><title>OWASP Juice Shop Penetration Test</title><link>http://localhost:1313/cybersecurity/owasp-juice-shop/</link><pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/cybersecurity/owasp-juice-shop/</guid><description>&lt;h2 id="scenario"&gt;Scenario&lt;/h2&gt;
+&lt;h3 id=&#34;executive-summary&#34;&gt;Executive Summary&lt;/h3&gt;
+&lt;p&gt;On April 12, 2025, HealthSecure Systems suffered a confirmed security breach initiated by a phishing email. The attacker gained access to a Finance workstation, executed PowerShell to download malware, and moved laterally toward the HR SQL server containing payroll and PII.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OWASP Juice Shop Penetration Test</title>
+      <link>http://localhost:55623/cybersecurity/owasp-juice-shop/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/cybersecurity/owasp-juice-shop/</guid>
+      <description>&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
 &lt;p&gt;A growing online retail company engaged a cybersecurity consultancy to assess the security of its public-facing e-commerce application before a major product launch. Management was concerned that vulnerabilities within the application could expose customer information, disrupt operations, or damage the company&amp;rsquo;s reputation.&lt;/p&gt;
-&lt;p&gt;As a &lt;strong&gt;Junior Penetration Tester&lt;/strong&gt;, I was tasked with conducting a manual and tool-assisted penetration test against the web application. The assessment focused on identifying vulnerabilities related to authentication, authorization, input validation, and sensitive data exposure. The goal was to simulate realistic attacker techniques, validate security weaknesses, assess business risk, and provide actionable remediation recommendations.&lt;/p&gt;</description></item><item><title>OWASP Juice Shop Penetration Test</title><link>http://localhost:1313/projects/owasp-juice-shop/</link><pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/projects/owasp-juice-shop/</guid><description>&lt;h2 id="objective"&gt;Objective&lt;/h2&gt;
+&lt;p&gt;As a &lt;strong&gt;Junior Penetration Tester&lt;/strong&gt;, I was tasked with conducting a manual and tool-assisted penetration test against the web application. The assessment focused on identifying vulnerabilities related to authentication, authorization, input validation, and sensitive data exposure. The goal was to simulate realistic attacker techniques, validate security weaknesses, assess business risk, and provide actionable remediation recommendations.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OWASP Juice Shop Penetration Test</title>
+      <link>http://localhost:55623/projects/owasp-juice-shop/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/projects/owasp-juice-shop/</guid>
+      <description>&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;Conduct a manual and tool-assisted penetration test against the OWASP Juice Shop application.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="scope"&gt;Scope&lt;/h2&gt;
+&lt;h2 id=&#34;scope&#34;&gt;Scope&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Category&lt;/th&gt;
-&lt;th&gt;Details&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Authentication&lt;/td&gt;
-&lt;td&gt;Login mechanisms, password policies&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Authorization&lt;/td&gt;
-&lt;td&gt;Role-based access controls&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Input Validation&lt;/td&gt;
-&lt;td&gt;SQL injection, XSS, command injection&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Session Management&lt;/td&gt;
-&lt;td&gt;Token handling, session timeout&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Category&lt;/th&gt;
+					&lt;th&gt;Details&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Authentication&lt;/td&gt;
+					&lt;td&gt;Login mechanisms, password policies&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Authorization&lt;/td&gt;
+					&lt;td&gt;Role-based access controls&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Input Validation&lt;/td&gt;
+					&lt;td&gt;SQL injection, XSS, command injection&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Session Management&lt;/td&gt;
+					&lt;td&gt;Token handling, session timeout&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2 id="tools-used"&gt;Tools Used&lt;/h2&gt;
+&lt;h2 id=&#34;tools-used&#34;&gt;Tools Used&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Tool&lt;/th&gt;
-&lt;th&gt;Purpose&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Burp Suite&lt;/td&gt;
-&lt;td&gt;Proxy, scanning, exploitation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Nmap&lt;/td&gt;
-&lt;td&gt;Port scanning, service enumeration&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OWASP ZAP&lt;/td&gt;
-&lt;td&gt;Automated vulnerability scanning&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Browser DevTools&lt;/td&gt;
-&lt;td&gt;Client-side testing&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Tool&lt;/th&gt;
+					&lt;th&gt;Purpose&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Burp Suite&lt;/td&gt;
+					&lt;td&gt;Proxy, scanning, exploitation&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Nmap&lt;/td&gt;
+					&lt;td&gt;Port scanning, service enumeration&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;OWASP ZAP&lt;/td&gt;
+					&lt;td&gt;Automated vulnerability scanning&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Browser DevTools&lt;/td&gt;
+					&lt;td&gt;Client-side testing&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2 id="key-findings"&gt;Key Findings&lt;/h2&gt;
-&lt;h3 id="-sql-injection-critical"&gt;🔴 SQL Injection (Critical)&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; Login endpoint&lt;/p&gt;</description></item><item><title>HealthSecure Incident Response Investigation</title><link>http://localhost:1313/cybersecurity/healthsecure-ir/</link><pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/cybersecurity/healthsecure-ir/</guid><description>&lt;h2 id="scenario"&gt;Scenario&lt;/h2&gt;
+&lt;h2 id=&#34;key-findings&#34;&gt;Key Findings&lt;/h2&gt;
+&lt;h3 id=&#34;-sql-injection-critical&#34;&gt;🔴 SQL Injection (Critical)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; Login endpoint&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HealthSecure Incident Response Investigation</title>
+      <link>http://localhost:55623/cybersecurity/healthsecure-ir/</link>
+      <pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/cybersecurity/healthsecure-ir/</guid>
+      <description>&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
 &lt;p&gt;HealthSecure Systems, a healthcare technology provider responsible for managing sensitive patient information, detected unusual activity within its network environment. Security analysts observed suspicious authentication events, network anomalies, and alerts generated by intrusion detection systems, raising concerns about a potential compromise.&lt;/p&gt;
-&lt;p&gt;As part of the &lt;strong&gt;Incident Response team&lt;/strong&gt;, I was tasked with investigating the suspected security incident. Multiple evidence sources were provided, including Windows Event Logs, Zeek network records, Snort IDS alerts, phishing email artifacts, and forensic findings. My objective was to determine how the attack occurred, identify affected systems, reconstruct the attack timeline, and recommend containment and recovery actions.&lt;/p&gt;</description></item><item><title>Acme AeroTech Network Security Assessment</title><link>http://localhost:1313/cybersecurity/acme-aerotech/</link><pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/cybersecurity/acme-aerotech/</guid><description>&lt;h2 id="scenario"&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;As part of the &lt;strong&gt;Incident Response team&lt;/strong&gt;, I was tasked with investigating the suspected security incident. Multiple evidence sources were provided, including Windows Event Logs, Zeek network records, Snort IDS alerts, phishing email artifacts, and forensic findings. My objective was to determine how the attack occurred, identify affected systems, reconstruct the attack timeline, and recommend containment and recovery actions.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Acme AeroTech Network Security Assessment</title>
+      <link>http://localhost:55623/cybersecurity/acme-aerotech/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/cybersecurity/acme-aerotech/</guid>
+      <description>&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
 &lt;p&gt;Acme AeroTech is a mid-sized aerospace manufacturing company with approximately 75 employees operating across engineering, administration, production, and management departments. As the organization expanded, concerns emerged regarding network security, unauthorized access risks, and insufficient segmentation between critical systems.&lt;/p&gt;
-&lt;p&gt;I was engaged as a &lt;strong&gt;Security Consultant&lt;/strong&gt; to perform a comprehensive network security assessment and provide recommendations to strengthen the organization&amp;rsquo;s security posture. The engagement involved reviewing the existing network architecture, identifying vulnerabilities and operational risks, evaluating access control mechanisms, and proposing a secure redesign aligned with industry best practices.&lt;/p&gt;</description></item><item><title>Python Port Scanner</title><link>http://localhost:1313/cybersecurity/port-scanner/</link><pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/cybersecurity/port-scanner/</guid><description>&lt;h2 id="scenario"&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;I was engaged as a &lt;strong&gt;Security Consultant&lt;/strong&gt; to perform a comprehensive network security assessment and provide recommendations to strengthen the organization&amp;rsquo;s security posture. The engagement involved reviewing the existing network architecture, identifying vulnerabilities and operational risks, evaluating access control mechanisms, and proposing a secure redesign aligned with industry best practices.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Python Port Scanner</title>
+      <link>http://localhost:55623/cybersecurity/port-scanner/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/cybersecurity/port-scanner/</guid>
+      <description>&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
 &lt;p&gt;Security analysts frequently require rapid visibility into open services and exposed network ports when conducting asset discovery, vulnerability assessments, and security investigations. Manual enumeration can be time-consuming, particularly when assessing multiple hosts across a network.&lt;/p&gt;
-&lt;p&gt;To address this challenge, I designed and developed a multi-threaded Python Port Scanner capable of identifying open TCP ports and active services across target systems. The objective was to strengthen my understanding of network protocols, socket programming, and security automation while creating a practical tool that could support network reconnaissance activities.&lt;/p&gt;</description></item><item><title>Log Monitoring Script</title><link>http://localhost:1313/cybersecurity/log-monitor/</link><pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/cybersecurity/log-monitor/</guid><description>&lt;h2 id="scenario"&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;To address this challenge, I designed and developed a multi-threaded Python Port Scanner capable of identifying open TCP ports and active services across target systems. The objective was to strengthen my understanding of network protocols, socket programming, and security automation while creating a practical tool that could support network reconnaissance activities.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Log Monitoring Script</title>
+      <link>http://localhost:55623/cybersecurity/log-monitor/</link>
+      <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/cybersecurity/log-monitor/</guid>
+      <description>&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
 &lt;p&gt;Modern organizations generate significant volumes of system and security logs, making it difficult for administrators to manually review events and identify suspicious activity in a timely manner. Delayed detection can allow threats to persist unnoticed within an environment.&lt;/p&gt;
-&lt;p&gt;To improve visibility and automate monitoring processes, I developed a &lt;strong&gt;Log Monitoring utility&lt;/strong&gt; designed to analyze log files and identify indicators of potentially malicious activity. The tool was created to support early detection of suspicious events such as failed authentication attempts, unauthorized access attempts, and unusual system behavior.&lt;/p&gt;</description></item><item><title>Secure Password Generator</title><link>http://localhost:1313/cybersecurity/password-generator/</link><pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/cybersecurity/password-generator/</guid><description>&lt;h2 id="scenario"&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;To improve visibility and automate monitoring processes, I developed a &lt;strong&gt;Log Monitoring utility&lt;/strong&gt; designed to analyze log files and identify indicators of potentially malicious activity. The tool was created to support early detection of suspicious events such as failed authentication attempts, unauthorized access attempts, and unusual system behavior.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Secure Password Generator</title>
+      <link>http://localhost:55623/cybersecurity/password-generator/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/cybersecurity/password-generator/</guid>
+      <description>&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
 &lt;p&gt;Weak passwords remain one of the most common causes of account compromise and unauthorized access. Many users continue to rely on predictable passwords that can be easily guessed, reused across multiple services, or cracked through brute-force attacks.&lt;/p&gt;
-&lt;p&gt;To promote stronger authentication practices and deepen my understanding of secure randomization techniques, I developed a &lt;strong&gt;Secure Password Generator&lt;/strong&gt; using Python. The application generates complex passwords based on configurable security requirements, including password length, character diversity, and randomness.&lt;/p&gt;</description></item><item><title>My First CTF: TryHackMe Pre-Security</title><link>http://localhost:1313/posts/my-first-ctf/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/my-first-ctf/</guid><description>&lt;h2 id="getting-started"&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;To promote stronger authentication practices and deepen my understanding of secure randomization techniques, I developed a &lt;strong&gt;Secure Password Generator&lt;/strong&gt; using Python. The application generates complex passwords based on configurable security requirements, including password length, character diversity, and randomness.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My First CTF: TryHackMe Pre-Security</title>
+      <link>http://localhost:55623/posts/my-first-ctf/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/posts/my-first-ctf/</guid>
+      <description>&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;I recently completed TryHackMe&amp;rsquo;s &lt;strong&gt;Pre-Security&lt;/strong&gt; learning path. This was my first real step into cybersecurity!&lt;/p&gt;
-&lt;h2 id="what-i-learned"&gt;What I Learned&lt;/h2&gt;
-&lt;h3 id="-network-fundamentals"&gt;🌐 Network Fundamentals&lt;/h3&gt;
+&lt;h2 id=&#34;what-i-learned&#34;&gt;What I Learned&lt;/h2&gt;
+&lt;h3 id=&#34;-network-fundamentals&#34;&gt;🌐 Network Fundamentals&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;The OSI model (7 layers of networking)&lt;/li&gt;
 &lt;li&gt;How TCP/IP works&lt;/li&gt;
@@ -395,247 +494,268 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="-how-the-web-works"&gt;🖥️ How the Web Works&lt;/h3&gt;
+&lt;h3 id=&#34;-how-the-web-works&#34;&gt;🖥️ How the Web Works&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;HTTP requests and responses&lt;/li&gt;
 &lt;li&gt;Status codes (200, 301, 404, 500)&lt;/li&gt;
 &lt;li&gt;Cookies and sessions&lt;/li&gt;
 &lt;li&gt;DNS resolution process&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="-linux-basics"&gt;🐧 Linux Basics&lt;/h3&gt;
-&lt;p&gt;Essential commands I mastered:&lt;/p&gt;</description></item><item><title>Log Monitoring Script</title><link>http://localhost:1313/projects/log-monitor/</link><pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/projects/log-monitor/</guid><description>&lt;h2 id="-log-monitoring-script"&gt;📊 Log Monitoring Script&lt;/h2&gt;
+&lt;h3 id=&#34;-linux-basics&#34;&gt;🐧 Linux Basics&lt;/h3&gt;
+&lt;p&gt;Essential commands I mastered:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Log Monitoring Script</title>
+      <link>http://localhost:55623/projects/log-monitor/</link>
+      <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/projects/log-monitor/</guid>
+      <description>&lt;h2 id=&#34;-log-monitoring-script&#34;&gt;📊 Log Monitoring Script&lt;/h2&gt;
 &lt;p&gt;A bash script that continuously monitors system logs for security events.&lt;/p&gt;
-&lt;h3 id="purpose"&gt;Purpose&lt;/h3&gt;
+&lt;h3 id=&#34;purpose&#34;&gt;Purpose&lt;/h3&gt;
 &lt;p&gt;Detect suspicious activity in real-time:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Failed login attempts (brute force)&lt;/li&gt;
 &lt;li&gt;Unauthorized sudo access&lt;/li&gt;
 &lt;li&gt;Suspicious process execution&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="features"&gt;Features&lt;/h3&gt;
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Real-time monitoring&lt;/strong&gt; of auth.log&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Alert thresholds&lt;/strong&gt; configurable&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;IP tracking&lt;/strong&gt; for repeat offenders&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Daily summary reports&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="the-script"&gt;The Script&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Configuration&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;LOG_FILE&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;/var/log/auth.log&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ALERT_THRESHOLD&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;5&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ALERT_EMAIL&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;admin@example.com&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;SUSPICIOUS_IPS&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;/tmp/suspicious_ips.txt&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Colors for output&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RED&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;\033[0;31m&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;YELLOW&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;\033[1;33m&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;NC&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;\033[0m&amp;#39;&lt;/span&gt; &lt;span style="color:#75715e"&gt;# No Color&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo -e &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;YELLOW&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;[+] Starting Security Log Monitor&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;NC&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Monitor failed SSH attempts&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tail -n0 -f &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$LOG_FILE&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; | &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; read line; &lt;span style="color:#66d9ef"&gt;do&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; echo &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$line&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; | grep -q &lt;span style="color:#e6db74"&gt;&amp;#34;Failed password&amp;#34;&lt;/span&gt;; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; IP&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$line&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; | awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print $11}&amp;#39;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$IP&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$SUSPICIOUS_IPS&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; COUNT&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;grep -c &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$IP&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$SUSPICIOUS_IPS&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;[&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$COUNT&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; -ge &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$ALERT_THRESHOLD&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#f92672"&gt;]&lt;/span&gt;; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo -e &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;RED&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;[ALERT] &lt;/span&gt;$COUNT&lt;span style="color:#e6db74"&gt; failed attempts from &lt;/span&gt;$IP&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;NC&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# Send alert (optional)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# echo &amp;#34;Alert: $COUNT failed SSH attempts from $IP&amp;#34; | mail -s &amp;#34;Security Alert&amp;#34; $ALERT_EMAIL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# Monitor sudo failures&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; echo &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$line&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; | grep -q &lt;span style="color:#e6db74"&gt;&amp;#34;sudo.*COMMAND.*FAILED&amp;#34;&lt;/span&gt;; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; USER&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$line&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; | awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print $9}&amp;#39;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; COMMAND&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$line&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; | grep -o &lt;span style="color:#e6db74"&gt;&amp;#34;COMMAND=.*&amp;#34;&lt;/span&gt; | cut -d&lt;span style="color:#e6db74"&gt;&amp;#39;=&amp;#39;&lt;/span&gt; -f2&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo -e &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;RED&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;[ALERT] Sudo failure by &lt;/span&gt;$USER&lt;span style="color:#e6db74"&gt; attempting: &lt;/span&gt;$COMMAND&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;NC&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;done&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Save the script&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo nano /usr/local/bin/security-monitor.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Make executable&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo chmod +x /usr/local/bin/security-monitor.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Run as service&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ./security-monitor.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# /etc/systemd/system/security-monitor.service&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;Unit&lt;span style="color:#f92672"&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Description&lt;span style="color:#f92672"&gt;=&lt;/span&gt;Security Log Monitor
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;After&lt;span style="color:#f92672"&gt;=&lt;/span&gt;network.target
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;Service&lt;span style="color:#f92672"&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Type&lt;span style="color:#f92672"&gt;=&lt;/span&gt;simple
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ExecStart&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/usr/local/bin/security-monitor.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Restart&lt;span style="color:#f92672"&gt;=&lt;/span&gt;always
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;User&lt;span style="color:#f92672"&gt;=&lt;/span&gt;root
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;Install&lt;span style="color:#f92672"&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;WantedBy&lt;span style="color:#f92672"&gt;=&lt;/span&gt;multi-user.target
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl enable security-monitor
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl start security-monitor
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;ALERT&lt;span style="color:#f92672"&gt;]&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;7&lt;/span&gt; failed attempts from 192.168.1.100
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;ALERT&lt;span style="color:#f92672"&gt;]&lt;/span&gt; Sudo failure by john attempting: /bin/su -
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;ALERT&lt;span style="color:#f92672"&gt;]&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;12&lt;/span&gt; failed attempts from 10.0.0.50
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Secure Password Generator</title><link>http://localhost:1313/projects/password-generator/</link><pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/projects/password-generator/</guid><description>&lt;h2 id="-secure-password-generator"&gt;🔐 Secure Password Generator&lt;/h2&gt;
+&lt;h3 id=&#34;the-script&#34;&gt;The Script&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Configuration&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOG_FILE&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/var/log/auth.log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ALERT_THRESHOLD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ALERT_EMAIL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;admin@example.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SUSPICIOUS_IPS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/tmp/suspicious_ips.txt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Colors for output&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;RED&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;\033[0;31m&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;YELLOW&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;\033[1;33m&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NC&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;\033[0m&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# No Color&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;YELLOW&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[+] Starting Security Log Monitor&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NC&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Monitor failed SSH attempts&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tail -n0 -f &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$LOG_FILE&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; | &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; read line; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$line&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; | grep -q &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed password&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        IP&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$line&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $11}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$IP&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$SUSPICIOUS_IPS&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        COUNT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;grep -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$IP&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$SUSPICIOUS_IPS&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$COUNT&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -ge &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$ALERT_THRESHOLD&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;RED&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[ALERT] &lt;/span&gt;$COUNT&lt;span style=&#34;color:#e6db74&#34;&gt; failed attempts from &lt;/span&gt;$IP&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NC&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# Send alert (optional)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# echo &amp;#34;Alert: $COUNT failed SSH attempts from $IP&amp;#34; | mail -s &amp;#34;Security Alert&amp;#34; $ALERT_EMAIL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Monitor sudo failures&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$line&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; | grep -q &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sudo.*COMMAND.*FAILED&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        USER&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$line&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{print $9}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        COMMAND&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$line&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; | grep -o &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;COMMAND=.*&amp;#34;&lt;/span&gt; | cut -d&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;=&amp;#39;&lt;/span&gt; -f2&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;RED&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[ALERT] Sudo failure by &lt;/span&gt;$USER&lt;span style=&#34;color:#e6db74&#34;&gt; attempting: &lt;/span&gt;$COMMAND&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NC&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Save the script&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nano /usr/local/bin/security-monitor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Make executable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo chmod +x /usr/local/bin/security-monitor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Run as service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo ./security-monitor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# /etc/systemd/system/security-monitor.service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;Unit&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Description&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Security Log Monitor
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;After&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;network.target
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;Service&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;simple
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ExecStart&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/local/bin/security-monitor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Restart&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;always
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;User&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;root
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;Install&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;WantedBy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;multi-user.target
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl enable security-monitor
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl start security-monitor
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;ALERT&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt; failed attempts from 192.168.1.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;ALERT&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Sudo failure by john attempting: /bin/su -
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;ALERT&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; failed attempts from 10.0.0.50
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Secure Password Generator</title>
+      <link>http://localhost:55623/projects/password-generator/</link>
+      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/projects/password-generator/</guid>
+      <description>&lt;h2 id=&#34;-secure-password-generator&#34;&gt;🔐 Secure Password Generator&lt;/h2&gt;
 &lt;p&gt;A cryptographically secure password generator following security best practices.&lt;/p&gt;
-&lt;h3 id="why-cryptographically-secure"&gt;Why Cryptographically Secure?&lt;/h3&gt;
+&lt;h3 id=&#34;why-cryptographically-secure&#34;&gt;Why Cryptographically Secure?&lt;/h3&gt;
 &lt;p&gt;Regular random generators are predictable. This uses Python&amp;rsquo;s &lt;code&gt;secrets&lt;/code&gt; module for &lt;strong&gt;truly random&lt;/strong&gt; passwords that can&amp;rsquo;t be guessed.&lt;/p&gt;
-&lt;h3 id="features"&gt;Features&lt;/h3&gt;
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Feature&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Custom length&lt;/td&gt;
-&lt;td&gt;8-128 characters&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Character sets&lt;/td&gt;
-&lt;td&gt;Uppercase, lowercase, numbers, symbols&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Exclusion options&lt;/td&gt;
-&lt;td&gt;Remove ambiguous characters (0, O, I, l)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Strength meter&lt;/td&gt;
-&lt;td&gt;Estimates password entropy&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Copy to clipboard&lt;/td&gt;
-&lt;td&gt;Convenient password management&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Feature&lt;/th&gt;
+					&lt;th&gt;Description&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Custom length&lt;/td&gt;
+					&lt;td&gt;8-128 characters&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Character sets&lt;/td&gt;
+					&lt;td&gt;Uppercase, lowercase, numbers, symbols&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Exclusion options&lt;/td&gt;
+					&lt;td&gt;Remove ambiguous characters (0, O, I, l)&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Strength meter&lt;/td&gt;
+					&lt;td&gt;Estimates password entropy&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Copy to clipboard&lt;/td&gt;
+					&lt;td&gt;Convenient password management&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="the-code"&gt;The Code&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#!/usr/bin/env python3&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; secrets
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; string
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; argparse
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; sys
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;PasswordGenerator&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;__init__&lt;/span&gt;(self):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;uppercase &lt;span style="color:#f92672"&gt;=&lt;/span&gt; string&lt;span style="color:#f92672"&gt;.&lt;/span&gt;ascii_uppercase
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;lowercase &lt;span style="color:#f92672"&gt;=&lt;/span&gt; string&lt;span style="color:#f92672"&gt;.&lt;/span&gt;ascii_lowercase
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;digits &lt;span style="color:#f92672"&gt;=&lt;/span&gt; string&lt;span style="color:#f92672"&gt;.&lt;/span&gt;digits
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;symbols &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;!@#$%^&amp;amp;*()_+-=[]&lt;/span&gt;&lt;span style="color:#e6db74"&gt;{}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;|;:,.&amp;lt;&amp;gt;?&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;ambiguous &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;0OIl1|&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;generate&lt;/span&gt;(self, length&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;16&lt;/span&gt;, use_upper&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;, use_lower&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; use_digits&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;, use_symbols&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;, exclude_ambiguous&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;False&lt;/span&gt;):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# Build character pool&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pool &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; use_upper: pool &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;uppercase
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; use_lower: pool &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;lowercase
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; use_digits: pool &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;digits
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; use_symbols: pool &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;symbols
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; exclude_ambiguous:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pool &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style="color:#f92672"&gt;.&lt;/span&gt;join(c &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; c &lt;span style="color:#f92672"&gt;in&lt;/span&gt; pool &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; c &lt;span style="color:#f92672"&gt;not&lt;/span&gt; &lt;span style="color:#f92672"&gt;in&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;ambiguous)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;not&lt;/span&gt; pool:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;raise&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;ValueError&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Select at least one character type&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# Generate password using cryptographically secure random&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; password &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style="color:#f92672"&gt;.&lt;/span&gt;join(secrets&lt;span style="color:#f92672"&gt;.&lt;/span&gt;choice(pool) &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; _ &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(length))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; password
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;calculate_entropy&lt;/span&gt;(self, password):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&amp;#34;Calculate password entropy in bits&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; charset_size &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(set(password))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entropy &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(password) &lt;span style="color:#f92672"&gt;*&lt;/span&gt; (charset_size&lt;span style="color:#f92672"&gt;.&lt;/span&gt;bit_length())
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; entropy
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;strength_meter&lt;/span&gt;(self, entropy):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&amp;#34;Rate password strength&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; entropy &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;40&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Weak&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; entropy &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;60&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Moderate&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; entropy &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;80&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Strong&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Very Strong&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;():
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parser &lt;span style="color:#f92672"&gt;=&lt;/span&gt; argparse&lt;span style="color:#f92672"&gt;.&lt;/span&gt;ArgumentParser(description&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Secure Password Generator&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parser&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_argument(&lt;span style="color:#e6db74"&gt;&amp;#34;-l&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--length&amp;#34;&lt;/span&gt;, type&lt;span style="color:#f92672"&gt;=&lt;/span&gt;int, default&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;16&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; help&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Password length (8-128)&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parser&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_argument(&lt;span style="color:#e6db74"&gt;&amp;#34;-n&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--no-upper&amp;#34;&lt;/span&gt;, action&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;store_false&amp;#34;&lt;/span&gt;, dest&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;upper&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; help&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Exclude uppercase letters&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parser&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_argument(&lt;span style="color:#e6db74"&gt;&amp;#34;-m&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--no-lower&amp;#34;&lt;/span&gt;, action&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;store_false&amp;#34;&lt;/span&gt;, dest&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;lower&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; help&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Exclude lowercase letters&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parser&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_argument(&lt;span style="color:#e6db74"&gt;&amp;#34;-d&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--no-digits&amp;#34;&lt;/span&gt;, action&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;store_false&amp;#34;&lt;/span&gt;, dest&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;digits&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; help&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Exclude digits&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parser&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_argument(&lt;span style="color:#e6db74"&gt;&amp;#34;-s&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--no-symbols&amp;#34;&lt;/span&gt;, action&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;store_false&amp;#34;&lt;/span&gt;, dest&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;symbols&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; help&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Exclude symbols&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parser&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_argument(&lt;span style="color:#e6db74"&gt;&amp;#34;-e&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--exclude-ambiguous&amp;#34;&lt;/span&gt;, action&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;store_true&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; help&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Exclude ambiguous characters&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parser&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_argument(&lt;span style="color:#e6db74"&gt;&amp;#34;-c&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--count&amp;#34;&lt;/span&gt;, type&lt;span style="color:#f92672"&gt;=&lt;/span&gt;int, default&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; help&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Number of passwords to generate&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; args &lt;span style="color:#f92672"&gt;=&lt;/span&gt; parser&lt;span style="color:#f92672"&gt;.&lt;/span&gt;parse_args()
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; generator &lt;span style="color:#f92672"&gt;=&lt;/span&gt; PasswordGenerator()
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(args&lt;span style="color:#f92672"&gt;.&lt;/span&gt;count):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; password &lt;span style="color:#f92672"&gt;=&lt;/span&gt; generator&lt;span style="color:#f92672"&gt;.&lt;/span&gt;generate(
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; length&lt;span style="color:#f92672"&gt;=&lt;/span&gt;args&lt;span style="color:#f92672"&gt;.&lt;/span&gt;length,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; use_upper&lt;span style="color:#f92672"&gt;=&lt;/span&gt;args&lt;span style="color:#f92672"&gt;.&lt;/span&gt;upper,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; use_lower&lt;span style="color:#f92672"&gt;=&lt;/span&gt;args&lt;span style="color:#f92672"&gt;.&lt;/span&gt;lower,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; use_digits&lt;span style="color:#f92672"&gt;=&lt;/span&gt;args&lt;span style="color:#f92672"&gt;.&lt;/span&gt;digits,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; use_symbols&lt;span style="color:#f92672"&gt;=&lt;/span&gt;args&lt;span style="color:#f92672"&gt;.&lt;/span&gt;symbols,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; exclude_ambiguous&lt;span style="color:#f92672"&gt;=&lt;/span&gt;args&lt;span style="color:#f92672"&gt;.&lt;/span&gt;exclude_ambiguous
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; )
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entropy &lt;span style="color:#f92672"&gt;=&lt;/span&gt; generator&lt;span style="color:#f92672"&gt;.&lt;/span&gt;calculate_entropy(password)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; strength &lt;span style="color:#f92672"&gt;=&lt;/span&gt; generator&lt;span style="color:#f92672"&gt;.&lt;/span&gt;strength_meter(entropy)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(&lt;span style="color:#e6db74"&gt;f&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;Password &lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;i&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;: &lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;password&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(&lt;span style="color:#e6db74"&gt;f&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Entropy: &lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;entropy&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt; bits (&lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;strength&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;)&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; __name__ &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; main()
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Generate default 16-character password&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python password_gen&lt;span style="color:#f92672"&gt;.&lt;/span&gt;py
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Generate 32-character password with all options&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python password_gen&lt;span style="color:#f92672"&gt;.&lt;/span&gt;py &lt;span style="color:#f92672"&gt;--&lt;/span&gt;length &lt;span style="color:#ae81ff"&gt;32&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Generate 5 passwords without ambiguous chars&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python password_gen&lt;span style="color:#f92672"&gt;.&lt;/span&gt;py &lt;span style="color:#f92672"&gt;--&lt;/span&gt;count &lt;span style="color:#ae81ff"&gt;5&lt;/span&gt; &lt;span style="color:#f92672"&gt;--&lt;/span&gt;exclude&lt;span style="color:#f92672"&gt;-&lt;/span&gt;ambiguous
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Minimal password (lowercase only)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python password_gen&lt;span style="color:#f92672"&gt;.&lt;/span&gt;py &lt;span style="color:#f92672"&gt;--&lt;/span&gt;length &lt;span style="color:#ae81ff"&gt;12&lt;/span&gt; &lt;span style="color:#f92672"&gt;--&lt;/span&gt;no&lt;span style="color:#f92672"&gt;-&lt;/span&gt;upper &lt;span style="color:#f92672"&gt;--&lt;/span&gt;no&lt;span style="color:#f92672"&gt;-&lt;/span&gt;digits &lt;span style="color:#f92672"&gt;--&lt;/span&gt;no&lt;span style="color:#f92672"&gt;-&lt;/span&gt;symbols
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Password: xK9&lt;span style="color:#75715e"&gt;#mQ2$pL5@nR8&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Entropy: &lt;span style="color:#ae81ff"&gt;94&lt;/span&gt; bits (Very Strong)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Password: g7&lt;span style="color:#960050;background-color:#1e0010"&gt;!&lt;/span&gt;Wp3&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;zL9&lt;span style="color:#75715e"&gt;#qR2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Entropy: &lt;span style="color:#ae81ff"&gt;89&lt;/span&gt; bits (Strong)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>TryHackMe Write-ups Collection</title><link>http://localhost:1313/projects/tryhackme-writeups/</link><pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/projects/tryhackme-writeups/</guid><description>&lt;h2 id="-tryhackme-write-ups-collection"&gt;🎯 TryHackMe Write-ups Collection&lt;/h2&gt;
+&lt;h3 id=&#34;the-code&#34;&gt;The Code&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; secrets
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; string
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; argparse
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; sys
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PasswordGenerator&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;uppercase &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; string&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ascii_uppercase
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lowercase &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; string&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ascii_lowercase
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;digits &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; string&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;digits
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;symbols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;!@#$%^&amp;amp;*()_+-=[]&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;|;:,.&amp;lt;&amp;gt;?&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ambiguous &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0OIl1|&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;generate&lt;/span&gt;(self, length&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, use_upper&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;, use_lower&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                 use_digits&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;, use_symbols&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;, exclude_ambiguous&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;False&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Build character pool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        pool &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; use_upper: pool &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;uppercase
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; use_lower: pool &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lowercase
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; use_digits: pool &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;digits
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; use_symbols: pool &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;symbols
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; exclude_ambiguous:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            pool &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(c &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; c &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; pool &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; c &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ambiguous)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; pool:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;raise&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ValueError&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Select at least one character type&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Generate password using cryptographically secure random&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        password &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(secrets&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;choice(pool) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; _ &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(length))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;calculate_entropy&lt;/span&gt;(self, password):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Calculate password entropy in bits&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        charset_size &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; len(set(password))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        entropy &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; len(password) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (charset_size&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bit_length())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; entropy
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;strength_meter&lt;/span&gt;(self, entropy):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Rate password strength&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; entropy &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;40&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Weak&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; entropy &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Moderate&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; entropy &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Strong&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Very Strong&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    parser &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; argparse&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ArgumentParser(description&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Secure Password Generator&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_argument(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-l&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--length&amp;#34;&lt;/span&gt;, type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;int, default&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        help&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Password length (8-128)&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_argument(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--no-upper&amp;#34;&lt;/span&gt;, action&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;store_false&amp;#34;&lt;/span&gt;, dest&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;upper&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        help&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Exclude uppercase letters&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_argument(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-m&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--no-lower&amp;#34;&lt;/span&gt;, action&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;store_false&amp;#34;&lt;/span&gt;, dest&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;lower&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        help&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Exclude lowercase letters&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_argument(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--no-digits&amp;#34;&lt;/span&gt;, action&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;store_false&amp;#34;&lt;/span&gt;, dest&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;digits&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        help&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Exclude digits&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_argument(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-s&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--no-symbols&amp;#34;&lt;/span&gt;, action&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;store_false&amp;#34;&lt;/span&gt;, dest&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;symbols&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        help&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Exclude symbols&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_argument(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-e&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--exclude-ambiguous&amp;#34;&lt;/span&gt;, action&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;store_true&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        help&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Exclude ambiguous characters&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_argument(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-c&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--count&amp;#34;&lt;/span&gt;, type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;int, default&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        help&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Number of passwords to generate&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    args &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; parser&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;parse_args()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    generator &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PasswordGenerator()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;count):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        password &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; generator&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;generate(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            length&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;length,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            use_upper&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;upper,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            use_lower&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lower,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            use_digits&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;digits,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            use_symbols&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;symbols,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            exclude_ambiguous&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;exclude_ambiguous
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        entropy &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; generator&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;calculate_entropy(password)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        strength &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; generator&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;strength_meter(entropy)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Password &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;password&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Entropy: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;entropy&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; bits (&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;strength&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    main()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Generate default 16-character password&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python password_gen&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;py
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Generate 32-character password with all options&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python password_gen&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;py &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;length &lt;span style=&#34;color:#ae81ff&#34;&gt;32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Generate 5 passwords without ambiguous chars&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python password_gen&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;py &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;count &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;exclude&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;ambiguous
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Minimal password (lowercase only)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python password_gen&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;py &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;length &lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;no&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;upper &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;no&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;digits &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;no&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;symbols
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Password: xK9&lt;span style=&#34;color:#75715e&#34;&gt;#mQ2$pL5@nR8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Entropy: &lt;span style=&#34;color:#ae81ff&#34;&gt;94&lt;/span&gt; bits (Very Strong)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Password: g7&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;!&lt;/span&gt;Wp3&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;zL9&lt;span style=&#34;color:#75715e&#34;&gt;#qR2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Entropy: &lt;span style=&#34;color:#ae81ff&#34;&gt;89&lt;/span&gt; bits (Strong)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>TryHackMe Write-ups Collection</title>
+      <link>http://localhost:55623/projects/tryhackme-writeups/</link>
+      <pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/projects/tryhackme-writeups/</guid>
+      <description>&lt;h2 id=&#34;-tryhackme-write-ups-collection&#34;&gt;🎯 TryHackMe Write-ups Collection&lt;/h2&gt;
 &lt;p&gt;Complete walkthroughs of TryHackMe rooms I&amp;rsquo;ve solved.&lt;/p&gt;
-&lt;h2 id="completed-rooms"&gt;Completed Rooms&lt;/h2&gt;
-&lt;h3 id="1-pre-security-"&gt;1. Pre-Security ✅&lt;/h3&gt;
+&lt;h2 id=&#34;completed-rooms&#34;&gt;Completed Rooms&lt;/h2&gt;
+&lt;h3 id=&#34;1-pre-security-&#34;&gt;1. Pre-Security ✅&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Learning Path&lt;/strong&gt; - Beginner&lt;/p&gt;
 &lt;p&gt;Key topics covered:&lt;/p&gt;
 &lt;ul&gt;
@@ -644,9 +764,9 @@
 &lt;li&gt;Linux basics (file system, commands, permissions)&lt;/li&gt;
 &lt;li&gt;Windows security basics&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href="http://localhost:1313/posts/my-first-ctf/"&gt;Read full write-up&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:55623/posts/my-first-ctf/&#34;&gt;Read full write-up&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id="2-vulnversity-"&gt;2. Vulnversity 🔄&lt;/h3&gt;
+&lt;h3 id=&#34;2-vulnversity-&#34;&gt;2. Vulnversity 🔄&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;: Easy | &lt;strong&gt;Category&lt;/strong&gt;: Web Exploitation&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Skills learned&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
@@ -656,108 +776,125 @@
 &lt;li&gt;Reverse shell establishment&lt;/li&gt;
 &lt;li&gt;Privilege escalation via SUID binaries&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Key commands&lt;/strong&gt;:&lt;/p&gt;</description></item><item><title>About Me</title><link>http://localhost:1313/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/about/</guid><description>&lt;h2 id="titus-kamau"&gt;Titus Kamau&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Key commands&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>http://localhost:55623/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/about/</guid>
+      <description>&lt;h2 id=&#34;titus-kamau&#34;&gt;Titus Kamau&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Cybersecurity Professional | ISC2 Certified | Penetration Tester&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id="my-progress-so-far"&gt;My Progress So Far&lt;/h3&gt;
+&lt;h3 id=&#34;my-progress-so-far&#34;&gt;My Progress So Far&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Area&lt;/th&gt;
-&lt;th&gt;Progress&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Certifications&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;ISC2 CC (✅), TryHackMe Pre-Security (✅), Jr Penetration Tester (✅), Security+ (🔄)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Hands-On Labs&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;20+ TryHackMe rooms completed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Penetration Tests&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Conducted assessments on OWASP Juice Shop, Metasploitable 3, and custom web apps&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Incident Response&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Investigated simulated breaches including phishing campaigns and lateral movement attacks&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Security Reports&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Authored professional pentest reports, IR documentation, and SOC analysis&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Tool Development&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Built Python port scanner, XSS detector, and log monitoring utilities&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Area&lt;/th&gt;
+					&lt;th&gt;Progress&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Certifications&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;ISC2 CC (✅), TryHackMe Pre-Security (✅), Jr Penetration Tester (✅), Security+ (🔄)&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Hands-On Labs&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;20+ TryHackMe rooms completed&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Penetration Tests&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;Conducted assessments on OWASP Juice Shop, Metasploitable 3, and custom web apps&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Incident Response&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;Investigated simulated breaches including phishing campaigns and lateral movement attacks&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Security Reports&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;Authored professional pentest reports, IR documentation, and SOC analysis&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Tool Development&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;Built Python port scanner, XSS detector, and log monitoring utilities&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h3 id="what-i-am-currently-focused-on"&gt;What I Am Currently Focused On&lt;/h3&gt;
-&lt;p&gt;🔐 &lt;strong&gt;CompTIA Security+ Certification&lt;/strong&gt; — Deepening my knowledge of risk management, cryptography, and enterprise security controls.&lt;/p&gt;</description></item><item><title>Certifications</title><link>http://localhost:1313/certifications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/certifications/</guid><description>&lt;h2 id="my-professional-certifications"&gt;My Professional Certifications&lt;/h2&gt;
+&lt;h3 id=&#34;what-i-am-currently-focused-on&#34;&gt;What I Am Currently Focused On&lt;/h3&gt;
+&lt;p&gt;🔐 &lt;strong&gt;CompTIA Security+ Certification&lt;/strong&gt; — Deepening my knowledge of risk management, cryptography, and enterprise security controls.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Certifications</title>
+      <link>http://localhost:55623/certifications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55623/certifications/</guid>
+      <description>&lt;h2 id=&#34;my-professional-certifications&#34;&gt;My Professional Certifications&lt;/h2&gt;
 &lt;hr&gt;
-&lt;h3 id="-active-certifications"&gt;🏆 Active Certifications&lt;/h3&gt;
+&lt;h3 id=&#34;-active-certifications&#34;&gt;🏆 Active Certifications&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Certification&lt;/th&gt;
-&lt;th&gt;Issuer&lt;/th&gt;
-&lt;th&gt;Date Earned&lt;/th&gt;
-&lt;th&gt;Certificate&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Certified in Cybersecurity (CC)&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;ISC2&lt;/td&gt;
-&lt;td&gt;November 2025&lt;/td&gt;
-&lt;td&gt;&lt;a href="http://localhost:1313/certificates/ISC2_Certificate.pdf"&gt;📄 Download PDF&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Cybersecurity Program&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Moringa School&lt;/td&gt;
-&lt;td&gt;2025&lt;/td&gt;
-&lt;td&gt;&lt;a href="http://localhost:1313/certificates/Moringa_Certificate.pdf"&gt;📄 Download PDF&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Pre-Security&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;TryHackMe&lt;/td&gt;
-&lt;td&gt;2025&lt;/td&gt;
-&lt;td&gt;&lt;a href="https://tryhackme.com/p/titus.kamau"&gt;🔗 View on TryHackMe&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Junior Penetration Tester&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;TryHackMe&lt;/td&gt;
-&lt;td&gt;2025&lt;/td&gt;
-&lt;td&gt;&lt;a href="https://tryhackme.com/p/titus.kamau"&gt;🔗 View on TryHackMe&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Certification&lt;/th&gt;
+					&lt;th&gt;Issuer&lt;/th&gt;
+					&lt;th&gt;Date Earned&lt;/th&gt;
+					&lt;th&gt;Certificate&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Certified in Cybersecurity (CC)&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;ISC2&lt;/td&gt;
+					&lt;td&gt;November 2025&lt;/td&gt;
+					&lt;td&gt;&lt;a href=&#34;http://localhost:55623/certificates/ISC2_Certificate.pdf&#34;&gt;📄 Download PDF&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Cybersecurity Program&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;Moringa School&lt;/td&gt;
+					&lt;td&gt;2025&lt;/td&gt;
+					&lt;td&gt;&lt;a href=&#34;http://localhost:55623/certificates/Moringa_Certificate.pdf&#34;&gt;📄 Download PDF&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Pre-Security&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;TryHackMe&lt;/td&gt;
+					&lt;td&gt;2025&lt;/td&gt;
+					&lt;td&gt;&lt;a href=&#34;https://tryhackme.com/p/titus.kamau&#34;&gt;🔗 View on TryHackMe&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Junior Penetration Tester&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;TryHackMe&lt;/td&gt;
+					&lt;td&gt;2025&lt;/td&gt;
+					&lt;td&gt;&lt;a href=&#34;https://tryhackme.com/p/titus.kamau&#34;&gt;🔗 View on TryHackMe&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h3 id="-in-progress"&gt;📚 In Progress&lt;/h3&gt;
+&lt;h3 id=&#34;-in-progress&#34;&gt;📚 In Progress&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Certification&lt;/th&gt;
-&lt;th&gt;Issuer&lt;/th&gt;
-&lt;th&gt;Expected Completion&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;CompTIA Security+&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;CompTIA&lt;/td&gt;
-&lt;td&gt;2026&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Certified Ethical Hacker (CEH)&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;EC-Council&lt;/td&gt;
-&lt;td&gt;2027&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Certification&lt;/th&gt;
+					&lt;th&gt;Issuer&lt;/th&gt;
+					&lt;th&gt;Expected Completion&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;CompTIA Security+&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;CompTIA&lt;/td&gt;
+					&lt;td&gt;2026&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Certified Ethical Hacker (CEH)&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;EC-Council&lt;/td&gt;
+					&lt;td&gt;2027&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h3 id="-isc2-certified-in-cybersecurity-cc"&gt;📄 ISC2 Certified in Cybersecurity (CC)&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href="http://localhost:1313/certificates/ISC2_Certificate.pdf"&gt;📄 Download my ISC2 CC Certificate (PDF)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;h3 id=&#34;-isc2-certified-in-cybersecurity-cc&#34;&gt;📄 ISC2 Certified in Cybersecurity (CC)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://localhost:55623/certificates/ISC2_Certificate.pdf&#34;&gt;📄 Download my ISC2 CC Certificate (PDF)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
