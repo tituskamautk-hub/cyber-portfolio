@@ -1,130 +1,155 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Phishing on My Cybersecurity Portfolio</title><link>http://localhost:1313/tags/phishing/</link><description>Recent content in Phishing on My Cybersecurity Portfolio</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 05 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/phishing/index.xml" rel="self" type="application/rss+xml"/><item><title>SOC Incident Report - Phishing Unfolding</title><link>http://localhost:1313/reports/soc-incident-report/</link><pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/soc-incident-report/</guid><description>&lt;h2 id="soc-incident-report---tryhackme-soc-simulator"&gt;SOC Incident Report - TryHackMe SOC Simulator&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Phishing on My Cybersecurity Portfolio</title>
+    <link>http://localhost:1313/tags/phishing/</link>
+    <description>Recent content in Phishing on My Cybersecurity Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/phishing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SOC Incident Report - Phishing Unfolding</title>
+      <link>http://localhost:1313/reports/soc-incident-report/</link>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/reports/soc-incident-report/</guid>
+      <description>&lt;h2 id=&#34;soc-incident-report---tryhackme-soc-simulator&#34;&gt;SOC Incident Report - TryHackMe SOC Simulator&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Incident Reference:&lt;/strong&gt; INC-2026-060401
 &lt;strong&gt;Classification:&lt;/strong&gt; CONFIDENTIAL — INTERNAL USE ONLY
 &lt;strong&gt;Severity:&lt;/strong&gt; HIGH
 &lt;strong&gt;Analyst:&lt;/strong&gt; Tier 2 SOC Analyst — Titus Kamau&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id="executive-summary"&gt;Executive Summary&lt;/h3&gt;
+&lt;h3 id=&#34;executive-summary&#34;&gt;Executive Summary&lt;/h3&gt;
 &lt;p&gt;On June 4th, 2026, a high-severity endpoint compromise was identified. An unauthorized threat actor gained an interactive foothold, deploying PowerView.ps1 for reconnaissance and using Robocopy to harvest data from network shares.&lt;/p&gt;
-&lt;h3 id="key-metrics"&gt;Key Metrics&lt;/h3&gt;
+&lt;h3 id=&#34;key-metrics&#34;&gt;Key Metrics&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Metric&lt;/th&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Mean Time to Detect (MTTD)&lt;/td&gt;
-&lt;td&gt;38 minutes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Mean Time to Respond (MTTR)&lt;/td&gt;
-&lt;td&gt;2 minutes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;True Positive Rate&lt;/td&gt;
-&lt;td&gt;80%&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Total Alerts Closed&lt;/td&gt;
-&lt;td&gt;35&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Metric&lt;/th&gt;
+					&lt;th&gt;Value&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Mean Time to Detect (MTTD)&lt;/td&gt;
+					&lt;td&gt;38 minutes&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Mean Time to Respond (MTTR)&lt;/td&gt;
+					&lt;td&gt;2 minutes&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;True Positive Rate&lt;/td&gt;
+					&lt;td&gt;80%&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Total Alerts Closed&lt;/td&gt;
+					&lt;td&gt;35&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="incident-timeline"&gt;Incident Timeline&lt;/h3&gt;
+&lt;h3 id=&#34;incident-timeline&#34;&gt;Incident Timeline&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Time&lt;/th&gt;
-&lt;th&gt;Event&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;20:49:24&lt;/td&gt;
-&lt;td&gt;PowerView.ps1 dropped on win-3450 via PowerShell&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;20:52:06&lt;/td&gt;
-&lt;td&gt;Robocopy.exe launched to harvest files from Z:\ drive&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;21:xx&lt;/td&gt;
-&lt;td&gt;Containment initiated - host isolated&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Time&lt;/th&gt;
+					&lt;th&gt;Event&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;20:49:24&lt;/td&gt;
+					&lt;td&gt;PowerView.ps1 dropped on win-3450 via PowerShell&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;20:52:06&lt;/td&gt;
+					&lt;td&gt;Robocopy.exe launched to harvest files from Z:\ drive&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;21:xx&lt;/td&gt;
+					&lt;td&gt;Containment initiated - host isolated&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="indicators-of-compromise-iocs"&gt;Indicators of Compromise (IOCs)&lt;/h3&gt;
+&lt;h3 id=&#34;indicators-of-compromise-iocs&#34;&gt;Indicators of Compromise (IOCs)&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Indicator&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Host&lt;/td&gt;
-&lt;td&gt;win-3450&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Compromised Account&lt;/td&gt;
-&lt;td&gt;michael.ascot&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Malicious File&lt;/td&gt;
-&lt;td&gt;PowerView.ps1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Abused Utility&lt;/td&gt;
-&lt;td&gt;Robocopy.exe&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Malicious Domain&lt;/td&gt;
-&lt;td&gt;hatventuresworldwide.online&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Type&lt;/th&gt;
+					&lt;th&gt;Indicator&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Host&lt;/td&gt;
+					&lt;td&gt;win-3450&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Compromised Account&lt;/td&gt;
+					&lt;td&gt;michael.ascot&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Malicious File&lt;/td&gt;
+					&lt;td&gt;PowerView.ps1&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Abused Utility&lt;/td&gt;
+					&lt;td&gt;Robocopy.exe&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Malicious Domain&lt;/td&gt;
+					&lt;td&gt;hatventuresworldwide.online&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="mitre-attck-mapping"&gt;MITRE ATT&amp;amp;CK Mapping&lt;/h3&gt;
+&lt;h3 id=&#34;mitre-attck-mapping&#34;&gt;MITRE ATT&amp;amp;CK Mapping&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Technique&lt;/th&gt;
-&lt;th&gt;ID&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Phishing&lt;/td&gt;
-&lt;td&gt;T1566&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PowerShell&lt;/td&gt;
-&lt;td&gt;T1059.001&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Valid Accounts&lt;/td&gt;
-&lt;td&gt;T1078&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Lateral Movement&lt;/td&gt;
-&lt;td&gt;T1021&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Technique&lt;/th&gt;
+					&lt;th&gt;ID&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Phishing&lt;/td&gt;
+					&lt;td&gt;T1566&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;PowerShell&lt;/td&gt;
+					&lt;td&gt;T1059.001&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Valid Accounts&lt;/td&gt;
+					&lt;td&gt;T1078&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Lateral Movement&lt;/td&gt;
+					&lt;td&gt;T1021&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="recommendations"&gt;Recommendations&lt;/h3&gt;
+&lt;h3 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Application Control:&lt;/strong&gt; Prevent script execution from user-writable directories&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;EDR Throttling:&lt;/strong&gt; Auto-quarantine mass file-copy behaviors&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Least Privilege Audit:&lt;/strong&gt; Restrict broad access to network shares&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;a href="http://localhost:1313/reports/SOC-Incident-Report.pdf"&gt;View Full Report&lt;/a&gt;&lt;/p&gt;</description></item><item><title>HealthSecure Systems Incident Response Report</title><link>http://localhost:1313/reports/healthsecure-ir-report/</link><pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/healthsecure-ir-report/</guid><description>&lt;h2 id="healthsecure-systems-incident-response-report"&gt;HealthSecure Systems Incident Response Report&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/reports/SOC-Incident-Report.pdf&#34;&gt;View Full Report&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HealthSecure Systems Incident Response Report</title>
+      <link>http://localhost:1313/reports/healthsecure-ir-report/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/reports/healthsecure-ir-report/</guid>
+      <description>&lt;h2 id=&#34;healthsecure-systems-incident-response-report&#34;&gt;HealthSecure Systems Incident Response Report&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Reference:&lt;/strong&gt; 2025-HSS-IR-002
 &lt;strong&gt;Severity:&lt;/strong&gt; SEV P1 - CRITICAL
 &lt;strong&gt;Classification:&lt;/strong&gt; CONFIDENTIAL - Internal Use Only
 &lt;strong&gt;Prepared By:&lt;/strong&gt; Titus Kamau - Cybersecurity Incident Response Lead&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id="executive-summary"&gt;Executive Summary&lt;/h3&gt;
-&lt;p&gt;On April 12, 2025, HealthSecure Systems suffered a confirmed security breach initiated by a phishing email. The attacker gained access to a Finance workstation, executed PowerShell to download malware, and moved laterally toward the HR SQL server containing payroll and PII.&lt;/p&gt;</description></item></channel></rss>
+&lt;h3 id=&#34;executive-summary&#34;&gt;Executive Summary&lt;/h3&gt;
+&lt;p&gt;On April 12, 2025, HealthSecure Systems suffered a confirmed security breach initiated by a phishing email. The attacker gained access to a Finance workstation, executed PowerShell to download malware, and moved laterally toward the HR SQL server containing payroll and PII.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

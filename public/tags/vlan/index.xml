@@ -1,112 +1,130 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Vlan on My Cybersecurity Portfolio</title><link>http://localhost:1313/tags/vlan/</link><description>Recent content in Vlan on My Cybersecurity Portfolio</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/vlan/index.xml" rel="self" type="application/rss+xml"/><item><title>Acme AeroTech Security Assessment</title><link>http://localhost:1313/reports/acme-aerotech-assessment/</link><pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/acme-aerotech-assessment/</guid><description>&lt;h2 id="acme-aerotech---security--resilience-assessment"&gt;Acme AeroTech - Security &amp;amp; Resilience Assessment&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Vlan on My Cybersecurity Portfolio</title>
+    <link>http://localhost:1313/tags/vlan/</link>
+    <description>Recent content in Vlan on My Cybersecurity Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vlan/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Acme AeroTech Security Assessment</title>
+      <link>http://localhost:1313/reports/acme-aerotech-assessment/</link>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/reports/acme-aerotech-assessment/</guid>
+      <description>&lt;h2 id=&#34;acme-aerotech---security--resilience-assessment&#34;&gt;Acme AeroTech - Security &amp;amp; Resilience Assessment&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Prepared For:&lt;/strong&gt; Acme AeroTech
 &lt;strong&gt;Prepared By:&lt;/strong&gt; Titus Kamau
 &lt;strong&gt;Assessment Type:&lt;/strong&gt; Cybersecurity Review
 &lt;strong&gt;Date:&lt;/strong&gt; May 18, 2026&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id="organization-profile"&gt;Organization Profile&lt;/h3&gt;
+&lt;h3 id=&#34;organization-profile&#34;&gt;Organization Profile&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Metric&lt;/th&gt;
-&lt;th&gt;Value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Industry&lt;/td&gt;
-&lt;td&gt;Aerospace parts manufacturing&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Employees&lt;/td&gt;
-&lt;td&gt;75&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;IT Team Size&lt;/td&gt;
-&lt;td&gt;2 persons&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Network Age&lt;/td&gt;
-&lt;td&gt;5 years&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Redundancy&lt;/td&gt;
-&lt;td&gt;None&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Metric&lt;/th&gt;
+					&lt;th&gt;Value&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Industry&lt;/td&gt;
+					&lt;td&gt;Aerospace parts manufacturing&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Employees&lt;/td&gt;
+					&lt;td&gt;75&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;IT Team Size&lt;/td&gt;
+					&lt;td&gt;2 persons&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Network Age&lt;/td&gt;
+					&lt;td&gt;5 years&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Redundancy&lt;/td&gt;
+					&lt;td&gt;None&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h3 id="key-challenges-identified"&gt;Key Challenges Identified&lt;/h3&gt;
+&lt;h3 id=&#34;key-challenges-identified&#34;&gt;Key Challenges Identified&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Issue&lt;/th&gt;
-&lt;th&gt;Risk&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Flat, unsegmented network&lt;/td&gt;
-&lt;td&gt;Lateral movement after any compromise&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Default credentials on router, web, FTP, database&lt;/td&gt;
-&lt;td&gt;Easy unauthorized access&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;No patch management program&lt;/td&gt;
-&lt;td&gt;Known unpatched CVEs exploitable&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;No redundancy&lt;/td&gt;
-&lt;td&gt;Full outages during maintenance&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Issue&lt;/th&gt;
+					&lt;th&gt;Risk&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Flat, unsegmented network&lt;/td&gt;
+					&lt;td&gt;Lateral movement after any compromise&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Default credentials on router, web, FTP, database&lt;/td&gt;
+					&lt;td&gt;Easy unauthorized access&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;No patch management program&lt;/td&gt;
+					&lt;td&gt;Known unpatched CVEs exploitable&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;No redundancy&lt;/td&gt;
+					&lt;td&gt;Full outages during maintenance&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h3 id="vulnerability-analysis"&gt;Vulnerability Analysis&lt;/h3&gt;
+&lt;h3 id=&#34;vulnerability-analysis&#34;&gt;Vulnerability Analysis&lt;/h3&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Vulnerability&lt;/th&gt;
-&lt;th&gt;Likelihood&lt;/th&gt;
-&lt;th&gt;Impact&lt;/th&gt;
-&lt;th&gt;Priority&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Default credentials&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;HIGH&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Flat network / no segmentation&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;HIGH&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;No patch management&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;Medium&lt;/td&gt;
-&lt;td&gt;HIGH&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Single firewall / switch&lt;/td&gt;
-&lt;td&gt;Medium&lt;/td&gt;
-&lt;td&gt;High&lt;/td&gt;
-&lt;td&gt;MEDIUM&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;FTP plaintext&lt;/td&gt;
-&lt;td&gt;Medium&lt;/td&gt;
-&lt;td&gt;Medium&lt;/td&gt;
-&lt;td&gt;MEDIUM&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Vulnerability&lt;/th&gt;
+					&lt;th&gt;Likelihood&lt;/th&gt;
+					&lt;th&gt;Impact&lt;/th&gt;
+					&lt;th&gt;Priority&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Default credentials&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;HIGH&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Flat network / no segmentation&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;HIGH&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;No patch management&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;Medium&lt;/td&gt;
+					&lt;td&gt;HIGH&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Single firewall / switch&lt;/td&gt;
+					&lt;td&gt;Medium&lt;/td&gt;
+					&lt;td&gt;High&lt;/td&gt;
+					&lt;td&gt;MEDIUM&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;FTP plaintext&lt;/td&gt;
+					&lt;td&gt;Medium&lt;/td&gt;
+					&lt;td&gt;Medium&lt;/td&gt;
+					&lt;td&gt;MEDIUM&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h3 id="recommended-network-redesign"&gt;Recommended Network Redesign&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;6 VLANs:&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;h3 id=&#34;recommended-network-redesign&#34;&gt;Recommended Network Redesign&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;6 VLANs:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

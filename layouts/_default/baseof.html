@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }} | Titus Kamau</title>
     <style>
-        /* Copy ALL your styles from homepage */
         * {
             margin: 0;
             padding: 0;
@@ -30,11 +29,6 @@
             border-radius: 3px;
         }
 
-        ::selection {
-            background: #2ecc71;
-            color: #03050b;
-        }
-
         .navbar {
             max-width: 1400px;
             margin: 0 auto;
@@ -55,7 +49,6 @@
         .logo {
             font-size: 1.2rem;
             font-weight: 600;
-            letter-spacing: 1px;
             color: #2ecc71;
             font-family: monospace;
         }
@@ -69,7 +62,6 @@
         .nav-links a {
             text-decoration: none;
             color: #7a8b9e;
-            font-weight: 500;
             transition: all 0.2s;
             font-size: 0.85rem;
             font-family: monospace;
@@ -79,7 +71,16 @@
             color: #2ecc71;
         }
 
-        /* Content area styling */
+        .clock {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #2ecc71;
+            background: rgba(46, 204, 113, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid #2ecc7140;
+        }
+
         .page-container {
             max-width: 1200px;
             margin: 2rem auto;
@@ -87,15 +88,6 @@
             background: linear-gradient(135deg, #070b14 0%, #0a1020 100%);
             border-left: 3px solid #2ecc71;
             min-height: calc(100vh - 200px);
-        }
-
-        .page-title {
-            font-size: 2rem;
-            color: #2ecc71;
-            margin-bottom: 1.5rem;
-            font-family: monospace;
-            border-bottom: 1px solid #2ecc7140;
-            padding-bottom: 0.5rem;
         }
 
         .content {
@@ -129,10 +121,6 @@
             text-decoration: none;
         }
 
-        .content a:hover {
-            text-decoration: underline;
-        }
-
         .footer {
             text-align: center;
             padding: 2rem;
@@ -151,14 +139,10 @@
                 margin: 1rem;
                 padding: 1rem;
             }
-            .page-title {
-                font-size: 1.5rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- YOUR NAVIGATION BAR - Same as homepage -->
     <nav class="navbar">
         <div class="logo">Titus Kamau</div>
         <div class="nav-links">
@@ -169,20 +153,34 @@
             <a href="/blog/">blog</a>
             <a href="/about/">about</a>
         </div>
+        <div id="digitalClock" class="clock"></div>
     </nav>
 
-    <!-- Page content container -->
     <div class="page-container">
         <div class="content">
             {{ .Content }}
         </div>
     </div>
 
-    <!-- YOUR FOOTER - Same as homepage -->
     <footer class="footer">
         <div>Titus Kamau — Securing digital assets, one vulnerability at a time</div>
         <div style="margin-top: 0.5rem;">© 2026 | Cybersecurity Portfolio</div>
         <div style="margin-top: 0.5rem;">ISC2 CC | TryHackMe Pre-Security | Jr Penetration Tester</div>
     </footer>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const clockElement = document.getElementById('digitalClock');
+            if (clockElement) {
+                clockElement.innerHTML = hours + ':' + minutes + ':' + seconds;
+            }
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
 </body>
 </html>
