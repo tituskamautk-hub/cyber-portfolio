@@ -1,24 +1,34 @@
 baseURL = "http://localhost:1313/"
-title = "My Cybersecurity Portfolio"
+title = "Titus Kamau - Cybersecurity Portfolio"
 theme = "PaperMod"
 
 [params]
-  homeInfoParams = { title = "Welcome to My Cybersecurity Portfolio", content = "I'm a beginner cybersecurity student documenting my journey through CTFs, projects, and certifications." }
+  defaultTheme = "dark"
 
 [[menu.main]]
-  name = "Posts"
-  url = "/posts/"
+  name = "home"
+  url = "/"
+  weight = 5
+
+[[menu.main]]
+  name = "projects"
+  url = "/cybersecurity/"
   weight = 10
 
 [[menu.main]]
-  name = "Projects"
-  url = "/projects/"
+  name = "reports"
+  url = "/reports/"
   weight = 15
 
 [[menu.main]]
-  name = "About"
-  url = "/about/"
+  name = "blog"
+  url = "/blog/"
   weight = 20
+
+[[menu.main]]
+  name = "about"
+  url = "/about/"
+  weight = 25
 
 [markup.goldmark.renderer]
   unsafe = true

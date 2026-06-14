@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Phishing | Titus Kamau - Cybersecurity Portfolio</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/tags/phishing/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.849fb33cfd2047e349a5b9595ab01d785b8337e22f5b29aa92421295377f7776.css" integrity="sha256-hJ&#43;zPP0gR&#43;NJpblZWrAdeFuDN&#43;IvWymqkkISlTd/d3Y=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/phishing/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/phishing/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Titus Kamau - Cybersecurity Portfolio (Alt + H)">Titus Kamau - Cybersecurity Portfolio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/" title="home">
+                    <span>home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cybersecurity/" title="projects">
+                    <span>projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/reports/" title="reports">
+                    <span>reports</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/" title="blog">
+                    <span>blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Phishing
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SOC Incident Report - Phishing Unfolding
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SOC Incident Report - TryHackMe SOC Simulator Incident Reference: INC-2026-060401 Classification: CONFIDENTIAL — INTERNAL USE ONLY Severity: HIGH Analyst: Tier 2 SOC Analyst — Titus Kamau
+Executive Summary On June 4th, 2026, a high-severity endpoint compromise was identified. An unauthorized threat actor gained an interactive foothold, deploying PowerView.ps1 for reconnaissance and using Robocopy to harvest data from network shares.
+Key Metrics Metric Value Mean Time to Detect (MTTD) 38 minutes Mean Time to Respond (MTTR) 2 minutes True Positive Rate 80% Total Alerts Closed 35 Incident Timeline Time Event 20:49:24 PowerView.ps1 dropped on win-3450 via PowerShell 20:52:06 Robocopy.exe launched to harvest files from Z:\ drive 21:xx Containment initiated - host isolated Indicators of Compromise (IOCs) Type Indicator Host win-3450 Compromised Account michael.ascot Malicious File PowerView.ps1 Abused Utility Robocopy.exe Malicious Domain hatventuresworldwide.online MITRE ATT&amp;CK Mapping Technique ID Phishing T1566 PowerShell T1059.001 Valid Accounts T1078 Lateral Movement T1021 Recommendations Application Control: Prevent script execution from user-writable directories EDR Throttling: Auto-quarantine mass file-copy behaviors Least Privilege Audit: Restrict broad access to network shares View Full Report
+</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-05 00:00:00 +0000 UTC'>June 5, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to SOC Incident Report - Phishing Unfolding" href="http://localhost:1313/reports/soc-incident-report/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">HealthSecure Systems Incident Response Report
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>HealthSecure Systems Incident Response Report Reference: 2025-HSS-IR-002 Severity: SEV P1 - CRITICAL Classification: CONFIDENTIAL - Internal Use Only Prepared By: Titus Kamau - Cybersecurity Incident Response Lead
+Executive Summary On April 12, 2025, HealthSecure Systems suffered a confirmed security breach initiated by a phishing email. The attacker gained access to a Finance workstation, executed PowerShell to download malware, and moved laterally toward the HR SQL server containing payroll and PII.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2025-04-12 00:00:00 +0000 UTC'>April 12, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to HealthSecure Systems Incident Response Report" href="http://localhost:1313/reports/healthsecure-ir-report/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Titus Kamau - Cybersecurity Portfolio</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

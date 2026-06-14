@@ -19,14 +19,14 @@
         }
 
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
             background: #0a0f1a;
         }
         ::-webkit-scrollbar-thumb {
             background: #2ecc71;
-            border-radius: 3px;
+            border-radius: 4px;
         }
 
         ::selection {
@@ -34,16 +34,10 @@
             color: #03050b;
         }
 
-        @keyframes glitch {
-            0%, 100% { text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; }
-            33% { text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff; }
-            66% { text-shadow: 0 0 5px #ff00ff, 0 0 5px #00ffff; }
-        }
-
         .navbar {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -58,7 +52,7 @@
         }
 
         .logo {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 600;
             letter-spacing: 1px;
             color: #2ecc71;
@@ -76,20 +70,8 @@
             color: #7a8b9e;
             font-weight: 500;
             transition: all 0.2s;
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-family: monospace;
-        }
-
-        .nav-links a::before {
-            content: "#";
-            margin-right: 4px;
-            color: #2ecc71;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .nav-links a:hover::before {
-            opacity: 1;
         }
 
         .nav-links a:hover {
@@ -101,11 +83,7 @@
             margin: 2rem auto 0;
             padding: 4rem 2rem;
             background: linear-gradient(135deg, #070b14 0%, #0a1020 100%);
-            border-radius: 0;
-            position: relative;
-            overflow: hidden;
             border-left: 3px solid #2ecc71;
-            border-right: 1px solid #2ecc7120;
             box-shadow: 0 0 40px rgba(46, 204, 113, 0.05);
         }
 
@@ -115,18 +93,17 @@
             gap: 0.5rem;
             background: rgba(46, 204, 113, 0.08);
             color: #2ecc71;
-            padding: 0.3rem 1rem;
-            font-size: 0.7rem;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
             border: 1px solid #2ecc7130;
             font-family: monospace;
-            letter-spacing: 1px;
         }
 
         .hero-badge::before {
             content: "▶";
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             animation: pulse 1.5s infinite;
         }
 
@@ -136,7 +113,7 @@
         }
 
         .hero-content h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 1rem;
@@ -145,18 +122,10 @@
 
         .hero-content h1 .highlight {
             color: #2ecc71;
-            border-right: 2px solid #2ecc71;
-            padding-right: 8px;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { border-right-color: #2ecc71; }
-            50% { border-right-color: transparent; }
         }
 
         .hero-content p {
-            font-size: 1rem;
+            font-size: 1.3rem;
             color: #8a9bb0;
             margin-bottom: 1.5rem;
             max-width: 600px;
@@ -165,26 +134,26 @@
 
         .hero-stats {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             margin: 2rem 0;
             flex-wrap: wrap;
         }
 
         .hero-stat {
             background: rgba(46, 204, 113, 0.03);
-            padding: 0.6rem 1.2rem;
+            padding: 0.8rem 1.5rem;
             border-left: 2px solid #2ecc71;
         }
 
         .hero-stat-number {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #2ecc71;
             font-family: monospace;
         }
 
         .hero-stat-label {
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             color: #6a7b8e;
             letter-spacing: 1px;
             font-family: monospace;
@@ -201,12 +170,12 @@
             display: inline-block;
             background: #2ecc71;
             color: #03050b;
-            padding: 0.7rem 1.5rem;
+            padding: 0.9rem 2rem;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s;
             font-family: monospace;
-            font-size: 0.85rem;
+            font-size: 1rem;
         }
 
         .btn-primary:hover {
@@ -219,13 +188,13 @@
             display: inline-block;
             background: transparent;
             color: #2ecc71;
-            padding: 0.7rem 1.5rem;
+            padding: 0.9rem 2rem;
             text-decoration: none;
             font-weight: 700;
             border: 1px solid #2ecc71;
             transition: all 0.3s;
             font-family: monospace;
-            font-size: 0.85rem;
+            font-size: 1rem;
         }
 
         .btn-secondary:hover {
@@ -247,17 +216,17 @@
         .section-tag {
             display: inline-block;
             color: #2ecc71;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1rem;
             font-family: monospace;
             letter-spacing: 2px;
             background: rgba(46, 204, 113, 0.08);
-            padding: 0.2rem 0.8rem;
+            padding: 0.3rem 1rem;
         }
 
         .section-title {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 1rem;
@@ -269,36 +238,21 @@
             max-width: 600px;
             margin: 0 auto;
             font-family: monospace;
-            font-size: 0.85rem;
+            font-size: 1rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
         .service-card {
             background: #070b14;
-            padding: 1.5rem;
+            padding: 1.8rem;
             transition: all 0.3s;
             border: 1px solid #1a2533;
             position: relative;
-        }
-
-        .service-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, #2ecc7105, transparent);
-            transition: width 0.3s;
-        }
-
-        .service-card:hover::before {
-            width: 100%;
         }
 
         .service-card:hover {
@@ -307,26 +261,20 @@
         }
 
         .service-icon {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
         }
 
         .service-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             margin-bottom: 0.8rem;
             color: #2ecc71;
             font-family: monospace;
         }
 
-        .service-card h3::before {
-            content: ">";
-            margin-right: 6px;
-            color: #2ecc71;
-        }
-
         .service-card p {
             color: #8a9bb0;
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             line-height: 1.6;
             font-family: monospace;
         }
@@ -347,7 +295,7 @@
         
         .skill-card {
             background: #070b14;
-            padding: 1.5rem;
+            padding: 1.8rem;
             transition: all 0.3s;
             border: 1px solid #1a2533;
         }
@@ -358,12 +306,12 @@
         }
         
         .skill-icon {
-            font-size: 1.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
         
         .skill-card h3 {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: #2ecc71;
@@ -378,18 +326,12 @@
         
         .skill-tag {
             background: rgba(46, 204, 113, 0.08);
-            padding: 0.2rem 0.6rem;
-            font-size: 0.65rem;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: #2ecc71;
             transition: all 0.2s;
             font-family: monospace;
-        }
-        
-        .skill-tag::before {
-            content: "#";
-            margin-right: 3px;
-            opacity: 0.5;
         }
         
         .skill-tag:hover {
@@ -399,13 +341,13 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 1.5rem;
         }
 
         .project-card {
             background: #070b14;
-            overflow: hidden;
+            padding: 1.8rem;
             transition: all 0.3s;
             border: 1px solid #1a2533;
         }
@@ -415,27 +357,19 @@
             border-color: #2ecc7140;
         }
 
-        .project-content {
-            padding: 1.5rem;
-        }
-
         .project-card h3 {
-            font-size: 1rem;
+            font-size: 1.2rem;
             margin-bottom: 0.8rem;
             color: #ffffff;
             font-family: monospace;
         }
 
-        .project-card h3::before {
-            content: "📁 ";
-            color: #2ecc71;
-        }
-
         .project-card p {
             color: #8a9bb0;
             margin-bottom: 1rem;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-family: monospace;
+            line-height: 1.5;
         }
 
         .project-tags {
@@ -446,8 +380,8 @@
 
         .project-tag {
             background: rgba(46, 204, 113, 0.08);
-            padding: 0.15rem 0.5rem;
-            font-size: 0.6rem;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
             color: #2ecc71;
             font-family: monospace;
         }
@@ -459,7 +393,7 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1rem;
             max-width: 1000px;
             margin: 0 auto;
@@ -467,7 +401,7 @@
 
         .contact-card {
             background: #070b14;
-            padding: 1.2rem;
+            padding: 1.5rem;
             text-align: center;
             text-decoration: none;
             color: inherit;
@@ -481,19 +415,19 @@
         }
 
         .contact-icon {
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
         }
 
         .contact-card h3 {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: #2ecc71;
             margin-bottom: 0.2rem;
             font-family: monospace;
         }
 
         .contact-card p {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             color: #7a8b9e;
             font-family: monospace;
             word-break: break-all;
@@ -501,7 +435,7 @@
 
         .terminal-line {
             font-family: monospace;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: #2ecc71;
             margin-top: 0.5rem;
         }
@@ -511,7 +445,7 @@
             padding: 2rem;
             border-top: 1px solid #1a2533;
             color: #5a6b7e;
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             font-family: monospace;
         }
 
@@ -520,7 +454,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .hero-content h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
         }
         
@@ -529,7 +463,10 @@
                 padding: 2rem 1.5rem;
             }
             .hero-content h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
             }
             .navbar {
                 flex-direction: column;
@@ -539,7 +476,7 @@
                 grid-template-columns: 1fr;
             }
             .section-title {
-                font-size: 1.3rem;
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -549,9 +486,9 @@
         <div class="logo">Titus Kamau</div>
         <div class="nav-links">
             <a href="/">home</a>
-            <a href="/projects/">projects</a>
+            <a href="/cybersecurity/">projects</a>
             <a href="/reports/">reports</a>
-            <a href="/posts/">blog</a>
+            <a href="/blog/">blog</a>
             <a href="/about/">about</a>
         </div>
     </nav>
@@ -567,7 +504,7 @@
                     <div class="hero-stat-label">SECURITY PROJECTS</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-number">3</div>
+                    <div class="hero-stat-number">4</div>
                     <div class="hero-stat-label">CERTIFICATIONS</div>
                 </div>
                 <div class="hero-stat">
@@ -576,7 +513,7 @@
                 </div>
             </div>
             <div class="hero-buttons">
-                <a href="/projects/" class="btn-primary">View Projects</a>
+                <a href="/cybersecurity/" class="btn-primary">View Projects</a>
                 <a href="/about/" class="btn-secondary">Connect</a>
             </div>
         </div>
@@ -668,50 +605,33 @@
             <p class="section-subtitle">Successfully executed security engagements</p>
         </div>
         <div class="projects-grid">
-            {{ range where .Site.RegularPages "Section" "projects" | first 3 }}
             <div class="project-card">
-                <div class="project-content">
-                    <h3>{{ .Title }}</h3>
-                    <p>{{ .Summary | truncate 100 }}</p>
-                    <div class="project-tags">
-                        {{ range .Params.tags | first 3 }}
-                        <span class="project-tag">{{ . }}</span>
-                        {{ end }}
-                    </div>
-                </div>
-            </div>
-            {{ else }}
-            <div class="project-card">
-                <div class="project-content">
-                    <h3>Python Port Scanner</h3>
-                    <p>Multi-threaded network reconnaissance tool for service discovery.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Networking</span>
-                    </div>
+                <h3>🔴 OWASP Juice Shop</h3>
+                <p>Web application penetration test identifying SQL injection and access control vulnerabilities</p>
+                <div class="project-tags">
+                    <span class="project-tag">pentesting</span>
+                    <span class="project-tag">webapp</span>
+                    <span class="project-tag">burpsuite</span>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-content">
-                    <h3>Log Monitoring Script</h3>
-                    <p>Real-time security event detection and alerting system.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Bash</span>
-                        <span class="project-tag">Security</span>
-                    </div>
+                <h3>🟠 HealthSecure IR</h3>
+                <p>Incident investigation with log correlation, timeline reconstruction, and MITRE ATT&CK mapping</p>
+                <div class="project-tags">
+                    <span class="project-tag">incident-response</span>
+                    <span class="project-tag">dfir</span>
+                    <span class="project-tag">forensics</span>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-content">
-                    <h3>Secure Password Generator</h3>
-                    <p>Cryptographically secure password generation tool.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Cryptography</span>
-                    </div>
+                <h3>🟡 Acme AeroTech</h3>
+                <p>Network security assessment with VLAN segmentation and firewall hardening recommendations</p>
+                <div class="project-tags">
+                    <span class="project-tag">network-security</span>
+                    <span class="project-tag">risk-assessment</span>
+                    <span class="project-tag">vlan</span>
                 </div>
             </div>
-            {{ end }}
         </div>
     </section>
 
@@ -728,7 +648,7 @@
                 <p>github.com/tituskamautk-hub</p>
                 <div class="terminal-line">Review my code</div>
             </a>
-            <a href="https://www.linkedin.com/in/titus-kamau" target="_blank" class="contact-card">
+            <a href="https://linkedin.com/in/titus-kamau" target="_blank" class="contact-card">
                 <div class="contact-icon">🔗</div>
                 <h3>LinkedIn</h3>
                 <p>linkedin.com/in/titus-kamau</p>
@@ -752,6 +672,7 @@
     <footer class="footer">
         <div class="terminal-line">Titus Kamau — Securing digital assets, one vulnerability at a time</div>
         <div style="margin-top: 1rem;">© 2026 | Cybersecurity Portfolio</div>
+        <div style="margin-top: 0.5rem;">ISC2 CC | TryHackMe Pre-Security | Jr Penetration Tester</div>
     </footer>
 </body>
 </html>

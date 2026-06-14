@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="en" dir="auto" data-theme="dark">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Tryhackme | My Cybersecurity Portfolio</title>
+<title>TryHackMe | Titus Kamau - Cybersecurity Portfolio</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -28,40 +28,9 @@
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-    </style>
 </noscript>
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
+    if (localStorage.getItem("pref-theme") === "light") {
         document.querySelector("html").dataset.theme = 'light';
     }
 
@@ -71,7 +40,7 @@
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Cybersecurity Portfolio (Alt + H)">My Cybersecurity Portfolio</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Titus Kamau - Cybersecurity Portfolio (Alt + H)">Titus Kamau - Cybersecurity Portfolio</a>
             <div class="logo-switches">
                 <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
@@ -97,18 +66,28 @@
         </div>
         <ul id="menu" class="menu">
             <li>
-                <a href="http://localhost:1313/posts/" title="Posts">
-                    <span>Posts</span>
+                <a href="http://localhost:1313/" title="home">
+                    <span>home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/projects/" title="Projects">
-                    <span>Projects</span>
+                <a href="http://localhost:1313/cybersecurity/" title="projects">
+                    <span>projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
-                    <span>About</span>
+                <a href="http://localhost:1313/reports/" title="reports">
+                    <span>reports</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/" title="blog">
+                    <span>blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="about">
+                    <span>about</span>
                 </a>
             </li>
         </ul>
@@ -117,9 +96,26 @@
 <main class="main"> 
 <header class="page-header">
   <h1>
-    Tryhackme
+    TryHackMe
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SOC Incident Report - Phishing Unfolding
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SOC Incident Report - TryHackMe SOC Simulator Incident Reference: INC-2026-060401 Classification: CONFIDENTIAL — INTERNAL USE ONLY Severity: HIGH Analyst: Tier 2 SOC Analyst — Titus Kamau
+Executive Summary On June 4th, 2026, a high-severity endpoint compromise was identified. An unauthorized threat actor gained an interactive foothold, deploying PowerView.ps1 for reconnaissance and using Robocopy to harvest data from network shares.
+Key Metrics Metric Value Mean Time to Detect (MTTD) 38 minutes Mean Time to Respond (MTTR) 2 minutes True Positive Rate 80% Total Alerts Closed 35 Incident Timeline Time Event 20:49:24 PowerView.ps1 dropped on win-3450 via PowerShell 20:52:06 Robocopy.exe launched to harvest files from Z:\ drive 21:xx Containment initiated - host isolated Indicators of Compromise (IOCs) Type Indicator Host win-3450 Compromised Account michael.ascot Malicious File PowerView.ps1 Abused Utility Robocopy.exe Malicious Domain hatventuresworldwide.online MITRE ATT&amp;CK Mapping Technique ID Phishing T1566 PowerShell T1059.001 Valid Accounts T1078 Lateral Movement T1021 Recommendations Application Control: Prevent script execution from user-writable directories EDR Throttling: Auto-quarantine mass file-copy behaviors Least Privilege Audit: Restrict broad access to network shares View Full Report
+</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-05 00:00:00 +0000 UTC'>June 5, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to SOC Incident Report - Phishing Unfolding" href="http://localhost:1313/reports/soc-incident-report/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -160,7 +156,7 @@ Directory enumeration with Gobuster File upload vulnerability identification Ext
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My Cybersecurity Portfolio</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">Titus Kamau - Cybersecurity Portfolio</a></span> · 
 
     
     

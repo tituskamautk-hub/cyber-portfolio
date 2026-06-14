@@ -1,27 +1,65 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="en" dir="auto" data-theme="dark">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Cybersecurity Projects | My Cybersecurity Portfolio</title>
+<title>Cybersecurity Projects | Titus Kamau - Cybersecurity Portfolio</title>
 <meta name="keywords" content="">
-<meta name="description" content="My Security Project Portfolio
-Here are the cybersecurity projects I&rsquo;ve built to learn and practice security concepts.
+<meta name="description" content="Cybersecurity Projects
+This section showcases hands-on cybersecurity projects covering penetration testing, incident response, network security, and security tool development.
 
-🔍 Python Port Scanner
-Network Security | Python
-A multi-threaded port scanner for network reconnaissance and service discovery.
-Skills: Python, Networking, Socket Programming, Multi-threading
+Categories
+🔴 Penetration Testing
 
-📊 Log Monitoring Script
-Security Monitoring | Bash
-Real-time system log monitor that detects brute force attempts and suspicious activity.
-Skills: Bash, Linux Security, Log Analysis, Automation
+OWASP Juice Shop Assessment
+Web Application Security Testing
 
-🔐 Secure Password Generator
-Cryptography | Python">
+🟠 Incident Response
+
+HealthSecure Systems Investigation
+
+🟡 Network Security
+
+Acme AeroTech Network Security Assessment
+
+🔵 Security Tool Development
+
+Python Port Scanner
+Log Monitoring Utility
+Secure Password Generator
+
+
+Project Metrics
+
+	
+			
+					Category
+					Projects Completed
+			
+	
+	
+			
+					Penetration Testing
+					1
+			
+			
+					Incident Response
+					1
+			
+			
+					Network Security
+					1
+			
+			
+					Tool Development
+					3
+			
+	
+
+
+Each project includes methodology, findings, and remediation recommendations.">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/projects/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.849fb33cfd2047e349a5b9595ab01d785b8337e22f5b29aa92421295377f7776.css" integrity="sha256-hJ&#43;zPP0gR&#43;NJpblZWrAdeFuDN&#43;IvWymqkkISlTd/d3Y=" rel="preload stylesheet" as="style">
@@ -42,40 +80,9 @@ Cryptography | Python">
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-    </style>
 </noscript>
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
+    if (localStorage.getItem("pref-theme") === "light") {
         document.querySelector("html").dataset.theme = 'light';
     }
 
@@ -85,7 +92,7 @@ Cryptography | Python">
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Cybersecurity Portfolio (Alt + H)">My Cybersecurity Portfolio</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Titus Kamau - Cybersecurity Portfolio (Alt + H)">Titus Kamau - Cybersecurity Portfolio</a>
             <div class="logo-switches">
                 <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
@@ -111,18 +118,28 @@ Cryptography | Python">
         </div>
         <ul id="menu" class="menu">
             <li>
-                <a href="http://localhost:1313/posts/" title="Posts">
-                    <span>Posts</span>
+                <a href="http://localhost:1313/" title="home">
+                    <span>home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/projects/" title="Projects">
-                    <span class="active">Projects</span>
+                <a href="http://localhost:1313/cybersecurity/" title="projects">
+                    <span>projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
-                    <span>About</span>
+                <a href="http://localhost:1313/reports/" title="reports">
+                    <span>reports</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/" title="blog">
+                    <span>blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="about">
+                    <span>about</span>
                 </a>
             </li>
         </ul>
@@ -134,72 +151,78 @@ Cryptography | Python">
     Cybersecurity Projects
   </h1>
 </header>
-<div class="post-content md-content"><h2 id="my-security-project-portfolio">My Security Project Portfolio<a hidden class="anchor" aria-hidden="true" href="#my-security-project-portfolio">#</a></h2>
-<p>Here are the cybersecurity projects I&rsquo;ve built to learn and practice security concepts.</p>
+<div class="post-content md-content"><h2 id="cybersecurity-projects">Cybersecurity Projects<a hidden class="anchor" aria-hidden="true" href="#cybersecurity-projects">#</a></h2>
+<p>This section showcases hands-on cybersecurity projects covering penetration testing, incident response, network security, and security tool development.</p>
 <hr>
-<h3 id="-python-port-scanner">🔍 <a href="/projects/port-scanner/">Python Port Scanner</a><a hidden class="anchor" aria-hidden="true" href="#-python-port-scanner">#</a></h3>
-<p><strong>Network Security | Python</strong></p>
-<p>A multi-threaded port scanner for network reconnaissance and service discovery.</p>
-<p><em>Skills: Python, Networking, Socket Programming, Multi-threading</em></p>
+<h2 id="categories">Categories<a hidden class="anchor" aria-hidden="true" href="#categories">#</a></h2>
+<h3 id="-penetration-testing">🔴 Penetration Testing<a hidden class="anchor" aria-hidden="true" href="#-penetration-testing">#</a></h3>
+<ul>
+<li><a href="/projects/owasp-juice-shop/">OWASP Juice Shop Assessment</a></li>
+<li>Web Application Security Testing</li>
+</ul>
+<h3 id="-incident-response">🟠 Incident Response<a hidden class="anchor" aria-hidden="true" href="#-incident-response">#</a></h3>
+<ul>
+<li><a href="/projects/healthsecure-ir/">HealthSecure Systems Investigation</a></li>
+</ul>
+<h3 id="-network-security">🟡 Network Security<a hidden class="anchor" aria-hidden="true" href="#-network-security">#</a></h3>
+<ul>
+<li><a href="/projects/acme-aerotech/">Acme AeroTech Network Security Assessment</a></li>
+</ul>
+<h3 id="-security-tool-development">🔵 Security Tool Development<a hidden class="anchor" aria-hidden="true" href="#-security-tool-development">#</a></h3>
+<ul>
+<li><a href="/projects/port-scanner/">Python Port Scanner</a></li>
+<li><a href="/projects/log-monitor/">Log Monitoring Utility</a></li>
+<li><a href="/projects/password-generator/">Secure Password Generator</a></li>
+</ul>
 <hr>
-<h3 id="-log-monitoring-script">📊 <a href="/projects/log-monitor/">Log Monitoring Script</a><a hidden class="anchor" aria-hidden="true" href="#-log-monitoring-script">#</a></h3>
-<p><strong>Security Monitoring | Bash</strong></p>
-<p>Real-time system log monitor that detects brute force attempts and suspicious activity.</p>
-<p><em>Skills: Bash, Linux Security, Log Analysis, Automation</em></p>
-<hr>
-<h3 id="-secure-password-generator">🔐 <a href="/projects/password-generator/">Secure Password Generator</a><a hidden class="anchor" aria-hidden="true" href="#-secure-password-generator">#</a></h3>
-<p><strong>Cryptography | Python</strong></p>
-<p>Cryptographically secure password generator with entropy calculation and strength meter.</p>
-<p><em>Skills: Python, Cryptography, Security Best Practices, CLI Tools</em></p>
-<hr>
-<h3 id="-tryhackme-write-ups">🎯 <a href="/projects/tryhackme-writeups/">TryHackMe Write-ups</a><a hidden class="anchor" aria-hidden="true" href="#-tryhackme-write-ups">#</a></h3>
-<p><strong>CTF Walkthroughs | Documentation</strong></p>
-<p>Collection of detailed write-ups from TryHackMe rooms I&rsquo;ve completed.</p>
-<p><em>Skills: CTF Methodology, Enumeration, Exploitation, Documentation</em></p>
-<hr>
-<h2 id="skills-demonstrated">Skills Demonstrated<a hidden class="anchor" aria-hidden="true" href="#skills-demonstrated">#</a></h2>
+<h2 id="project-metrics">Project Metrics<a hidden class="anchor" aria-hidden="true" href="#project-metrics">#</a></h2>
 <table>
 	<thead>
 			<tr>
 					<th>Category</th>
-					<th>Technologies</th>
+					<th>Projects Completed</th>
 			</tr>
 	</thead>
 	<tbody>
 			<tr>
-					<td>Programming</td>
-					<td>Python, Bash</td>
+					<td>Penetration Testing</td>
+					<td>1</td>
 			</tr>
 			<tr>
-					<td>Networking</td>
-					<td>TCP/IP, Sockets, Nmap</td>
+					<td>Incident Response</td>
+					<td>1</td>
 			</tr>
 			<tr>
-					<td>Security Tools</td>
-					<td>Metasploit, Burp Suite, Wireshark</td>
+					<td>Network Security</td>
+					<td>1</td>
 			</tr>
 			<tr>
-					<td>Operating Systems</td>
-					<td>Linux (Kali, Ubuntu), Windows</td>
-			</tr>
-			<tr>
-					<td>CTF Skills</td>
-					<td>Enumeration, Privilege Escalation</td>
+					<td>Tool Development</td>
+					<td>3</td>
 			</tr>
 	</tbody>
 </table>
 <hr>
-<h2 id="what-im-building-next">What I&rsquo;m Building Next<a hidden class="anchor" aria-hidden="true" href="#what-im-building-next">#</a></h2>
-<ul>
-<li><input disabled="" type="checkbox"> Web vulnerability scanner</li>
-<li><input disabled="" type="checkbox"> Network traffic analyzer</li>
-<li><input disabled="" type="checkbox"> Hash cracker (dictionary + brute force)</li>
-<li><input disabled="" type="checkbox"> Home lab documentation</li>
-</ul>
-<p><em>Check back regularly for new projects!</em></p>
+<p><em>Each project includes methodology, findings, and remediation recommendations.</em></p>
 
 
 </div>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">OWASP Juice Shop Penetration Test
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Objective Conduct a manual and tool-assisted penetration test against the OWASP Juice Shop application.
+Scope Category Details Authentication Login mechanisms, password policies Authorization Role-based access controls Input Validation SQL injection, XSS, command injection Session Management Token handling, session timeout Tools Used Tool Purpose Burp Suite Proxy, scanning, exploitation Nmap Port scanning, service enumeration OWASP ZAP Automated vulnerability scanning Browser DevTools Client-side testing Key Findings 🔴 SQL Injection (Critical) Location: Login endpoint
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2025-01-15 00:00:00 +0000 UTC'>January 15, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to OWASP Juice Shop Penetration Test" href="http://localhost:1313/projects/owasp-juice-shop/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -256,7 +279,7 @@ Directory enumeration with Gobuster File upload vulnerability identification Ext
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My Cybersecurity Portfolio</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">Titus Kamau - Cybersecurity Portfolio</a></span> · 
 
     
     

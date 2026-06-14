@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Evidence-Recovery on Titus Kamau - Cybersecurity Portfolio</title>
+    <link>http://localhost:1313/tags/evidence-recovery/</link>
+    <description>Recent content in Evidence-Recovery on Titus Kamau - Cybersecurity Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/evidence-recovery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Digital Forensics File Carving Report</title>
+      <link>http://localhost:1313/reports/forensics-carving-report/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/reports/forensics-carving-report/</guid>
+      <description>&lt;h2 id=&#34;digital-forensics-file-carving-report&#34;&gt;Digital Forensics File Carving Report&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Candidate:&lt;/strong&gt; Titus Kamau
+&lt;strong&gt;Case Role:&lt;/strong&gt; Junior Digital Forensics Analyst
+&lt;strong&gt;Source Image:&lt;/strong&gt; 84cc34c1-ef90-4b58-ac73-cd4d8a71967d
+&lt;strong&gt;Recovered Valid Files:&lt;/strong&gt; 17 fully recovered files&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;executive-summary&#34;&gt;Executive Summary&lt;/h3&gt;
+&lt;p&gt;The binary image was examined for known file signatures and carved using a repeatable Python workflow. The examination produced &lt;strong&gt;17 complete and readable files&lt;/strong&gt;:&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Type&lt;/th&gt;
+					&lt;th&gt;Count&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;JPEG Images&lt;/td&gt;
+					&lt;td&gt;12&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;PNG Images&lt;/td&gt;
+					&lt;td&gt;3&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;PDF Document&lt;/td&gt;
+					&lt;td&gt;1&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;OOXML Word Document&lt;/td&gt;
+					&lt;td&gt;1&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Each recovered file was validated for readability and hashed with MD5 to preserve integrity evidence.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

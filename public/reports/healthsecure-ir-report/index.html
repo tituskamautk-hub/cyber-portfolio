@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>HealthSecure Systems Incident Response Report | Titus Kamau - Cybersecurity Portfolio</title>
+<meta name="keywords" content="incident-response, dfir, breach, phishing">
+<meta name="description" content="HealthSecure Systems Incident Response Report
+Reference: 2025-HSS-IR-002
+Severity: SEV P1 - CRITICAL
+Classification: CONFIDENTIAL - Internal Use Only
+Prepared By: Titus Kamau - Cybersecurity Incident Response Lead
+
+Executive Summary
+On April 12, 2025, HealthSecure Systems suffered a confirmed security breach initiated by a phishing email. The attacker gained access to a Finance workstation, executed PowerShell to download malware, and moved laterally toward the HR SQL server containing payroll and PII.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/reports/healthsecure-ir-report/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.849fb33cfd2047e349a5b9595ab01d785b8337e22f5b29aa92421295377f7776.css" integrity="sha256-hJ&#43;zPP0gR&#43;NJpblZWrAdeFuDN&#43;IvWymqkkISlTd/d3Y=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/reports/healthsecure-ir-report/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Titus Kamau - Cybersecurity Portfolio (Alt + H)">Titus Kamau - Cybersecurity Portfolio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/" title="home">
+                    <span>home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cybersecurity/" title="projects">
+                    <span>projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/reports/" title="reports">
+                    <span>reports</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/" title="blog">
+                    <span>blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      HealthSecure Systems Incident Response Report
+    </h1>
+    <div class="post-meta">
+
+<span title='2025-04-12 00:00:00 +0000 UTC'>April 12, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><h2 id="healthsecure-systems-incident-response-report">HealthSecure Systems Incident Response Report<a hidden class="anchor" aria-hidden="true" href="#healthsecure-systems-incident-response-report">#</a></h2>
+<p><strong>Reference:</strong> 2025-HSS-IR-002
+<strong>Severity:</strong> SEV P1 - CRITICAL
+<strong>Classification:</strong> CONFIDENTIAL - Internal Use Only
+<strong>Prepared By:</strong> Titus Kamau - Cybersecurity Incident Response Lead</p>
+<hr>
+<h3 id="executive-summary">Executive Summary<a hidden class="anchor" aria-hidden="true" href="#executive-summary">#</a></h3>
+<p>On April 12, 2025, HealthSecure Systems suffered a confirmed security breach initiated by a phishing email. The attacker gained access to a Finance workstation, executed PowerShell to download malware, and moved laterally toward the HR SQL server containing payroll and PII.</p>
+<h3 id="critical-finding">Critical Finding<a hidden class="anchor" aria-hidden="true" href="#critical-finding">#</a></h3>
+<p>The attacker used cached credentials of a former employee (<strong>jcampbell</strong>) whose Active Directory account was never disabled - representing a critical identity management failure.</p>
+<h3 id="mitre-attck-kill-chain">MITRE ATT&amp;CK Kill Chain<a hidden class="anchor" aria-hidden="true" href="#mitre-attck-kill-chain">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Stage</th>
+					<th>Tactic</th>
+					<th>Activity</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1</td>
+					<td>Initial Access (T1566)</td>
+					<td>Phishing email with malicious link</td>
+			</tr>
+			<tr>
+					<td>2</td>
+					<td>Execution (T1204)</td>
+					<td>User clicked link, PowerShell executed</td>
+			</tr>
+			<tr>
+					<td>3</td>
+					<td>Persistence (T1053)</td>
+					<td>Scheduled task created</td>
+			</tr>
+			<tr>
+					<td>4</td>
+					<td>Privilege Escalation (T1078)</td>
+					<td>Used cached credentials of former employee</td>
+			</tr>
+			<tr>
+					<td>5</td>
+					<td>Discovery (T1018)</td>
+					<td>Network scan to HRSQL01 and DevAppServer</td>
+			</tr>
+			<tr>
+					<td>6</td>
+					<td>Lateral Movement (T1021)</td>
+					<td>PsExec, SMB, RDP, SSH attempts</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="containment-actions-completed">Containment Actions Completed<a hidden class="anchor" aria-hidden="true" href="#containment-actions-completed">#</a></h3>
+<ul>
+<li>Isolated Workstation23 (quarantine VLAN)</li>
+<li>Blocked malicious domains/IPs at firewall</li>
+<li>Disabled former employee AD account (jcampbell)</li>
+<li>Reset all compromised credentials</li>
+<li>Implemented temporary network segmentation</li>
+</ul>
+<h3 id="recommendations">Recommendations<a hidden class="anchor" aria-hidden="true" href="#recommendations">#</a></h3>
+<table>
+	<thead>
+			<tr>
+					<th>Priority</th>
+					<th>Action</th>
+					<th>Timeline</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Critical</td>
+					<td>Automated user de-provisioning (HR-AD integration)</td>
+					<td>14 days</td>
+			</tr>
+			<tr>
+					<td>Critical</td>
+					<td>Enforce MFA for all administrative logins</td>
+					<td>30 days</td>
+			</tr>
+			<tr>
+					<td>High</td>
+					<td>Enable PowerShell logging on 100% of endpoints</td>
+					<td>7 days</td>
+			</tr>
+			<tr>
+					<td>High</td>
+					<td>Quarterly phishing simulations</td>
+					<td>30 days</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="lessons-learned">Lessons Learned<a hidden class="anchor" aria-hidden="true" href="#lessons-learned">#</a></h3>
+<ul>
+<li>Root cause: Identity management failure (active account 28 days after termination)</li>
+<li>Detection gap: PowerShell logging disabled on 30% of endpoints</li>
+<li>Process gap: IR playbook outdated (last updated 2022)</li>
+</ul>
+<p><a href="/reports/HealthSecure-IR-Report.pdf">View Full Report</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/incident-response/">Incident-Response</a></li>
+      <li><a href="http://localhost:1313/tags/dfir/">Dfir</a></li>
+      <li><a href="http://localhost:1313/tags/breach/">Breach</a></li>
+      <li><a href="http://localhost:1313/tags/phishing/">Phishing</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Titus Kamau - Cybersecurity Portfolio</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

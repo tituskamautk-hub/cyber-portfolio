@@ -2,65 +2,40 @@
 title: "Cybersecurity Projects"
 ---
 
-## My Security Project Portfolio
+## Cybersecurity Projects
 
-Here are the cybersecurity projects I've built to learn and practice security concepts.
-
----
-
-### 🔍 [Python Port Scanner](/projects/port-scanner/)
-**Network Security | Python**
-
-A multi-threaded port scanner for network reconnaissance and service discovery.
-
-*Skills: Python, Networking, Socket Programming, Multi-threading*
+This section showcases hands-on cybersecurity projects covering penetration testing, incident response, network security, and security tool development.
 
 ---
 
-### 📊 [Log Monitoring Script](/projects/log-monitor/)
-**Security Monitoring | Bash**
+## Categories
 
-Real-time system log monitor that detects brute force attempts and suspicious activity.
+### 🔴 Penetration Testing
+- [OWASP Juice Shop Assessment](/projects/owasp-juice-shop/)
+- Web Application Security Testing
 
-*Skills: Bash, Linux Security, Log Analysis, Automation*
+### 🟠 Incident Response
+- [HealthSecure Systems Investigation](/projects/healthsecure-ir/)
 
----
+### 🟡 Network Security
+- [Acme AeroTech Network Security Assessment](/projects/acme-aerotech/)
 
-### 🔐 [Secure Password Generator](/projects/password-generator/)
-**Cryptography | Python**
-
-Cryptographically secure password generator with entropy calculation and strength meter.
-
-*Skills: Python, Cryptography, Security Best Practices, CLI Tools*
-
----
-
-### 🎯 [TryHackMe Write-ups](/projects/tryhackme-writeups/)
-**CTF Walkthroughs | Documentation**
-
-Collection of detailed write-ups from TryHackMe rooms I've completed.
-
-*Skills: CTF Methodology, Enumeration, Exploitation, Documentation*
+### 🔵 Security Tool Development
+- [Python Port Scanner](/projects/port-scanner/)
+- [Log Monitoring Utility](/projects/log-monitor/)
+- [Secure Password Generator](/projects/password-generator/)
 
 ---
 
-## Skills Demonstrated
+## Project Metrics
 
-| Category | Technologies |
-|----------|--------------|
-| Programming | Python, Bash |
-| Networking | TCP/IP, Sockets, Nmap |
-| Security Tools | Metasploit, Burp Suite, Wireshark |
-| Operating Systems | Linux (Kali, Ubuntu), Windows |
-| CTF Skills | Enumeration, Privilege Escalation |
+| Category | Projects Completed |
+|----------|-------------------|
+| Penetration Testing | 1 |
+| Incident Response | 1 |
+| Network Security | 1 |
+| Tool Development | 3 |
 
 ---
 
-## What I'm Building Next
-
-- [ ] Web vulnerability scanner
-- [ ] Network traffic analyzer
-- [ ] Hash cracker (dictionary + brute force)
-- [ ] Home lab documentation
-
-*Check back regularly for new projects!*
+*Each project includes methodology, findings, and remediation recommendations.*
