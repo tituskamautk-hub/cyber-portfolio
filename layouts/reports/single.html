@@ -1,0 +1,14 @@
+﻿{{ define "main" }}
+    <div class="content">
+        <h1>{{ .Title }}</h1>
+        <div style="color: #7a8b9e; font-size: 0.8rem; margin-bottom: 2rem;">
+            {{ .Date.Format "January 2, 2006" }} | {{ .Params.tags | delimit ", " }}
+        </div>
+        <div>
+            {{ .Content }}
+        </div>
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #2ecc7140;">
+            <a href="/reports/" style="color: #2ecc71;">← Back to Reports</a>
+        </div>
+    </div>
+{{ end }}

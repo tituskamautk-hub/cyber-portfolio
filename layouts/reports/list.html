@@ -1,0 +1,20 @@
+﻿{{ define "main" }}
+    <div class="content">
+        {{ .Content }}
+        
+        <div style="margin-top: 2rem;">
+            <h2>Available Reports</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                {{ range where .Site.RegularPages "Section" "reports" }}
+                <div class="report-card" style="background: #070b14; padding: 1.5rem; border: 1px solid #1a2533; transition: all 0.3s;">
+                    <h3 style="color: #2ecc71; margin-bottom: 0.5rem;">📄 {{ .Title }}</h3>
+                    <p style="color: #8a9bb0; font-size: 0.85rem;">{{ .Summary | truncate 150 }}</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="{{ .Permalink }}" style="color: #2ecc71; text-decoration: none;">Read Report →</a>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+{{ end }}
