@@ -1,273 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=55623&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log Monitoring Script | Titus Kamau</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Fira Code', 'Courier New', 'Consolas', monospace;
-            background: #03050b;
-            color: #c0d9e8;
-            line-height: 1.6;
-        }
-
-        .navbar {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            background: rgba(3, 5, 11, 0.95);
-            border-bottom: 1px solid #2ecc7140;
-        }
-
-        .logo { font-size: 1.2rem; font-weight: 600; color: #2ecc71; }
-        .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; color: #7a8b9e; transition: all 0.2s; font-size: 0.85rem; }
-        .nav-links a:hover { color: #2ecc71; }
-
-        .clock {
-            font-family: monospace;
-            font-size: 0.9rem;
-            color: #2ecc71;
-            background: rgba(46, 204, 113, 0.1);
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            border: 1px solid #2ecc7140;
-        }
-
-        .page-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: linear-gradient(135deg, #070b14 0%, #0a1020 100%);
-            border-left: 3px solid #2ecc71;
-            min-height: calc(100vh - 200px);
-        }
-
-        .content {
-            color: #c0d9e8;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .content h1, .content h2, .content h3 {
-            color: #2ecc71;
-            margin: 1.5rem 0 1rem 0;
-        }
-
-        .content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-
-        .content th, .content td {
-            border: 1px solid #2ecc7140;
-            padding: 0.5rem;
-        }
-
-        .content th {
-            background: rgba(46, 204, 113, 0.1);
-        }
-
-        .content a {
-            color: #2ecc71;
-            text-decoration: none;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #1a2533;
-            color: #5a6b7e;
-            font-size: 0.65rem;
-        }
-
-        .theme-toggle {
-            background: rgba(46, 204, 113, 0.1);
-            border: 1px solid #2ecc71;
-            color: #2ecc71;
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.7rem;
-            margin-top: 1rem;
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">Titus Kamau</div>
-        <div class="nav-links">
-            <a href="/">home</a>
-            <a href="/cybersecurity/">projects</a>
-            <a href="/reports/">reports</a>
-            <a href="/certifications/">certifications</a>
-            <a href="/blog/">blog</a>
-            <a href="/about/">about</a>
-        </div>
-        <div id="digitalClock" class="clock"></div>
-    </nav>
-
-    <div class="page-container">
-        <div class="content">
-            <h2 id="-log-monitoring-script">📊 Log Monitoring Script</h2>
-<p>A bash script that continuously monitors system logs for security events.</p>
-<h3 id="purpose">Purpose</h3>
-<p>Detect suspicious activity in real-time:</p>
-<ul>
-<li>Failed login attempts (brute force)</li>
-<li>Unauthorized sudo access</li>
-<li>Suspicious process execution</li>
-</ul>
-<h3 id="features">Features</h3>
-<ul>
-<li><strong>Real-time monitoring</strong> of auth.log</li>
-<li><strong>Alert thresholds</strong> configurable</li>
-<li><strong>IP tracking</strong> for repeat offenders</li>
-<li><strong>Daily summary reports</strong></li>
-</ul>
-<h3 id="the-script">The Script</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Configuration</span>
-</span></span><span style="display:flex;"><span>LOG_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/var/log/auth.log&#34;</span>
-</span></span><span style="display:flex;"><span>ALERT_THRESHOLD<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
-</span></span><span style="display:flex;"><span>ALERT_EMAIL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;admin@example.com&#34;</span>
-</span></span><span style="display:flex;"><span>SUSPICIOUS_IPS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/suspicious_ips.txt&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Colors for output</span>
-</span></span><span style="display:flex;"><span>RED<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;\033[0;31m&#39;</span>
-</span></span><span style="display:flex;"><span>YELLOW<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;\033[1;33m&#39;</span>
-</span></span><span style="display:flex;"><span>NC<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;\033[0m&#39;</span> <span style="color:#75715e"># No Color</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>YELLOW<span style="color:#e6db74">}</span><span style="color:#e6db74">[+] Starting Security Log Monitor</span><span style="color:#e6db74">${</span>NC<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Monitor failed SSH attempts</span>
-</span></span><span style="display:flex;"><span>tail -n0 -f <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span> | <span style="color:#66d9ef">while</span> read line; <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> echo <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span> | grep -q <span style="color:#e6db74">&#34;Failed password&#34;</span>; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>        IP<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span> | awk <span style="color:#e6db74">&#39;{print $11}&#39;</span><span style="color:#66d9ef">)</span>
-</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;</span>$IP<span style="color:#e6db74">&#34;</span> &gt;&gt; <span style="color:#e6db74">&#34;</span>$SUSPICIOUS_IPS<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        COUNT<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep -c <span style="color:#e6db74">&#34;</span>$IP<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$SUSPICIOUS_IPS<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$COUNT<span style="color:#e6db74">&#34;</span> -ge <span style="color:#e6db74">&#34;</span>$ALERT_THRESHOLD<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>            echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>RED<span style="color:#e6db74">}</span><span style="color:#e6db74">[ALERT] </span>$COUNT<span style="color:#e6db74"> failed attempts from </span>$IP<span style="color:#e6db74">${</span>NC<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Send alert (optional)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># echo &#34;Alert: $COUNT failed SSH attempts from $IP&#34; | mail -s &#34;Security Alert&#34; $ALERT_EMAIL</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Monitor sudo failures</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> echo <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span> | grep -q <span style="color:#e6db74">&#34;sudo.*COMMAND.*FAILED&#34;</span>; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>        USER<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span> | awk <span style="color:#e6db74">&#39;{print $9}&#39;</span><span style="color:#66d9ef">)</span>
-</span></span><span style="display:flex;"><span>        COMMAND<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span> | grep -o <span style="color:#e6db74">&#34;COMMAND=.*&#34;</span> | cut -d<span style="color:#e6db74">&#39;=&#39;</span> -f2<span style="color:#66d9ef">)</span>
-</span></span><span style="display:flex;"><span>        echo -e <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>RED<span style="color:#e6db74">}</span><span style="color:#e6db74">[ALERT] Sudo failure by </span>$USER<span style="color:#e6db74"> attempting: </span>$COMMAND<span style="color:#e6db74">${</span>NC<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Save the script</span>
-</span></span><span style="display:flex;"><span>sudo nano /usr/local/bin/security-monitor.sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make executable</span>
-</span></span><span style="display:flex;"><span>sudo chmod +x /usr/local/bin/security-monitor.sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run as service</span>
-</span></span><span style="display:flex;"><span>sudo ./security-monitor.sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># /etc/systemd/system/security-monitor.service</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>Description<span style="color:#f92672">=</span>Security Log Monitor
-</span></span><span style="display:flex;"><span>After<span style="color:#f92672">=</span>network.target
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>Type<span style="color:#f92672">=</span>simple
-</span></span><span style="display:flex;"><span>ExecStart<span style="color:#f92672">=</span>/usr/local/bin/security-monitor.sh
-</span></span><span style="display:flex;"><span>Restart<span style="color:#f92672">=</span>always
-</span></span><span style="display:flex;"><span>User<span style="color:#f92672">=</span>root
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>WantedBy<span style="color:#f92672">=</span>multi-user.target
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sudo systemctl enable security-monitor
-</span></span><span style="display:flex;"><span>sudo systemctl start security-monitor
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ALERT<span style="color:#f92672">]</span> <span style="color:#ae81ff">7</span> failed attempts from 192.168.1.100
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ALERT<span style="color:#f92672">]</span> Sudo failure by john attempting: /bin/su -
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ALERT<span style="color:#f92672">]</span> <span style="color:#ae81ff">12</span> failed attempts from 10.0.0.50
-</span></span></code></pre></div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div>Titus Kamau — "The quieter you become, the more you are able to hear"
-        <div style="margin-top: 0.5rem;">© 2026 | Cybersecurity Portfolio</div>
-        <div style="margin-top: 0.5rem;">ISC2 CC | TryHackMe Pre-Security | Jr Penetration Tester</div>
-        <button id="themeToggle" class="theme-toggle">🌓 Dark/Light</button>
-    </footer>
-
-    <script>
-        
-        function updateClock() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const clockElement = document.getElementById('digitalClock');
-            if (clockElement) clockElement.innerHTML = hours + ':' + minutes + ':' + seconds;
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                document.documentElement.classList.toggle('light-mode');
-                localStorage.setItem('theme', document.documentElement.classList.contains('light-mode') ? 'light' : 'dark');
-            });
-            if (localStorage.getItem('theme') === 'light') {
-                document.documentElement.classList.add('light-mode');
-            }
-        }
-    </script>
-
-    <style>
-        .light-mode {
-            background: #f0f0f0;
-            color: #1a1a1a;
-        }
-        .light-mode .navbar,
-        .light-mode .page-container {
-            background: #ffffff;
-            border-color: #e0e0e0;
-        }
-        .light-mode .logo,
-        .light-mode .nav-links a,
-        .light-mode .content h1,
-        .light-mode .content h2,
-        .light-mode .clock {
-            color: #0066cc;
-        }
-        .light-mode .content {
-            color: #333;
-        }
-        .light-mode .footer {
-            border-top-color: #ddd;
-        }
-    </style>
-</body>
-</html>
-
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Log Monitoring Script | Titus Kamau</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:fira code,courier new,consolas,monospace;background:#03050b;color:#c0d9e8;line-height:1.6}.navbar{max-width:1400px;margin:0 auto;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;background:rgba(3,5,11,.95);border-bottom:1px solid #2ecc7140}.logo{font-size:1.2rem;font-weight:600;color:#2ecc71}.nav-links{display:flex;gap:2rem;flex-wrap:wrap}.nav-links a{text-decoration:none;color:#7a8b9e;transition:all .2s;font-size:.85rem}.nav-links a:hover{color:#2ecc71}.clock{font-family:monospace;font-size:.9rem;color:#2ecc71;background:rgba(46,204,113,.1);padding:.3rem .8rem;border-radius:4px;border:1px solid #2ecc7140}.page-container{max-width:1200px;margin:2rem auto;padding:2rem;background:linear-gradient(135deg,#070b14 0%,#0a1020 100%);border-left:3px solid #2ecc71;min-height:calc(100vh - 200px)}.content{color:#c0d9e8;font-size:1rem;line-height:1.6}.content h1,.content h2,.content h3{color:#2ecc71;margin:1.5rem 0 1rem}.content table{width:100%;border-collapse:collapse;margin:1rem 0}.content th,.content td{border:1px solid #2ecc7140;padding:.5rem}.content th{background:rgba(46,204,113,.1)}.content a{color:#2ecc71;text-decoration:none}.footer{text-align:center;padding:2rem;border-top:1px solid #1a2533;color:#5a6b7e;font-size:.65rem}.theme-toggle{background:rgba(46,204,113,.1);border:1px solid #2ecc71;color:#2ecc71;padding:.3rem .6rem;border-radius:4px;cursor:pointer;font-size:.7rem;margin-top:1rem}</style></head><body><nav class=navbar><div class=logo>Titus Kamau</div><div class=nav-links><a href=/>home</a>
+<a href=/cybersecurity/>projects</a>
+<a href=/reports/>reports</a>
+<a href=/certifications/>certifications</a>
+<a href=/blog/>blog</a>
+<a href=/about/>about</a></div><div id=digitalClock class=clock></div></nav><div class=page-container><div class=content><h2 id=-log-monitoring-script>📊 Log Monitoring Script</h2><p>A bash script that continuously monitors system logs for security events.</p><h3 id=purpose>Purpose</h3><p>Detect suspicious activity in real-time:</p><ul><li>Failed login attempts (brute force)</li><li>Unauthorized sudo access</li><li>Suspicious process execution</li></ul><h3 id=features>Features</h3><ul><li><strong>Real-time monitoring</strong> of auth.log</li><li><strong>Alert thresholds</strong> configurable</li><li><strong>IP tracking</strong> for repeat offenders</li><li><strong>Daily summary reports</strong></li></ul><h3 id=the-script>The Script</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Configuration</span>
+</span></span><span style=display:flex><span>LOG_FILE<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/var/log/auth.log&#34;</span>
+</span></span><span style=display:flex><span>ALERT_THRESHOLD<span style=color:#f92672>=</span><span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>ALERT_EMAIL<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;admin@example.com&#34;</span>
+</span></span><span style=display:flex><span>SUSPICIOUS_IPS<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/tmp/suspicious_ips.txt&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Colors for output</span>
+</span></span><span style=display:flex><span>RED<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;\033[0;31m&#39;</span>
+</span></span><span style=display:flex><span>YELLOW<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;\033[1;33m&#39;</span>
+</span></span><span style=display:flex><span>NC<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;\033[0m&#39;</span> <span style=color:#75715e># No Color</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo -e <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>YELLOW<span style=color:#e6db74>}</span><span style=color:#e6db74>[+] Starting Security Log Monitor</span><span style=color:#e6db74>${</span>NC<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Monitor failed SSH attempts</span>
+</span></span><span style=display:flex><span>tail -n0 -f <span style=color:#e6db74>&#34;</span>$LOG_FILE<span style=color:#e6db74>&#34;</span> | <span style=color:#66d9ef>while</span> read line; <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> echo <span style=color:#e6db74>&#34;</span>$line<span style=color:#e6db74>&#34;</span> | grep -q <span style=color:#e6db74>&#34;Failed password&#34;</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span>        IP<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>echo <span style=color:#e6db74>&#34;</span>$line<span style=color:#e6db74>&#34;</span> | awk <span style=color:#e6db74>&#39;{print $11}&#39;</span><span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>        echo <span style=color:#e6db74>&#34;</span>$IP<span style=color:#e6db74>&#34;</span> &gt;&gt; <span style=color:#e6db74>&#34;</span>$SUSPICIOUS_IPS<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        COUNT<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>grep -c <span style=color:#e6db74>&#34;</span>$IP<span style=color:#e6db74>&#34;</span> <span style=color:#e6db74>&#34;</span>$SUSPICIOUS_IPS<span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span>$COUNT<span style=color:#e6db74>&#34;</span> -ge <span style=color:#e6db74>&#34;</span>$ALERT_THRESHOLD<span style=color:#e6db74>&#34;</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span>            echo -e <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>RED<span style=color:#e6db74>}</span><span style=color:#e6db74>[ALERT] </span>$COUNT<span style=color:#e6db74> failed attempts from </span>$IP<span style=color:#e6db74>${</span>NC<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#75715e># Send alert (optional)</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># echo &#34;Alert: $COUNT failed SSH attempts from $IP&#34; | mail -s &#34;Security Alert&#34; $ALERT_EMAIL</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Monitor sudo failures</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> echo <span style=color:#e6db74>&#34;</span>$line<span style=color:#e6db74>&#34;</span> | grep -q <span style=color:#e6db74>&#34;sudo.*COMMAND.*FAILED&#34;</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span>        USER<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>echo <span style=color:#e6db74>&#34;</span>$line<span style=color:#e6db74>&#34;</span> | awk <span style=color:#e6db74>&#39;{print $9}&#39;</span><span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>        COMMAND<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>echo <span style=color:#e6db74>&#34;</span>$line<span style=color:#e6db74>&#34;</span> | grep -o <span style=color:#e6db74>&#34;COMMAND=.*&#34;</span> | cut -d<span style=color:#e6db74>&#39;=&#39;</span> -f2<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>        echo -e <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>RED<span style=color:#e6db74>}</span><span style=color:#e6db74>[ALERT] Sudo failure by </span>$USER<span style=color:#e6db74> attempting: </span>$COMMAND<span style=color:#e6db74>${</span>NC<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>done</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Save the script</span>
+</span></span><span style=display:flex><span>sudo nano /usr/local/bin/security-monitor.sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Make executable</span>
+</span></span><span style=display:flex><span>sudo chmod +x /usr/local/bin/security-monitor.sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Run as service</span>
+</span></span><span style=display:flex><span>sudo ./security-monitor.sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># /etc/systemd/system/security-monitor.service</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>Security Log Monitor
+</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network.target
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>simple
+</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/local/bin/security-monitor.sh
+</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>always
+</span></span><span style=display:flex><span>User<span style=color:#f92672>=</span>root
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo systemctl enable security-monitor
+</span></span><span style=display:flex><span>sudo systemctl start security-monitor
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>ALERT<span style=color:#f92672>]</span> <span style=color:#ae81ff>7</span> failed attempts from 192.168.1.100
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>ALERT<span style=color:#f92672>]</span> Sudo failure by john attempting: /bin/su -
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>ALERT<span style=color:#f92672>]</span> <span style=color:#ae81ff>12</span> failed attempts from 10.0.0.50
+</span></span></code></pre></div></div></div><footer class=footer><div>Titus Kamau — "The quieter you become, the more you are able to hear"<div style=margin-top:.5rem>© 2026 | Cybersecurity Portfolio</div><div style=margin-top:.5rem>ISC2 CC | TryHackMe Pre-Security | Jr Penetration Tester</div><button id=themeToggle class=theme-toggle>🌓 Dark/Light</button></footer><script>function updateClock(){const e=new Date,n=String(e.getHours()).padStart(2,"0"),s=String(e.getMinutes()).padStart(2,"0"),o=String(e.getSeconds()).padStart(2,"0"),t=document.getElementById("digitalClock");t&&(t.innerHTML=n+":"+s+":"+o)}setInterval(updateClock,1e3),updateClock();const themeToggle=document.getElementById("themeToggle");themeToggle&&(themeToggle.addEventListener("click",()=>{document.documentElement.classList.toggle("light-mode"),localStorage.setItem("theme",document.documentElement.classList.contains("light-mode")?"light":"dark")}),localStorage.getItem("theme")==="light"&&document.documentElement.classList.add("light-mode"))</script><style>.light-mode{background:#f0f0f0;color:#1a1a1a}.light-mode .navbar,.light-mode .page-container{background:#fff;border-color:#e0e0e0}.light-mode .logo,.light-mode .nav-links a,.light-mode .content h1,.light-mode .content h2,.light-mode .clock{color:#06c}.light-mode .content{color:#333}.light-mode .footer{border-top-color:#ddd}</style></body></html>

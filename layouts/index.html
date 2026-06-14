@@ -99,7 +99,6 @@
         .section-title { font-size: 1.8rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem; }
         .section-subtitle { color: #7a8b9e; max-width: 600px; margin: 0 auto; font-size: 0.85rem; }
 
-        /* Services Grid */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
         .service-card { background: #070b14; padding: 1.5rem; transition: all 0.3s; border: 1px solid #1a2533; }
         .service-card:hover { border-left: 2px solid #2ecc71; transform: translateX(5px); }
@@ -107,7 +106,6 @@
         .service-card h3 { font-size: 1.1rem; margin-bottom: 0.8rem; color: #2ecc71; }
         .service-card p { color: #8a9bb0; font-size: 0.8rem; line-height: 1.6; }
 
-        /* Skills Grid */
         .skills-section { background: #05080f; border-top: 1px solid #2ecc7110; border-bottom: 1px solid #2ecc7110; }
         .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
         .skill-card { background: #070b14; padding: 1.5rem; transition: all 0.3s; border: 1px solid #1a2533; }
@@ -118,42 +116,16 @@
         .skill-tag { background: rgba(46,204,113,0.08); padding: 0.2rem 0.6rem; font-size: 0.65rem; color: #2ecc71; transition: all 0.2s; }
         .skill-tag:hover { background: #2ecc71; color: #03050b; }
 
-        /* Projects Grid - IMPROVED CARDS */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
-        .project-card {
-            background: #070b14;
-            padding: 1.5rem;
-            transition: all 0.3s;
-            border: 1px solid #1a2533;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 0.6s ease forwards;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #2ecc71;
-            box-shadow: 0 8px 24px rgba(46, 204, 113, 0.15);
-        }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .project-card { background: #070b14; padding: 1.5rem; transition: all 0.3s; border: 1px solid #1a2533; }
+        .project-card:hover { transform: translateY(-5px); border-color: #2ecc71; }
         .project-card h3 { font-size: 1rem; margin-bottom: 0.8rem; color: #ffffff; }
         .project-card p { color: #8a9bb0; margin-bottom: 1rem; font-size: 0.8rem; }
         .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
         .project-tag { background: rgba(46,204,113,0.08); padding: 0.15rem 0.5rem; font-size: 0.6rem; color: #2ecc71; }
-        .btn-readmore {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: rgba(46, 204, 113, 0.1);
-            border: 1px solid #2ecc71;
-            border-radius: 4px;
-            color: #2ecc71;
-            text-decoration: none;
-            font-size: 0.7rem;
-            transition: all 0.2s;
-            margin-right: 0.5rem;
-        }
+        .btn-readmore { display: inline-block; padding: 0.4rem 1rem; background: rgba(46,204,113,0.1); border: 1px solid #2ecc71; border-radius: 4px; color: #2ecc71; text-decoration: none; font-size: 0.7rem; transition: all 0.2s; margin-right: 0.5rem; }
         .btn-readmore:hover { background: #2ecc71; color: #03050b; }
 
-        /* Contact Section */
         .contact-section { background: linear-gradient(180deg, #05080f 0%, #03050b 100%); border-top: 1px solid #2ecc7120; }
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; max-width: 1000px; margin: 0 auto; }
         .contact-card { background: #070b14; padding: 1.2rem; text-align: center; text-decoration: none; color: inherit; transition: all 0.3s; border: 1px solid #1a2533; }
@@ -239,27 +211,33 @@
     <section class="section">
         <div class="section-header">
             <span class="section-tag">completed_ops.log</span>
-            <h2 class="section-title">Recent Operations</h2>
-            <p class="section-subtitle">Successfully executed security engagements</p>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Projects with code available on GitHub</p>
         </div>
         <div class="projects-grid">
             <div class="project-card">
+                <h3>🐍 Python Port Scanner</h3>
+                <p>Multi-threaded port scanner for network reconnaissance - full Python code on GitHub</p>
+                <div class="project-tags"><span class="project-tag">python</span><span class="project-tag">code</span><span class="project-tag">networking</span></div>
+                <div><a href="https://github.com/tituskamautk-hub/port-scanner" class="btn-readmore">⌨️ View Code →</a></div>
+            </div>
+            <div class="project-card">
+                <h3>📊 Log Monitor</h3>
+                <p>XSS detection and log monitoring script - working Python code available</p>
+                <div class="project-tags"><span class="project-tag">python</span><span class="project-tag">code</span><span class="project-tag">security</span></div>
+                <div><a href="https://github.com/tituskamautk-hub/log-monitor" class="btn-readmore">⌨️ View Code →</a></div>
+            </div>
+            <div class="project-card">
+                <h3>🔐 Password Generator</h3>
+                <p>Cryptographically secure password generator using secrets module</p>
+                <div class="project-tags"><span class="project-tag">python</span><span class="project-tag">code</span><span class="project-tag">cryptography</span></div>
+                <div><a href="https://github.com/tituskamautk-hub/password-generator" class="btn-readmore">⌨️ View Code →</a></div>
+            </div>
+            <div class="project-card">
                 <h3>🔴 OWASP Juice Shop</h3>
-                <p>Web application penetration test identifying SQL injection and access control vulnerabilities</p>
-                <div class="project-tags"><span class="project-tag">pentesting</span><span class="project-tag">webapp</span><span class="project-tag">burpsuite</span></div>
-                <div><a href="/reports/juice-shop-pentest.md" class="btn-readmore">📄 Read Report →</a><a href="https://github.com/tituskamautk-hub/owasp-juiceshop-pentest" class="btn-readmore">⌨️ View Code →</a></div>
-            </div>
-            <div class="project-card">
-                <h3>🟠 HealthSecure IR</h3>
-                <p>Incident investigation with log correlation, timeline reconstruction, and MITRE ATT&CK mapping</p>
-                <div class="project-tags"><span class="project-tag">incident-response</span><span class="project-tag">dfir</span><span class="project-tag">forensics</span></div>
-                <div><a href="/reports/healthsecure-ir-report.md" class="btn-readmore">📄 Read Report →</a><a href="https://github.com/tituskamautk-hub/healthsecure-ir" class="btn-readmore">⌨️ View Code →</a></div>
-            </div>
-            <div class="project-card">
-                <h3>🟡 Acme AeroTech</h3>
-                <p>Network security assessment with VLAN segmentation and firewall hardening recommendations</p>
-                <div class="project-tags"><span class="project-tag">network-security</span><span class="project-tag">risk-assessment</span><span class="project-tag">vlan</span></div>
-                <div><a href="/reports/acme-aerotech-assessment.md" class="btn-readmore">📄 Read Report →</a><a href="https://github.com/tituskamautk-hub/acme-aerotech" class="btn-readmore">⌨️ View Code →</a></div>
+                <p>Professional penetration test report with methodology and findings - includes report documentation</p>
+                <div class="project-tags"><span class="project-tag">pentesting</span><span class="project-tag">report</span><span class="project-tag">burpsuite</span></div>
+                <div><a href="/reports/juice-shop-pentest.md" class="btn-readmore">📄 Read Report →</a> <a href="https://github.com/tituskamautk-hub/owasp-juiceshop-pentest" class="btn-readmore">⌨️ View Code →</a></div>
             </div>
         </div>
     </section>
@@ -298,5 +276,3 @@
     </script>
 </body>
 </html>
-
-

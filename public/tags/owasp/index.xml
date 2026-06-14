@@ -1,89 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Owasp on My Cybersecurity Portfolio</title>
-    <link>http://localhost:55623/tags/owasp/</link>
-    <description>Recent content in Owasp on My Cybersecurity Portfolio</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:55623/tags/owasp/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>OWASP Juice Shop Penetration Test</title>
-      <link>http://localhost:55623/cybersecurity/owasp-juice-shop/</link>
-      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:55623/cybersecurity/owasp-juice-shop/</guid>
-      <description>&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Owasp on My Cybersecurity Portfolio</title><link>http://localhost:1313/tags/owasp/</link><description>Recent content in Owasp on My Cybersecurity Portfolio</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/owasp/index.xml" rel="self" type="application/rss+xml"/><item><title>OWASP Juice Shop Penetration Test</title><link>http://localhost:1313/cybersecurity/owasp-juice-shop/</link><pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/cybersecurity/owasp-juice-shop/</guid><description>&lt;h2 id="scenario"&gt;Scenario&lt;/h2&gt;
 &lt;p&gt;A growing online retail company engaged a cybersecurity consultancy to assess the security of its public-facing e-commerce application before a major product launch. Management was concerned that vulnerabilities within the application could expose customer information, disrupt operations, or damage the company&amp;rsquo;s reputation.&lt;/p&gt;
-&lt;p&gt;As a &lt;strong&gt;Junior Penetration Tester&lt;/strong&gt;, I was tasked with conducting a manual and tool-assisted penetration test against the web application. The assessment focused on identifying vulnerabilities related to authentication, authorization, input validation, and sensitive data exposure. The goal was to simulate realistic attacker techniques, validate security weaknesses, assess business risk, and provide actionable remediation recommendations.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>OWASP Juice Shop Penetration Test</title>
-      <link>http://localhost:55623/projects/owasp-juice-shop/</link>
-      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:55623/projects/owasp-juice-shop/</guid>
-      <description>&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;As a &lt;strong&gt;Junior Penetration Tester&lt;/strong&gt;, I was tasked with conducting a manual and tool-assisted penetration test against the web application. The assessment focused on identifying vulnerabilities related to authentication, authorization, input validation, and sensitive data exposure. The goal was to simulate realistic attacker techniques, validate security weaknesses, assess business risk, and provide actionable remediation recommendations.&lt;/p&gt;</description></item><item><title>OWASP Juice Shop Penetration Test</title><link>http://localhost:1313/projects/owasp-juice-shop/</link><pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/projects/owasp-juice-shop/</guid><description>&lt;h2 id="objective"&gt;Objective&lt;/h2&gt;
 &lt;p&gt;Conduct a manual and tool-assisted penetration test against the OWASP Juice Shop application.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;scope&#34;&gt;Scope&lt;/h2&gt;
+&lt;h2 id="scope"&gt;Scope&lt;/h2&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Category&lt;/th&gt;
-					&lt;th&gt;Details&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Authentication&lt;/td&gt;
-					&lt;td&gt;Login mechanisms, password policies&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Authorization&lt;/td&gt;
-					&lt;td&gt;Role-based access controls&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Input Validation&lt;/td&gt;
-					&lt;td&gt;SQL injection, XSS, command injection&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Session Management&lt;/td&gt;
-					&lt;td&gt;Token handling, session timeout&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Details&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Authentication&lt;/td&gt;
+&lt;td&gt;Login mechanisms, password policies&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Authorization&lt;/td&gt;
+&lt;td&gt;Role-based access controls&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Input Validation&lt;/td&gt;
+&lt;td&gt;SQL injection, XSS, command injection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Session Management&lt;/td&gt;
+&lt;td&gt;Token handling, session timeout&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;tools-used&#34;&gt;Tools Used&lt;/h2&gt;
+&lt;h2 id="tools-used"&gt;Tools Used&lt;/h2&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Tool&lt;/th&gt;
-					&lt;th&gt;Purpose&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Burp Suite&lt;/td&gt;
-					&lt;td&gt;Proxy, scanning, exploitation&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Nmap&lt;/td&gt;
-					&lt;td&gt;Port scanning, service enumeration&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;OWASP ZAP&lt;/td&gt;
-					&lt;td&gt;Automated vulnerability scanning&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Browser DevTools&lt;/td&gt;
-					&lt;td&gt;Client-side testing&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Tool&lt;/th&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Burp Suite&lt;/td&gt;
+&lt;td&gt;Proxy, scanning, exploitation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Nmap&lt;/td&gt;
+&lt;td&gt;Port scanning, service enumeration&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OWASP ZAP&lt;/td&gt;
+&lt;td&gt;Automated vulnerability scanning&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Browser DevTools&lt;/td&gt;
+&lt;td&gt;Client-side testing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;key-findings&#34;&gt;Key Findings&lt;/h2&gt;
-&lt;h3 id=&#34;-sql-injection-critical&#34;&gt;🔴 SQL Injection (Critical)&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; Login endpoint&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+&lt;h2 id="key-findings"&gt;Key Findings&lt;/h2&gt;
+&lt;h3 id="-sql-injection-critical"&gt;🔴 SQL Injection (Critical)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; Login endpoint&lt;/p&gt;</description></item></channel></rss>
