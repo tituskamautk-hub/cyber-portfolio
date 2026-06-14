@@ -158,7 +158,13 @@
 
     <div class="page-container">
         <div class="content">
-            {{ .Content }}
+            
+{{ if .Params.report_url }}
+<a href="{{ .Params.report_url }}" class="btn-readmore" target="_blank" rel="noopener">📄 Read Report →</a>
+{{ end }}
+{{ if .Params.github_url }}
+<a href="{{ .Params.github_url }}" class="btn-readmore" target="_blank" rel="noopener">⌨️ View Code →</a>
+{{ end }}
         </div>
     </div>
 
@@ -166,7 +172,8 @@
         <div>Titus Kamau — Securing digital assets, one vulnerability at a time</div>
         <div style="margin-top: 0.5rem;">© 2026 | Cybersecurity Portfolio</div>
         <div style="margin-top: 0.5rem;">ISC2 CC | TryHackMe Pre-Security | Jr Penetration Tester</div>
-    </footer>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌓 Dark/Light</button>
+</footer>
 
     <script>
         function updateClock() {
@@ -182,5 +189,19 @@
         setInterval(updateClock, 1000);
         updateClock();
     </script>
+    <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('light-mode');
+            localStorage.setItem('theme', document.documentElement.classList.contains('light-mode') ? 'light' : 'dark');
+        });
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light-mode');
+        }
+    }
+    </script>
 </body>
 </html>
+
+

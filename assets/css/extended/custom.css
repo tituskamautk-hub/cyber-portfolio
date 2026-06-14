@@ -1,0 +1,102 @@
+﻿/* Smooth section reveal animations */
+.recent-operations article, .toolkit-inventory .tool-card, .project-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Add a glowing focus state for accessibility on dark theme */
+a:focus, button:focus {
+  outline: 2px solid #2ecc71;
+  outline-offset: 2px;
+}
+
+/* Make project cards clickable with hover lift */
+.project-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(46, 204, 113, 0.15);
+}
+
+/* Mobile nav improvement */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 0.8rem;
+  }
+  .navbar {
+    padding: 1rem;
+  }
+}
+
+/* Read more button styling */
+.btn-readmore {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.4rem 1rem;
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid #2ecc71;
+  border-radius: 4px;
+  color: #2ecc71;
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.btn-readmore:hover {
+  background: #2ecc71;
+  color: #03050b;
+}
+
+/* Light mode styles */
+.light-mode {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.light-mode .navbar,
+.light-mode .service-card,
+.light-mode .project-card,
+.light-mode .skill-card {
+  background: #ffffff;
+  border-color: #e0e0e0;
+}
+
+.light-mode .hero,
+.light-mode .page-container {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.light-mode .section-tag,
+.light-mode .section-title,
+.light-mode .service-card h3 {
+  color: #1a1a1a;
+}
+
+.light-mode .hero-stat-number,
+.light-mode .clock {
+  color: #0066cc;
+}
+
+.theme-toggle {
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.theme-toggle:hover {
+  background: #2ecc71;
+  color: #03050b;
+}
