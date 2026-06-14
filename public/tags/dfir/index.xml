@@ -1,26 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Dfir on My Cybersecurity Portfolio</title>
-    <link>http://localhost:1313/tags/dfir/</link>
-    <description>Recent content in Dfir on My Cybersecurity Portfolio</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 12 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dfir/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>HealthSecure Systems Incident Response Report</title>
-      <link>http://localhost:1313/reports/healthsecure-ir-report/</link>
-      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/reports/healthsecure-ir-report/</guid>
-      <description>&lt;h2 id=&#34;healthsecure-systems-incident-response-report&#34;&gt;HealthSecure Systems Incident Response Report&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Dfir on My Cybersecurity Portfolio</title><link>http://localhost:1313/tags/dfir/</link><description>Recent content in Dfir on My Cybersecurity Portfolio</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 12 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dfir/index.xml" rel="self" type="application/rss+xml"/><item><title>HealthSecure Systems Incident Response Report</title><link>http://localhost:1313/reports/healthsecure-ir-report/</link><pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/healthsecure-ir-report/</guid><description>&lt;h2 id="healthsecure-systems-incident-response-report"&gt;HealthSecure Systems Incident Response Report&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Reference:&lt;/strong&gt; 2025-HSS-IR-002
 &lt;strong&gt;Severity:&lt;/strong&gt; SEV P1 - CRITICAL
 &lt;strong&gt;Classification:&lt;/strong&gt; CONFIDENTIAL - Internal Use Only
 &lt;strong&gt;Prepared By:&lt;/strong&gt; Titus Kamau - Cybersecurity Incident Response Lead&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;executive-summary&#34;&gt;Executive Summary&lt;/h3&gt;
-&lt;p&gt;On April 12, 2025, HealthSecure Systems suffered a confirmed security breach initiated by a phishing email. The attacker gained access to a Finance workstation, executed PowerShell to download malware, and moved laterally toward the HR SQL server containing payroll and PII.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+&lt;h3 id="executive-summary"&gt;Executive Summary&lt;/h3&gt;
+&lt;p&gt;On April 12, 2025, HealthSecure Systems suffered a confirmed security breach initiated by a phishing email. The attacker gained access to a Finance workstation, executed PowerShell to download malware, and moved laterally toward the HR SQL server containing payroll and PII.&lt;/p&gt;</description></item></channel></rss>
