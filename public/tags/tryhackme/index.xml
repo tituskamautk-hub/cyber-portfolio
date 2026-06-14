@@ -1,151 +1,129 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>TryHackMe on Titus Kamau - Cybersecurity Portfolio</title>
-    <link>http://localhost:1313/tags/tryhackme/</link>
-    <description>Recent content in TryHackMe on Titus Kamau - Cybersecurity Portfolio</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 05 Jun 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/tryhackme/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>SOC Incident Report - Phishing Unfolding</title>
-      <link>http://localhost:1313/reports/soc-incident-report/</link>
-      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/reports/soc-incident-report/</guid>
-      <description>&lt;h2 id=&#34;soc-incident-report---tryhackme-soc-simulator&#34;&gt;SOC Incident Report - TryHackMe SOC Simulator&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>TryHackMe on My Cybersecurity Portfolio</title><link>http://localhost:1313/tags/tryhackme/</link><description>Recent content in TryHackMe on My Cybersecurity Portfolio</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 05 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/tryhackme/index.xml" rel="self" type="application/rss+xml"/><item><title>SOC Incident Report - Phishing Unfolding</title><link>http://localhost:1313/reports/soc-incident-report/</link><pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate><guid>http://localhost:1313/reports/soc-incident-report/</guid><description>&lt;h2 id="soc-incident-report---tryhackme-soc-simulator"&gt;SOC Incident Report - TryHackMe SOC Simulator&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Incident Reference:&lt;/strong&gt; INC-2026-060401
 &lt;strong&gt;Classification:&lt;/strong&gt; CONFIDENTIAL — INTERNAL USE ONLY
 &lt;strong&gt;Severity:&lt;/strong&gt; HIGH
 &lt;strong&gt;Analyst:&lt;/strong&gt; Tier 2 SOC Analyst — Titus Kamau&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;executive-summary&#34;&gt;Executive Summary&lt;/h3&gt;
+&lt;h3 id="executive-summary"&gt;Executive Summary&lt;/h3&gt;
 &lt;p&gt;On June 4th, 2026, a high-severity endpoint compromise was identified. An unauthorized threat actor gained an interactive foothold, deploying PowerView.ps1 for reconnaissance and using Robocopy to harvest data from network shares.&lt;/p&gt;
-&lt;h3 id=&#34;key-metrics&#34;&gt;Key Metrics&lt;/h3&gt;
+&lt;h3 id="key-metrics"&gt;Key Metrics&lt;/h3&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Metric&lt;/th&gt;
-					&lt;th&gt;Value&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Mean Time to Detect (MTTD)&lt;/td&gt;
-					&lt;td&gt;38 minutes&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Mean Time to Respond (MTTR)&lt;/td&gt;
-					&lt;td&gt;2 minutes&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;True Positive Rate&lt;/td&gt;
-					&lt;td&gt;80%&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Total Alerts Closed&lt;/td&gt;
-					&lt;td&gt;35&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metric&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Mean Time to Detect (MTTD)&lt;/td&gt;
+&lt;td&gt;38 minutes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mean Time to Respond (MTTR)&lt;/td&gt;
+&lt;td&gt;2 minutes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;True Positive Rate&lt;/td&gt;
+&lt;td&gt;80%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Total Alerts Closed&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;incident-timeline&#34;&gt;Incident Timeline&lt;/h3&gt;
+&lt;h3 id="incident-timeline"&gt;Incident Timeline&lt;/h3&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Time&lt;/th&gt;
-					&lt;th&gt;Event&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;20:49:24&lt;/td&gt;
-					&lt;td&gt;PowerView.ps1 dropped on win-3450 via PowerShell&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;20:52:06&lt;/td&gt;
-					&lt;td&gt;Robocopy.exe launched to harvest files from Z:\ drive&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;21:xx&lt;/td&gt;
-					&lt;td&gt;Containment initiated - host isolated&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Time&lt;/th&gt;
+&lt;th&gt;Event&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;20:49:24&lt;/td&gt;
+&lt;td&gt;PowerView.ps1 dropped on win-3450 via PowerShell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;20:52:06&lt;/td&gt;
+&lt;td&gt;Robocopy.exe launched to harvest files from Z:\ drive&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;21:xx&lt;/td&gt;
+&lt;td&gt;Containment initiated - host isolated&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;indicators-of-compromise-iocs&#34;&gt;Indicators of Compromise (IOCs)&lt;/h3&gt;
+&lt;h3 id="indicators-of-compromise-iocs"&gt;Indicators of Compromise (IOCs)&lt;/h3&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Type&lt;/th&gt;
-					&lt;th&gt;Indicator&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Host&lt;/td&gt;
-					&lt;td&gt;win-3450&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Compromised Account&lt;/td&gt;
-					&lt;td&gt;michael.ascot&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Malicious File&lt;/td&gt;
-					&lt;td&gt;PowerView.ps1&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Abused Utility&lt;/td&gt;
-					&lt;td&gt;Robocopy.exe&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Malicious Domain&lt;/td&gt;
-					&lt;td&gt;hatventuresworldwide.online&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Indicator&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Host&lt;/td&gt;
+&lt;td&gt;win-3450&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compromised Account&lt;/td&gt;
+&lt;td&gt;michael.ascot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Malicious File&lt;/td&gt;
+&lt;td&gt;PowerView.ps1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Abused Utility&lt;/td&gt;
+&lt;td&gt;Robocopy.exe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Malicious Domain&lt;/td&gt;
+&lt;td&gt;hatventuresworldwide.online&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;mitre-attck-mapping&#34;&gt;MITRE ATT&amp;amp;CK Mapping&lt;/h3&gt;
+&lt;h3 id="mitre-attck-mapping"&gt;MITRE ATT&amp;amp;CK Mapping&lt;/h3&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Technique&lt;/th&gt;
-					&lt;th&gt;ID&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Phishing&lt;/td&gt;
-					&lt;td&gt;T1566&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;PowerShell&lt;/td&gt;
-					&lt;td&gt;T1059.001&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Valid Accounts&lt;/td&gt;
-					&lt;td&gt;T1078&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Lateral Movement&lt;/td&gt;
-					&lt;td&gt;T1021&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Technique&lt;/th&gt;
+&lt;th&gt;ID&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Phishing&lt;/td&gt;
+&lt;td&gt;T1566&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PowerShell&lt;/td&gt;
+&lt;td&gt;T1059.001&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Valid Accounts&lt;/td&gt;
+&lt;td&gt;T1078&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Lateral Movement&lt;/td&gt;
+&lt;td&gt;T1021&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h3&gt;
+&lt;h3 id="recommendations"&gt;Recommendations&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Application Control:&lt;/strong&gt; Prevent script execution from user-writable directories&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;EDR Throttling:&lt;/strong&gt; Auto-quarantine mass file-copy behaviors&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Least Privilege Audit:&lt;/strong&gt; Restrict broad access to network shares&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/reports/SOC-Incident-Report.pdf&#34;&gt;View Full Report&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>My First CTF: TryHackMe Pre-Security</title>
-      <link>http://localhost:1313/posts/my-first-ctf/</link>
-      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/my-first-ctf/</guid>
-      <description>&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://localhost:1313/reports/SOC-Incident-Report.pdf"&gt;View Full Report&lt;/a&gt;&lt;/p&gt;</description></item><item><title>My First CTF: TryHackMe Pre-Security</title><link>http://localhost:1313/posts/my-first-ctf/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/my-first-ctf/</guid><description>&lt;h2 id="getting-started"&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;I recently completed TryHackMe&amp;rsquo;s &lt;strong&gt;Pre-Security&lt;/strong&gt; learning path. This was my first real step into cybersecurity!&lt;/p&gt;
-&lt;h2 id=&#34;what-i-learned&#34;&gt;What I Learned&lt;/h2&gt;
-&lt;h3 id=&#34;-network-fundamentals&#34;&gt;🌐 Network Fundamentals&lt;/h3&gt;
+&lt;h2 id="what-i-learned"&gt;What I Learned&lt;/h2&gt;
+&lt;h3 id="-network-fundamentals"&gt;🌐 Network Fundamentals&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;The OSI model (7 layers of networking)&lt;/li&gt;
 &lt;li&gt;How TCP/IP works&lt;/li&gt;
@@ -158,25 +136,18 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;-how-the-web-works&#34;&gt;🖥️ How the Web Works&lt;/h3&gt;
+&lt;h3 id="-how-the-web-works"&gt;🖥️ How the Web Works&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;HTTP requests and responses&lt;/li&gt;
 &lt;li&gt;Status codes (200, 301, 404, 500)&lt;/li&gt;
 &lt;li&gt;Cookies and sessions&lt;/li&gt;
 &lt;li&gt;DNS resolution process&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;-linux-basics&#34;&gt;🐧 Linux Basics&lt;/h3&gt;
-&lt;p&gt;Essential commands I mastered:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>TryHackMe Write-ups Collection</title>
-      <link>http://localhost:1313/projects/tryhackme-writeups/</link>
-      <pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/tryhackme-writeups/</guid>
-      <description>&lt;h2 id=&#34;-tryhackme-write-ups-collection&#34;&gt;🎯 TryHackMe Write-ups Collection&lt;/h2&gt;
+&lt;h3 id="-linux-basics"&gt;🐧 Linux Basics&lt;/h3&gt;
+&lt;p&gt;Essential commands I mastered:&lt;/p&gt;</description></item><item><title>TryHackMe Write-ups Collection</title><link>http://localhost:1313/projects/tryhackme-writeups/</link><pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/projects/tryhackme-writeups/</guid><description>&lt;h2 id="-tryhackme-write-ups-collection"&gt;🎯 TryHackMe Write-ups Collection&lt;/h2&gt;
 &lt;p&gt;Complete walkthroughs of TryHackMe rooms I&amp;rsquo;ve solved.&lt;/p&gt;
-&lt;h2 id=&#34;completed-rooms&#34;&gt;Completed Rooms&lt;/h2&gt;
-&lt;h3 id=&#34;1-pre-security-&#34;&gt;1. Pre-Security ✅&lt;/h3&gt;
+&lt;h2 id="completed-rooms"&gt;Completed Rooms&lt;/h2&gt;
+&lt;h3 id="1-pre-security-"&gt;1. Pre-Security ✅&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Learning Path&lt;/strong&gt; - Beginner&lt;/p&gt;
 &lt;p&gt;Key topics covered:&lt;/p&gt;
 &lt;ul&gt;
@@ -185,9 +156,9 @@
 &lt;li&gt;Linux basics (file system, commands, permissions)&lt;/li&gt;
 &lt;li&gt;Windows security basics&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/posts/my-first-ctf/&#34;&gt;Read full write-up&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://localhost:1313/posts/my-first-ctf/"&gt;Read full write-up&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;2-vulnversity-&#34;&gt;2. Vulnversity 🔄&lt;/h3&gt;
+&lt;h3 id="2-vulnversity-"&gt;2. Vulnversity 🔄&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;: Easy | &lt;strong&gt;Category&lt;/strong&gt;: Web Exploitation&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Skills learned&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
@@ -197,7 +168,4 @@
 &lt;li&gt;Reverse shell establishment&lt;/li&gt;
 &lt;li&gt;Privilege escalation via SUID binaries&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Key commands&lt;/strong&gt;:&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+&lt;p&gt;&lt;strong&gt;Key commands&lt;/strong&gt;:&lt;/p&gt;</description></item></channel></rss>
