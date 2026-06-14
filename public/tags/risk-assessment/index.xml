@@ -109,4 +109,6 @@
 &lt;/table&gt;
 &lt;hr&gt;
 &lt;h3 id="recommended-network-redesign"&gt;Recommended Network Redesign&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;6 VLANs:&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;strong&gt;6 VLANs:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Acme AeroTech Network Security Assessment</title><link>http://localhost:1313/cybersecurity/acme-aerotech/</link><pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/cybersecurity/acme-aerotech/</guid><description>&lt;h2 id="scenario"&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;Acme AeroTech is a mid-sized aerospace manufacturing company with approximately 75 employees operating across engineering, administration, production, and management departments. As the organization expanded, concerns emerged regarding network security, unauthorized access risks, and insufficient segmentation between critical systems.&lt;/p&gt;
+&lt;p&gt;I was engaged as a &lt;strong&gt;Security Consultant&lt;/strong&gt; to perform a comprehensive network security assessment and provide recommendations to strengthen the organization&amp;rsquo;s security posture. The engagement involved reviewing the existing network architecture, identifying vulnerabilities and operational risks, evaluating access control mechanisms, and proposing a secure redesign aligned with industry best practices.&lt;/p&gt;</description></item></channel></rss>

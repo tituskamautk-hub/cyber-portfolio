@@ -18,17 +18,6 @@
             line-height: 1.6;
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0f1a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2ecc71;
-            border-radius: 3px;
-        }
-
         .navbar {
             max-width: 1400px;
             margin: 0 auto;
@@ -38,38 +27,14 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            position: sticky;
-            top: 0;
             background: rgba(3, 5, 11, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
             border-bottom: 1px solid #2ecc7140;
         }
 
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2ecc71;
-            font-family: monospace;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #7a8b9e;
-            transition: all 0.2s;
-            font-size: 0.85rem;
-            font-family: monospace;
-        }
-
-        .nav-links a:hover {
-            color: #2ecc71;
-        }
+        .logo { font-size: 1.2rem; font-weight: 600; color: #2ecc71; }
+        .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #7a8b9e; transition: all 0.2s; font-size: 0.85rem; }
+        .nav-links a:hover { color: #2ecc71; }
 
         .clock {
             font-family: monospace;
@@ -127,18 +92,17 @@
             border-top: 1px solid #1a2533;
             color: #5a6b7e;
             font-size: 0.65rem;
-            font-family: monospace;
         }
 
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-            .page-container {
-                margin: 1rem;
-                padding: 1rem;
-            }
+        .theme-toggle {
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -158,50 +122,67 @@
 
     <div class="page-container">
         <div class="content">
-            
-{{ if .Params.report_url }}
-<a href="{{ .Params.report_url }}" class="btn-readmore" target="_blank" rel="noopener">📄 Read Report →</a>
-{{ end }}
-{{ if .Params.github_url }}
-<a href="{{ .Params.github_url }}" class="btn-readmore" target="_blank" rel="noopener">⌨️ View Code →</a>
-{{ end }}
+            {{ .Content }}
         </div>
     </div>
 
     <footer class="footer">
-        <div>Titus Kamau — Securing digital assets, one vulnerability at a time</div>
+        <div>Titus Kamau — "The quieter you become, the more you are able to hear"
         <div style="margin-top: 0.5rem;">© 2026 | Cybersecurity Portfolio</div>
         <div style="margin-top: 0.5rem;">ISC2 CC | TryHackMe Pre-Security | Jr Penetration Tester</div>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌓 Dark/Light</button>
-</footer>
+        <button id="themeToggle" class="theme-toggle">🌓 Dark/Light</button>
+    </footer>
 
     <script>
+        // Clock function
         function updateClock() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const clockElement = document.getElementById('digitalClock');
-            if (clockElement) {
-                clockElement.innerHTML = hours + ':' + minutes + ':' + seconds;
-            }
+            if (clockElement) clockElement.innerHTML = hours + ':' + minutes + ':' + seconds;
         }
         setInterval(updateClock, 1000);
         updateClock();
-    </script>
-    <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('light-mode');
-            localStorage.setItem('theme', document.documentElement.classList.contains('light-mode') ? 'light' : 'dark');
-        });
-        if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.classList.add('light-mode');
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('light-mode');
+                localStorage.setItem('theme', document.documentElement.classList.contains('light-mode') ? 'light' : 'dark');
+            });
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.add('light-mode');
+            }
         }
-    }
     </script>
+
+    <style>
+        .light-mode {
+            background: #f0f0f0;
+            color: #1a1a1a;
+        }
+        .light-mode .navbar,
+        .light-mode .page-container {
+            background: #ffffff;
+            border-color: #e0e0e0;
+        }
+        .light-mode .logo,
+        .light-mode .nav-links a,
+        .light-mode .content h1,
+        .light-mode .content h2,
+        .light-mode .clock {
+            color: #0066cc;
+        }
+        .light-mode .content {
+            color: #333;
+        }
+        .light-mode .footer {
+            border-top-color: #ddd;
+        }
+    </style>
 </body>
 </html>
-
 

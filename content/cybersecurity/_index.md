@@ -1,19 +1,16 @@
-﻿
-report_url: "/reports/_index.md"
-github_url: "https://github.com/tituskamautk-hub/_index"
-
-title: "projects"
-
-report_url: "/reports/_index.md"
-github_url: "https://github.com/tituskamautk-hub/_index"
-
+﻿---
+title: "Cybersecurity Projects"
+---
 
 ## Cybersecurity Projects
 
-- OWASP Juice Shop - Web App Penetration Test
-- HealthSecure - Incident Response Investigation
-- Acme AeroTech - Network Security Assessment
-- Python Port Scanner - Security Tool
-- Log Monitor - Security Automation
-- Secure Password Generator - Cryptography Tool
+- [OWASP Juice Shop](/cybersecurity/owasp-juice-shop/) - Web App Penetration Test
+- [HealthSecure](/cybersecurity/healthsecure-ir/) - Incident Response Investigation
+- [Acme AeroTech](/cybersecurity/acme-aerotech/) - Network Security Assessment
+- [Python Port Scanner](/cybersecurity/port-scanner/) - Security Tool
+- [Log Monitor](/cybersecurity/log-monitor/) - Security Automation
+- [Secure Password Generator](/cybersecurity/password-generator/) - Cryptography Tool
 
+---
+
+*Each project includes methodology, findings, and remediation recommendations.*
