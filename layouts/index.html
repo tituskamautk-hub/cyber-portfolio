@@ -12,26 +12,32 @@
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', monospace;
-            background: #0a0c10;
-            color: #e0e0e0;
-            line-height: 1.5;
+            font-family: 'Fira Code', 'Courier New', 'Consolas', monospace;
+            background: #03050b;
+            color: #c0d9e8;
+            line-height: 1.6;
         }
 
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #1a1d24;
+            background: #0a0f1a;
         }
         ::-webkit-scrollbar-thumb {
-            background: #00d4ff;
-            border-radius: 4px;
+            background: #2ecc71;
+            border-radius: 3px;
         }
 
         ::selection {
-            background: #00d4ff;
-            color: #0a0c10;
+            background: #2ecc71;
+            color: #03050b;
+        }
+
+        @keyframes glitch {
+            0%, 100% { text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; }
+            33% { text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff; }
+            66% { text-shadow: 0 0 5px #ff00ff, 0 0 5px #00ffff; }
         }
 
         .navbar {
@@ -45,22 +51,18 @@
             gap: 1rem;
             position: sticky;
             top: 0;
-            background: rgba(10, 12, 16, 0.95);
+            background: rgba(3, 5, 11, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid #00d4ff20;
+            border-bottom: 1px solid #2ecc7140;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 600;
             letter-spacing: 1px;
-            color: #00d4ff;
+            color: #2ecc71;
             font-family: monospace;
-        }
-
-        .logo span {
-            color: #ffffff;
         }
 
         .nav-links {
@@ -71,56 +73,59 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #a0a0a0;
+            color: #7a8b9e;
             font-weight: 500;
             transition: all 0.2s;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+
+        .nav-links a::before {
+            content: "#";
+            margin-right: 4px;
+            color: #2ecc71;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
         }
 
         .nav-links a:hover {
-            color: #00d4ff;
+            color: #2ecc71;
         }
 
         .hero {
             max-width: 1200px;
             margin: 2rem auto 0;
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, #0f1117 0%, #1a1d2e 100%);
-            border-radius: 1rem;
+            background: linear-gradient(135deg, #070b14 0%, #0a1020 100%);
+            border-radius: 0;
             position: relative;
             overflow: hidden;
-            border: 1px solid #00d4ff20;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.05);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #00d4ff, #00d4ff, transparent);
+            border-left: 3px solid #2ecc71;
+            border-right: 1px solid #2ecc7120;
+            box-shadow: 0 0 40px rgba(46, 204, 113, 0.05);
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(0, 212, 255, 0.1);
-            color: #00d4ff;
+            background: rgba(46, 204, 113, 0.08);
+            color: #2ecc71;
             padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            border: 1px solid #00d4ff30;
+            border: 1px solid #2ecc7130;
             font-family: monospace;
+            letter-spacing: 1px;
         }
 
         .hero-badge::before {
-            content: "●";
+            content: "▶";
             font-size: 0.6rem;
             animation: pulse 1.5s infinite;
         }
@@ -131,21 +136,31 @@
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            font-family: monospace;
+        }
+
+        .hero-content h1 .highlight {
+            color: #2ecc71;
+            border-right: 2px solid #2ecc71;
+            padding-right: 8px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-right-color: #2ecc71; }
+            50% { border-right-color: transparent; }
         }
 
         .hero-content p {
-            font-size: 1.1rem;
-            color: #a0a0a0;
+            font-size: 1rem;
+            color: #8a9bb0;
             margin-bottom: 1.5rem;
             max-width: 600px;
+            font-family: monospace;
         }
 
         .hero-stats {
@@ -156,23 +171,23 @@
         }
 
         .hero-stat {
-            background: rgba(0, 212, 255, 0.05);
-            padding: 0.8rem 1.5rem;
-            border-radius: 0.5rem;
-            border-left: 2px solid #00d4ff;
+            background: rgba(46, 204, 113, 0.03);
+            padding: 0.6rem 1.2rem;
+            border-left: 2px solid #2ecc71;
         }
 
         .hero-stat-number {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            color: #00d4ff;
+            color: #2ecc71;
             font-family: monospace;
         }
 
         .hero-stat-label {
-            font-size: 0.75rem;
-            color: #888;
-            letter-spacing: 0.5px;
+            font-size: 0.65rem;
+            color: #6a7b8e;
+            letter-spacing: 1px;
+            font-family: monospace;
         }
 
         .hero-buttons {
@@ -184,38 +199,37 @@
 
         .btn-primary {
             display: inline-block;
-            background: #00d4ff;
-            color: #0a0c10;
-            padding: 0.8rem 1.8rem;
-            border-radius: 0.5rem;
+            background: #2ecc71;
+            color: #03050b;
+            padding: 0.7rem 1.5rem;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s;
             font-family: monospace;
-            letter-spacing: 0.5px;
+            font-size: 0.85rem;
         }
 
         .btn-primary:hover {
-            background: #00b8e6;
+            background: #27ae60;
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 5px 20px rgba(46, 204, 113, 0.2);
         }
 
         .btn-secondary {
             display: inline-block;
             background: transparent;
-            color: #00d4ff;
-            padding: 0.8rem 1.8rem;
-            border-radius: 0.5rem;
+            color: #2ecc71;
+            padding: 0.7rem 1.5rem;
             text-decoration: none;
             font-weight: 700;
-            border: 1px solid #00d4ff;
+            border: 1px solid #2ecc71;
             transition: all 0.3s;
             font-family: monospace;
+            font-size: 0.85rem;
         }
 
         .btn-secondary:hover {
-            background: #00d4ff20;
+            background: #2ecc7120;
             transform: translateY(-2px);
         }
 
@@ -232,110 +246,127 @@
 
         .section-tag {
             display: inline-block;
-            color: #00d4ff;
-            font-size: 0.75rem;
+            color: #2ecc71;
+            font-size: 0.7rem;
             font-weight: 600;
             margin-bottom: 1rem;
             font-family: monospace;
             letter-spacing: 2px;
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(46, 204, 113, 0.08);
             padding: 0.2rem 0.8rem;
-            border-radius: 20px;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 1rem;
+            font-family: monospace;
+        }
+
+        .section-subtitle {
+            color: #7a8b9e;
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: monospace;
+            font-size: 0.85rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 1.5rem;
         }
 
         .service-card {
-            background: #0f1117;
-            border-radius: 0.75rem;
-            padding: 1.8rem;
+            background: #070b14;
+            padding: 1.5rem;
             transition: all 0.3s;
-            border: 1px solid #1a1d2e;
+            border: 1px solid #1a2533;
             position: relative;
-            overflow: hidden;
         }
 
-        .service-card::after {
-            content: '';
+        .service-card::before {
+            content: "";
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #00d4ff, transparent);
-            transform: scaleX(0);
-            transition: transform 0.3s;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #2ecc7105, transparent);
+            transition: width 0.3s;
         }
 
-        .service-card:hover::after {
-            transform: scaleX(1);
+        .service-card:hover::before {
+            width: 100%;
         }
 
         .service-card:hover {
-            border-color: #00d4ff40;
-            transform: translateY(-5px);
+            border-left: 2px solid #2ecc71;
+            transform: translateX(5px);
         }
 
         .service-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
         }
 
         .service-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 0.8rem;
-            color: #00d4ff;
+            color: #2ecc71;
+            font-family: monospace;
+        }
+
+        .service-card h3::before {
+            content: ">";
+            margin-right: 6px;
+            color: #2ecc71;
+        }
+
+        .service-card p {
+            color: #8a9bb0;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            font-family: monospace;
         }
 
         .skills-section {
-            background: #080a0e;
-        }
-        
-        .skills-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            background: #05080f;
+            border-top: 1px solid #2ecc7110;
+            border-bottom: 1px solid #2ecc7110;
         }
         
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .skill-card {
-            background: #0f1117;
-            border-radius: 0.75rem;
+            background: #070b14;
             padding: 1.5rem;
             transition: all 0.3s;
-            border: 1px solid #1a1d2e;
+            border: 1px solid #1a2533;
         }
         
         .skill-card:hover {
-            border-color: #00d4ff40;
+            border-color: #2ecc7140;
             transform: translateY(-3px);
         }
         
         .skill-icon {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
         
         .skill-card h3 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #00d4ff;
+            color: #2ecc71;
             font-family: monospace;
         }
         
@@ -346,38 +377,42 @@
         }
         
         .skill-tag {
-            background: rgba(0, 212, 255, 0.1);
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
+            background: rgba(46, 204, 113, 0.08);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.65rem;
             font-weight: 500;
-            color: #00d4ff;
+            color: #2ecc71;
             transition: all 0.2s;
             font-family: monospace;
         }
         
+        .skill-tag::before {
+            content: "#";
+            margin-right: 3px;
+            opacity: 0.5;
+        }
+        
         .skill-tag:hover {
-            background: #00d4ff;
-            color: #0a0c10;
+            background: #2ecc71;
+            color: #03050b;
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
         .project-card {
-            background: #0f1117;
-            border-radius: 0.75rem;
+            background: #070b14;
             overflow: hidden;
             transition: all 0.3s;
-            border: 1px solid #1a1d2e;
+            border: 1px solid #1a2533;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            border-color: #00d4ff40;
+            border-color: #2ecc7140;
         }
 
         .project-content {
@@ -385,15 +420,22 @@
         }
 
         .project-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
             color: #ffffff;
+            font-family: monospace;
+        }
+
+        .project-card h3::before {
+            content: "📁 ";
+            color: #2ecc71;
         }
 
         .project-card p {
-            color: #888;
+            color: #8a9bb0;
             margin-bottom: 1rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-family: monospace;
         }
 
         .project-tags {
@@ -403,60 +445,73 @@
         }
 
         .project-tag {
-            background: rgba(0, 212, 255, 0.1);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            color: #00d4ff;
+            background: rgba(46, 204, 113, 0.08);
+            padding: 0.15rem 0.5rem;
+            font-size: 0.6rem;
+            color: #2ecc71;
             font-family: monospace;
         }
 
         .contact-section {
-            background: linear-gradient(135deg, #080a0e 0%, #0f1117 100%);
-            border-top: 1px solid #00d4ff20;
+            background: linear-gradient(180deg, #05080f 0%, #03050b 100%);
+            border-top: 1px solid #2ecc7120;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1rem;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .contact-card {
-            background: #0f1117;
-            border-radius: 0.5rem;
+            background: #070b14;
             padding: 1.2rem;
             text-align: center;
             text-decoration: none;
             color: inherit;
             transition: all 0.3s;
-            border: 1px solid #1a1d2e;
+            border: 1px solid #1a2533;
         }
 
         .contact-card:hover {
-            border-color: #00d4ff;
+            border-color: #2ecc71;
             transform: translateY(-3px);
         }
 
         .contact-icon {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
 
         .contact-card h3 {
-            font-size: 0.9rem;
-            color: #00d4ff;
+            font-size: 0.85rem;
+            color: #2ecc71;
             margin-bottom: 0.2rem;
+            font-family: monospace;
+        }
+
+        .contact-card p {
+            font-size: 0.65rem;
+            color: #7a8b9e;
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .terminal-line {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #2ecc71;
+            margin-top: 0.5rem;
         }
 
         .footer {
             text-align: center;
             padding: 2rem;
-            border-top: 1px solid #1a1d2e;
-            color: #555;
-            font-size: 0.7rem;
+            border-top: 1px solid #1a2533;
+            color: #5a6b7e;
+            font-size: 0.65rem;
             font-family: monospace;
         }
 
@@ -465,7 +520,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
         }
         
@@ -474,7 +529,7 @@
                 padding: 2rem 1.5rem;
             }
             .hero-content h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             .navbar {
                 flex-direction: column;
@@ -484,32 +539,32 @@
                 grid-template-columns: 1fr;
             }
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">{<span>titus</span>}</div>
+        <div class="logo">Titus Kamau</div>
         <div class="nav-links">
-            <a href="/">$ home</a>
-            <a href="/projects/">$ projects</a>
-            <a href="/reports/">$ reports</a>
-            <a href="/posts/">$ blog</a>
-            <a href="/about/">$ about</a>
+            <a href="/">home</a>
+            <a href="/projects/">projects</a>
+            <a href="/reports/">reports</a>
+            <a href="/posts/">blog</a>
+            <a href="/about/">about</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-badge">SECURITY PROFESSIONAL</span>
-            <h1>Titus Kamau<br><span style="color:#00d4ff;">Cybersecurity Analyst</span></h1>
-            <p>Threat hunting | Incident response | Security assessments</p>
+            <span class="hero-badge">SECURITY ACCESS GRANTED</span>
+            <h1>Titus Kamau<br><span class="highlight">Cybersecurity Professional</span></h1>
+            <p>Threat Hunting | Incident Response | Penetration Testing | Security Automation</p>
             <div class="hero-stats">
                 <div class="hero-stat">
                     <div class="hero-stat-number">5+</div>
-                    <div class="hero-stat-label">PROJECTS</div>
+                    <div class="hero-stat-label">SECURITY PROJECTS</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-number">3</div>
@@ -517,111 +572,142 @@
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-number">100%</div>
-                    <div class="hero-stat-label">COMMITTED</div>
+                    <div class="hero-stat-label">COMMITMENT</div>
                 </div>
             </div>
             <div class="hero-buttons">
-                <a href="/projects/" class="btn-primary">$ explore_work</a>
-                <a href="/about/" class="btn-secondary">$ connect</a>
+                <a href="/projects/" class="btn-primary">View Projects</a>
+                <a href="/about/" class="btn-secondary">Connect</a>
             </div>
         </div>
     </section>
 
     <section class="section">
         <div class="section-header">
-            <span class="section-tag">// SERVICES</span>
-            <h2 class="section-title">Offensive & Defensive Security</h2>
-            <p class="section-subtitle">End-to-end security solutions for modern threats</p>
+            <span class="section-tag">services.list</span>
+            <h2 class="section-title">Operational Capabilities</h2>
+            <p class="section-subtitle">Active security services currently deployed</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">🛡️</div>
-                <h3>Security Operations</h3>
-                <p>SOC monitoring, threat detection, incident response, and security event analysis using modern SIEM tools.</p>
+                <h3>Defensive Cyber Ops</h3>
+                <p>SOC monitoring, threat detection, incident response — maintaining security posture across enterprise environments.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🎯</div>
-                <h3>Threat Hunting</h3>
-                <p>Proactive search for hidden threats using MITRE ATT&CK framework and advanced analytics.</p>
+                <h3>Adversary Simulation</h3>
+                <p>Red team exercises and breach simulation using MITRE ATT&CK tactics and techniques.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🔍</div>
-                <h3>Vulnerability Assessment</h3>
-                <p>Comprehensive security assessments across networks and infrastructure using industry-standard tools.</p>
+                <h3>Attack Surface Mapping</h3>
+                <p>Comprehensive external and internal reconnaissance to identify exploitable entry points.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🔐</div>
-                <h3>Web App Pentesting</h3>
-                <p>Web application penetration testing including OWASP Top 10 vulnerabilities.</p>
+                <div class="service-icon">⚡</div>
+                <h3>Exploit Development</h3>
+                <p>Custom exploit writing and vulnerability chaining for authorized penetration tests.</p>
             </div>
         </div>
     </section>
 
     <section class="skills-section">
-        <div class="skills-container" style="padding: 5rem 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 5rem 2rem;">
             <div class="section-header">
-                <span class="section-tag">// TOOLKIT</span>
-                <h2 class="section-title">Technical Arsenal</h2>
-                <p class="section-subtitle">Tools, frameworks, and technologies I master</p>
+                <span class="section-tag">arsenal.cfg</span>
+                <h2 class="section-title">Toolkit Inventory</h2>
+                <p class="section-subtitle">Weapons in the cyber arsenal</p>
             </div>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <div class="skill-icon">💻</div>
-                    <h3>LANGUAGES</h3>
+                    <div class="skill-icon">🐍</div>
+                    <h3>PROGRAMMING</h3>
                     <div class="skill-items">
-                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Python3</span>
                         <span class="skill-tag">Bash</span>
                         <span class="skill-tag">PowerShell</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">🛠️</div>
-                    <h3>SECURITY TOOLS</h3>
+                    <div class="skill-icon">🔧</div>
+                    <h3>PENETRATION TESTING</h3>
                     <div class="skill-items">
                         <span class="skill-tag">Nmap</span>
-                        <span class="skill-tag">Wireshark</span>
-                        <span class="skill-tag">Metasploit</span>
                         <span class="skill-tag">Burp Suite</span>
+                        <span class="skill-tag">Metasploit</span>
+                        <span class="skill-tag">SQLmap</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">🌐</div>
-                    <h3>NETWORKING</h3>
+                    <div class="skill-icon">📡</div>
+                    <h3>NETWORK ANALYSIS</h3>
                     <div class="skill-items">
-                        <span class="skill-tag">TCP/IP</span>
-                        <span class="skill-tag">VLANs</span>
-                        <span class="skill-tag">Firewalls</span>
+                        <span class="skill-tag">Wireshark</span>
+                        <span class="skill-tag">tcpdump</span>
+                        <span class="skill-tag">Zeek</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">📋</div>
+                    <div class="skill-icon">🧠</div>
                     <h3>FRAMEWORKS</h3>
                     <div class="skill-items">
                         <span class="skill-tag">MITRE ATT&CK</span>
-                        <span class="skill-tag">OWASP</span>
-                        <span class="skill-tag">NIST</span>
+                        <span class="skill-tag">OWASP Top10</span>
+                        <span class="skill-tag">Cyber Kill Chain</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="section">
+    <section class="section">
         <div class="section-header">
-            <span class="section-tag">// PORTFOLIO</span>
-            <h2 class="section-title">Security Labs & Projects</h2>
-            <p class="section-subtitle">Real-world simulations and hands-on security work</p>
+            <span class="section-tag">completed_ops.log</span>
+            <h2 class="section-title">Recent Operations</h2>
+            <p class="section-subtitle">Successfully executed security engagements</p>
         </div>
         <div class="projects-grid">
-            {{ range where .Site.RegularPages "Section" "projects" }}
+            {{ range where .Site.RegularPages "Section" "projects" | first 3 }}
             <div class="project-card">
                 <div class="project-content">
                     <h3>{{ .Title }}</h3>
-                    <p>{{ .Summary | truncate 120 }}</p>
+                    <p>{{ .Summary | truncate 100 }}</p>
                     <div class="project-tags">
-                        {{ range .Params.tags }}
+                        {{ range .Params.tags | first 3 }}
                         <span class="project-tag">{{ . }}</span>
                         {{ end }}
+                    </div>
+                </div>
+            </div>
+            {{ else }}
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Python Port Scanner</h3>
+                    <p>Multi-threaded network reconnaissance tool for service discovery.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Networking</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Log Monitoring Script</h3>
+                    <p>Real-time security event detection and alerting system.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Bash</span>
+                        <span class="project-tag">Security</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Secure Password Generator</h3>
+                    <p>Cryptographically secure password generation tool.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Cryptography</span>
                     </div>
                 </div>
             </div>
@@ -631,32 +717,41 @@
 
     <section class="contact-section" style="padding: 5rem 2rem;">
         <div class="section-header">
-            <span class="section-tag">// CONNECT</span>
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Ready to secure your organization? Let's talk.</p>
+            <span class="section-tag">contact.channel</span>
+            <h2 class="section-title">Establish Secure Channel</h2>
+            <p class="section-subtitle">Connect with me across professional platforms</p>
         </div>
         <div class="contact-grid">
-            <a href="https://github.com/yourusername" target="_blank" class="contact-card">
-                <div class="contact-icon">💻</div>
+            <a href="https://github.com/tituskamautk-hub" target="_blank" class="contact-card">
+                <div class="contact-icon">⌨️</div>
                 <h3>GitHub</h3>
-                <p>github.com/yourusername</p>
+                <p>github.com/tituskamautk-hub</p>
+                <div class="terminal-line">Review my code</div>
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-card">
+            <a href="https://www.linkedin.com/in/titus-kamau" target="_blank" class="contact-card">
                 <div class="contact-icon">🔗</div>
                 <h3>LinkedIn</h3>
-                <p>linkedin.com/in/yourusername</p>
+                <p>linkedin.com/in/titus-kamau</p>
+                <div class="terminal-line">Professional network</div>
             </a>
-            <a href="https://tryhackme.com/p/yourusername" target="_blank" class="contact-card">
+            <a href="https://tryhackme.com/p/titus.kamau" target="_blank" class="contact-card">
                 <div class="contact-icon">🎮</div>
                 <h3>TryHackMe</h3>
-                <p>View my progress</p>
+                <p>tryhackme.com/p/titus.kamau</p>
+                <div class="terminal-line">CTF progression</div>
+            </a>
+            <a href="mailto:tituskamau.tk@gmail.com" class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p>tituskamau.tk@gmail.com</p>
+                <div class="terminal-line">Secure communication</div>
             </a>
         </div>
     </section>
 
     <footer class="footer">
-        <p>$ echo "Titus Kamau — Securing digital assets, one vulnerability at a time"</p>
-        <p style="margin-top: 0.5rem;">© 2026 — SOC READY</p>
+        <div class="terminal-line">Titus Kamau — Securing digital assets, one vulnerability at a time</div>
+        <div style="margin-top: 1rem;">© 2026 | Cybersecurity Portfolio</div>
     </footer>
 </body>
 </html>
